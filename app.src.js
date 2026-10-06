@@ -13,6 +13,7 @@ let editElementIdCounter = 0;
 let currentEditTool = 'select';
 let currentEditShape = 'rectangle';
 let editZoom = 1.0;
+let editFillColor = 'none';
 let editUndoStack = [];
 let editRedoStack = [];
 let autoOpenSigModal = false;
@@ -1937,6 +1938,7 @@ async function loadEditWorkspace() {
     editUndoStack = [];
     editRedoStack = [];
     editZoom = 1.0;
+    editFillColor = 'none';
     container.style.transform = 'scale(1)';
     const zoomDisplay = document.getElementById('edit-zoom-display');
     if (zoomDisplay) zoomDisplay.textContent = '100%';
@@ -2067,6 +2069,7 @@ window.addTextToCurrentPage = function() {
     textEl.style.top = '40px';
     textEl.style.fontSize = (document.getElementById('edit-font-size')?.value || 24) + 'px';
     textEl.style.color = document.getElementById('edit-text-color')?.value || '#000000';
+    textEl.style.background = editFillColor === 'none' ? 'transparent' : editFillColor;
     textEl.style.fontWeight = document.getElementById('edit-font-weight')?.value || '400';
     textEl.style.fontFamily = document.getElementById('edit-font-family')?.value || 'Arial, sans-serif';
     textEl.style.cursor = 'move';
@@ -2188,6 +2191,7 @@ function setupResizableElement(el, pageObj) {
     el.appendChild(handle);
 
     let isResizing = false, startX, startY, startWidth, startHeight;
+    const lockAspect = el.dataset.lockAspect === 'true';
 
     handle.addEventListener('mousedown', function(e) {
         isResizing = true;
@@ -2201,10 +2205,18 @@ function setupResizableElement(el, pageObj) {
 
     document.addEventListener('mousemove', function(e) {
         if (!isResizing || el !== selectedEditElement?.el) return;
-        const width = Math.max(30, startWidth + (e.clientX - startX) / editZoom);
-        const height = Math.max(30, startHeight + (e.clientY - startY) / editZoom);
+        const dx = (e.clientX - startX) / editZoom;
+        const dy = (e.clientY - startY) / editZoom;
+        let width = Math.max(30, startWidth + dx);
+        let height = Math.max(30, startHeight + dy);
+        if (lockAspect) {
+            const scaleDelta = (dx * startWidth + dy * startHeight) / (startWidth ** 2 + startHeight ** 2);
+            const scale = Math.max(30 / startWidth, 30 / startHeight, 1 + scaleDelta);
+            width = startWidth * scale;
+            height = startHeight * scale;
+        }
         el.style.width = width + 'px';
-        if (el.dataset.type !== 'line') el.style.height = height + 'px';
+        el.style.height = height + 'px';
     });
 
     document.addEventListener('mouseup', function() {
@@ -2215,6 +2227,9 @@ function setupResizableElement(el, pageObj) {
 // ---- EDIT TOOL CONTROLS ----
 window.setEditTool = function(tool) {
     currentEditTool = tool;
+    document.querySelectorAll('.edit-svg-overlay').forEach(overlay => {
+        overlay.style.pointerEvents = tool === 'select' ? 'all' : 'none';
+    });
     if (tool !== 'pen') document.getElementById('edit-pen-dropdown')?.classList.remove('open');
     if (tool !== 'shape') document.getElementById('edit-shapes-dropdown')?.classList.remove('open');
     ['select','pen','eraser','text'].forEach(t => {
@@ -2272,17 +2287,7 @@ window.toggleEditPenMenu = function() {
 
 window.setEditShapeType = function(type) {
     currentEditShape = type;
-    currentEditTool = 'shape';
-    ['select','pen','eraser','text'].forEach(t => {
-        const btn = document.getElementById('edit-btn-' + t);
-        if (btn) btn.classList.remove('active');
-    });
-    const shapesBtn = document.getElementById('edit-btn-shapes');
-    if (shapesBtn) shapesBtn.classList.add('active');
-    const dd = document.getElementById('edit-shapes-dropdown');
-    if (dd) dd.classList.remove('open');
-    const ws = document.getElementById('edit-workspace');
-    if (ws) ws.style.cursor = 'crosshair';
+    setEditTool('shape');
 };
 
 window.editUndo = function() {
@@ -2347,6 +2352,14 @@ function setSvgTranslate(el, tx, ty) {
     const other = (el.getAttribute('transform') || '').replace(/translate\([^)]*\)/, '').trim();
     el.setAttribute('transform', `translate(${tx.toFixed(2)},${ty.toFixed(2)})${other ? ' ' + other : ''}`);
 }
+function updateSvgOverlayBounds(overlay, svgEl, wrapperEl) {
+    const pad = 6;
+    const rect = getSvgClientRect(svgEl, wrapperEl);
+    overlay.style.left = `${rect.left - pad}px`;
+    overlay.style.top = `${rect.top - pad}px`;
+    overlay.style.width = `${Math.max(20, rect.width) + pad * 2}px`;
+    overlay.style.height = `${Math.max(20, rect.height) + pad * 2}px`;
+}
 function getSvgClientRect(el, wrapperEl) {
     const cr = el.getBoundingClientRect();
     const wr = wrapperEl.getBoundingClientRect();
@@ -2370,8 +2383,9 @@ function selectSvgElement(svgEl, type, pageObj) {
     const sw     = svgEl.getAttribute('stroke-width');
     if (stroke) { const el = document.getElementById('edit-stroke-color'); if (el) el.value = stroke; }
     if (fill) {
+        editFillColor = fill;
         const el = document.getElementById('edit-fill-color');
-        if (el) el.value = fill;
+        if (el && fill !== 'none') el.value = fill;
         const btn = document.getElementById('edit-fill-color-btn');
         if (btn) {
             if (fill === 'none') {
@@ -2386,6 +2400,7 @@ function selectSvgElement(svgEl, type, pageObj) {
     if (sw) { const el = document.getElementById('edit-stroke-width'); if (el) el.value = sw; }
 
     syncColorBtn('stroke');
+    syncColorBtn('fill');
     _buildSvgOverlay(svgEl, type, pageObj);
 }
 
@@ -2401,7 +2416,7 @@ function _buildSvgOverlay(svgEl, type, pageObj) {
     const ov = document.createElement('div');
     ov.className = 'edit-svg-overlay';
     ov.style.cssText = `position:absolute;left:${left}px;top:${top}px;width:${w}px;height:${h}px;`
-        + `border:2px dashed var(--primary);cursor:move;z-index:20;box-sizing:border-box;pointer-events:all;`;
+        + `border:2px dashed var(--primary);cursor:move;z-index:20;box-sizing:border-box;pointer-events:${currentEditTool === 'select' ? 'all' : 'none'};`;
 
     // Action button group (Copy + Delete)
     const btnGroup = document.createElement('div');
@@ -2454,9 +2469,8 @@ function _buildSvgOverlay(svgEl, type, pageObj) {
             const newT = Math.max(0, Math.min(wrapperH - ovH, dragInitT + dy));
             const clampDx = newL - dragInitL;
             const clampDy = newT - dragInitT;
-            ov.style.left = newL + 'px';
-            ov.style.top  = newT + 'px';
             setSvgTranslate(svgEl, dragInitTx + clampDx, dragInitTy + clampDy);
+            updateSvgOverlayBounds(ov, svgEl, pageObj.wrapper);
         };
         const onUp = () => {
             document.removeEventListener('mousemove', onMove);
@@ -2472,8 +2486,9 @@ function _buildSvgOverlay(svgEl, type, pageObj) {
     rh.addEventListener('mousedown', (e) => {
         e.stopPropagation(); e.preventDefault();
         resSX = e.clientX; resSY = e.clientY;
-        resInitW = parseFloat(ov.style.width);
-        resInitH = parseFloat(ov.style.height);
+        const bounds = getSvgClientRect(svgEl, pageObj.wrapper);
+        resInitW = Math.max(1, bounds.width);
+        resInitH = Math.max(1, bounds.height);
         const a = (name) => parseFloat(svgEl.getAttribute(name) || 0);
         if (type === 'rectangle') initAttrs = { w: a('width'), h: a('height') };
         else if (type === 'circle')  initAttrs = { r: a('r') };
@@ -2484,12 +2499,11 @@ function _buildSvgOverlay(svgEl, type, pageObj) {
         const onMove = (ev) => {
             const dx = (ev.clientX - resSX) / editZoom;
             const dy = (ev.clientY - resSY) / editZoom;
-            const newW = Math.max(20, resInitW + dx);
-            const newH = Math.max(20, resInitH + dy);
-            ov.style.width  = newW + 'px';
-            ov.style.height = newH + 'px';
+            const newW = Math.max(1, resInitW + dx);
+            const newH = Math.max(1, resInitH + dy);
             const sx = newW / resInitW, sy = newH / resInitH;
             _scaleSvgAttrs(svgEl, type, sx, sy, initAttrs);
+            updateSvgOverlayBounds(ov, svgEl, pageObj.wrapper);
         };
         const onUp = () => {
             document.removeEventListener('mousemove', onMove);
@@ -2558,7 +2572,7 @@ function handleEditPageMousedown(e, wrapper, pageIndex) {
         const fontWeight = document.getElementById('edit-font-weight')?.value || '400';
         const fontFamily = document.getElementById('edit-font-family')?.value || 'Arial, sans-serif';
         const textColor = document.getElementById('edit-text-color')?.value || '#000000';
-        const fillColor = document.getElementById('edit-fill-color')?.value || 'none';
+        const fillColor = editFillColor;
 
         textEl.style.cssText = `position:absolute;left:${x}px;top:${y}px;`
             + `background:${fillColor === 'none' ? 'transparent' : fillColor};`
@@ -2576,7 +2590,6 @@ function handleEditPageMousedown(e, wrapper, pageIndex) {
         pageObj.elements.push({ el: textEl, type: 'text' });
         editUndoStack.push({ type:'add', el:textEl, pageIndex, elemType:'text' });
         editRedoStack = [];
-        setEditTool('select');
         setTimeout(() => {
             textEl.focus();
             const range = document.createRange();
@@ -2647,7 +2660,6 @@ function handleEditPageMousedown(e, wrapper, pageIndex) {
                 pageObj.elements.push({ el:path, type:'freehand' });
                 editUndoStack.push({ type:'add', el:path, pageIndex, elemType:'freehand' });
                 editRedoStack = [];
-                setEditTool('select');
             } else { path.remove(); }
         };
         document.addEventListener('mousemove', onMove);
@@ -2658,7 +2670,7 @@ function handleEditPageMousedown(e, wrapper, pageIndex) {
     if (currentEditTool === 'shape') {
         const svg = pageObj.svg; if (!svg) return;
         const strokeColor  = document.getElementById('edit-stroke-color')?.value || '#000000';
-        const fillColor    = document.getElementById('edit-fill-color')?.value   || 'none';
+        const fillColor    = editFillColor;
         const strokeWidth  = parseInt(document.getElementById('edit-stroke-width')?.value) || 2;
         const ns = 'http://www.w3.org/2000/svg';
         let shapeEl;
@@ -2729,6 +2741,7 @@ function handleEditPageMousedown(e, wrapper, pageIndex) {
         }
 
         shapeEl.id = 'edit-elem-' + (editElementIdCounter++);
+        shapeEl.setAttribute('pointer-events', 'all');
         svg.appendChild(shapeEl);
         const sX = x, sY = y;
         const onMove = (ev) => {
@@ -2758,7 +2771,6 @@ function handleEditPageMousedown(e, wrapper, pageIndex) {
             pageObj.elements.push({ el: shapeEl, type: drawnType });
             editUndoStack.push({ type: 'add', el: shapeEl, pageIndex, elemType: drawnType });
             editRedoStack = [];
-            setEditTool('select');
             setTimeout(() => selectSvgElement(shapeEl, drawnType, pageObj), 30);
         };
         document.addEventListener('mousemove', onMove);
@@ -2790,7 +2802,8 @@ function selectElement(el, type) {
         document.getElementById('edit-font-family').value = el.style.fontFamily || 'Arial, sans-serif';
 
         const bg = el.style.background && el.style.background !== 'transparent' ? rgbToHex(el.style.background) : 'none';
-        document.getElementById('edit-fill-color').value = bg;
+        editFillColor = bg;
+        if (bg !== 'none') document.getElementById('edit-fill-color').value = bg;
         const fillBtn = document.getElementById('edit-fill-color-btn');
         if (fillBtn) {
             if (bg === 'none') {
@@ -2802,10 +2815,11 @@ function selectElement(el, type) {
             }
         }
 
-        const borderColor = el.style.borderColor || '#000000';
+        const borderColor = el.style.borderColor && el.style.borderColor !== 'transparent' ? el.style.borderColor : '#000000';
         document.getElementById('edit-stroke-color').value = rgbToHex(borderColor);
         document.getElementById('edit-stroke-width').value = parseInt(el.style.borderWidth) || 0;
 
+        syncColorBtn('fill');
         syncColorBtn('stroke');
         syncColorBtn('text');
     } else if (type === 'image') {
@@ -2825,7 +2839,9 @@ function selectElement(el, type) {
         document.getElementById('edit-font-weight-label').style.display = 'none';
         document.getElementById('edit-font-family-label').style.display = 'none';
 
-        document.getElementById('edit-fill-color').value = rgbToHex(el.style.background || '#ffffff');
+        const fillColor = el.style.background && el.style.background !== 'transparent' ? rgbToHex(el.style.background) : 'none';
+        editFillColor = fillColor;
+        if (fillColor !== 'none') document.getElementById('edit-fill-color').value = fillColor;
         document.getElementById('edit-stroke-width').value = parseInt(el.style.borderWidth) || 2;
         syncColorBtn('stroke');
         syncColorBtn('fill');
@@ -2842,7 +2858,6 @@ function deselectAll() {
         pageObj.wrapper.querySelectorAll('[data-sel]').forEach(el => el.removeAttribute('data-sel'));
         pageObj.wrapper.querySelectorAll('[id^="edit-elem-"]').forEach(el => {
             if (el.style) {
-                el.style.borderColor = 'transparent';
                 el.style.outline = 'none';
             }
             const handle = el.querySelector('.resize-handle');
@@ -2855,7 +2870,7 @@ function syncColorBtn(type) {
     const map = { stroke:['edit-stroke-color','edit-stroke-color-btn'], fill:['edit-fill-color','edit-fill-color-btn'], text:['edit-text-color','edit-text-color-btn'] };
     const [inputId, btnId] = map[type] || [];
     if (!inputId) return;
-    const v = document.getElementById(inputId)?.value;
+    const v = type === 'fill' ? editFillColor : document.getElementById(inputId)?.value;
     const b = document.getElementById(btnId);
     if (!b) return;
     if (type === 'fill' && (v === 'none' || !v)) {
@@ -2885,13 +2900,14 @@ window.showColorPalette = function(type, btn) {
     pal.style.left = Math.min(r.left, window.innerWidth - 180) + 'px';
 
     function pick(val) {
+        if (type === 'fill') editFillColor = val;
         if (val === 'none') {
-            input.value = 'none';
             if (selectedEditElement?.isSvg) {
                 selectedEditElement.el.setAttribute('fill', 'none');
             } else if (selectedEditElement?.type === 'text') {
                 selectedEditElement.el.style.background = 'transparent';
             }
+            if (selectedEditElement && type === 'fill') updateSelectedElementStyle();
             const b = document.getElementById('edit-fill-color-btn');
             if (b) {
                 b.classList.add('transparent-pattern');
@@ -2936,6 +2952,7 @@ window.showColorPalette = function(type, btn) {
         input.click(); pal.remove(); window._palType = null;
         input.addEventListener('change', () => {
             input.style.cssText = 'position:absolute;opacity:0;width:0;height:0;pointer-events:none;';
+            if (type === 'fill') editFillColor = input.value;
             syncColorBtn(type);
             if (selectedEditElement) updateSelectedElementStyle();
         }, { once: true });
@@ -2950,13 +2967,19 @@ window.showColorPalette = function(type, btn) {
     }, 0);
 };
 
+window.setEditFillColor = function(color) {
+    editFillColor = color;
+    syncColorBtn('fill');
+    updateSelectedElementStyle();
+};
+
 window.updateSelectedElementStyle = function() {
     if (!selectedEditElement) return;
     const { el, type, isSvg } = selectedEditElement;
 
     if (isSvg) {
         const stroke = document.getElementById('edit-stroke-color')?.value;
-        const fill   = document.getElementById('edit-fill-color')?.value;
+        const fill   = editFillColor;
         const sw     = document.getElementById('edit-stroke-width')?.value;
         if (stroke && type !== 'freehand') {
             el.setAttribute('stroke', stroke);
@@ -2974,7 +2997,7 @@ window.updateSelectedElementStyle = function() {
         const size        = document.getElementById('edit-font-size')?.value || 24;
         const weight      = document.getElementById('edit-font-weight')?.value || '400';
         const fontFamily  = document.getElementById('edit-font-family')?.value || 'Arial, sans-serif';
-        const fillColor   = document.getElementById('edit-fill-color')?.value || 'none';
+        const fillColor   = editFillColor;
         const strokeColor = document.getElementById('edit-stroke-color')?.value || '#000000';
         const strokeWidth = parseInt(document.getElementById('edit-stroke-width')?.value) || 0;
 
@@ -2992,10 +3015,13 @@ window.updateSelectedElementStyle = function() {
             el.style.borderColor = 'transparent';
         }
     } else {
-        const fillColor   = document.getElementById('edit-fill-color')?.value || '#ffffff';
+        const fillColor   = editFillColor;
+        const strokeColor = document.getElementById('edit-stroke-color')?.value || '#000000';
         const strokeWidth = document.getElementById('edit-stroke-width')?.value || 2;
         el.style.background  = fillColor === 'none' ? 'transparent' : fillColor;
         el.style.borderWidth = strokeWidth + 'px';
+        el.style.borderColor = strokeColor;
+        el.style.borderStyle = 'solid';
     }
 };
 
@@ -3008,6 +3034,8 @@ window.copySelectedElement = function() {
     const clone = el.cloneNode(true);
     clone.id = 'edit-elem-' + (editElementIdCounter++);
     clone.removeAttribute('data-sel');
+    clone.querySelectorAll('.resize-handle').forEach(handle => handle.remove());
+    clone.classList.remove('resizable-setup');
 
     if (isSvg) {
         const t = getSvgTranslate(clone);
@@ -3185,19 +3213,29 @@ window.applySig = async function() {
         updatePageTabs();
     }
 
+    const dimensions = await new Promise(resolve => {
+        const probe = new Image();
+        probe.onload = () => resolve({ width: probe.naturalWidth || 500, height: probe.naturalHeight || 120 });
+        probe.onerror = () => resolve({ width: 500, height: 120 });
+        probe.src = dataUrl;
+    });
+    const signature = document.createElement('div');
+    signature.dataset.type = 'image';
+    signature.dataset.lockAspect = 'true';
+    signature.style.cssText = `position:absolute;left:50px;top:50px;width:200px;height:${200 * dimensions.height / dimensions.width}px;cursor:move;z-index:10;`;
+    signature.id = 'edit-elem-' + (editElementIdCounter++);
     const img = document.createElement('img');
     img.src = dataUrl;
-    img.dataset.type = 'image';
     img.draggable = false;
-    img.style.cssText = 'position:absolute;left:50px;top:50px;width:200px;height:auto;cursor:move;z-index:10;';
-    img.id = 'edit-elem-' + (editElementIdCounter++);
-    pageObj.wrapper.appendChild(img);
-    setupDraggableElement(img, pageObj);
-    setupResizableElement(img, pageObj);
-    pageObj.elements.push({ el:img, type:'image' });
-    editUndoStack.push({ type:'add', el:img, pageIndex, elemType:'image' });
+    img.style.cssText = 'display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;';
+    signature.appendChild(img);
+    pageObj.wrapper.appendChild(signature);
+    setupDraggableElement(signature, pageObj);
+    setupResizableElement(signature, pageObj);
+    pageObj.elements.push({ el:signature, type:'image' });
+    editUndoStack.push({ type:'add', el:signature, pageIndex, elemType:'image' });
     editRedoStack = [];
-    selectElement(img, 'image');
+    selectElement(signature, 'image');
     closeSigModal();
 };
 
