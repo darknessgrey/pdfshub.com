@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <meta name="description" content="Tamamen tarayıcınızda çalışan, %100 gizli, ultra hızlı ve ücretsiz PDF birleştirme, ayırma, şifreleme, sıkıştırma ve dönüştürme araçları. Dosyalarınız asla sunucuya yüklenmez.">
+    <meta name="keywords" content="pdf birleştirme, pdf ayırma, pdf şifreleme, pdf dönüştürme, ocr pdf, pdf karşılaştırma, word pdf, pdfshub, pdfshub.com, pdf düzenleme, filigran ekleme">
+    <link rel="canonical" href="https://pdfshub.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pdfshub.com">
+    <meta property="og:title" content="PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları">
+    <meta property="og:description" content="Tarayıcınızda çalışan, %100 güvenli ve ultra hızlı PDF dönüştürme ve düzenleme araçları.">
+    <meta property="og:image" content="https://pdfshub.com/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pdfshub.com">
+    <meta property="twitter:title" content="PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları">
+    <meta property="twitter:description" content="Tarayıcınızda çalışan, %100 güvenli ve ultra hızlı PDF dönüştürme ve düzenleme araçları.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M983Z4C599"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M983Z4C599');
+    </script>
+
+    <link rel="alternate" hreflang="tr" href="https://pdfshub.com">
+    <link rel="alternate" hreflang="x-default" href="https://pdfshub.com">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebApplication",
+                "name": "PDFsHub",
+                "url": "https://pdfshub.com",
+                "operatingSystem": "All",
+                "applicationCategory": "BusinessApplication",
+                "browserRequirements": "Requires HTML5 Canvas and JavaScript",
+                "description": "Tamamen tarayıcınızda çalışan, ultra hızlı ve %100 gizli PDF dönüştürme, sıkıştırma ve düzenleme araçları.",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "featureList": ["PDF birleştirme", "PDF ayırma", "PDF sıkıştırma", "PDF şifreleme", "OCR", "PDF dönüştürme", "PDF düzenleme", "İmza ekleme"]
+            },
+            {
+                "@type": "Organization",
+                "name": "PDFsHub",
+                "url": "https://pdfshub.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://pdfshub.com/logo.png"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Dosyalarım çalınabilir mi? Sitede veri saklanıyor mu?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Kesinlikle hayır. PDFsHub, tamamen istemci taraflı çalışır. Dosyalarınız hiçbir sunucuya gönderilmez, işlenmez veya kaydedilmez."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "PDF Karşılaştırma aracı nasıl çalışıyor?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "İki PDF yüklediğinizde, tarayıcınızda metin çıkarılır ve gelişmiş diff algoritması ile farklar renklendirilerek gösterilir."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Mobil cihazlarda kamera ile tarama yapabilir miyim?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Evet! Tarat ve PDF Yap aracı ile doğrudan kameranızı kullanarak belgeleri tarayıp anında PDF oluşturabilirsiniz."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "PDFsHub ücretsiz mi?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Evet, PDFsHub tamamen ücretsizdir. Üyelik, abonelik ya da herhangi bir ücret gerekmez. Tüm araçları sınırsız kullanabilirsiniz."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Hangi PDF araçları mevcut?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "PDFsHub şu araçları sunar: PDF birleştirme, PDF ayırma, PDF sıkıştırma, PDF şifreleme ve şifre çözme, OCR, Word'den PDF'e, PDF'ten Word'e, Excel'den PDF'e, JPG'den PDF'e, PDF düzenleme, filigran ekleme, imza ekleme, sayfa döndürme, PDF karşılaştırma ve daha fazlası."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Sleek script loading overlay -->
+    <div id="script-loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <p id="loading-overlay-text">Gerekli kütüphaneler yükleniyor...</p>
+        </div>
+    </div>
+
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo" onclick="goHome()" id="nav-logo" style="display: flex; align-items: center; gap: 8px;">
+            <img src="logo.png" alt="PDFsHub Logo" style="height: 32px; width: auto; object-fit: contain;"> PDFsHub
+        </div>
+        <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="nav-links">
+                <a href="#" onclick="event.preventDefault(); goHome()" id="nav-home">Ana Sayfa</a>
+                <a href="#" onclick="event.preventDefault(); showTool('merge')" id="nav-merge-tab">Birleştir</a>
+                <a href="#" onclick="event.preventDefault(); showTool('organizepages')" id="nav-organize-tab">Sayfa Düzenle</a>
+                <a href="#" onclick="event.preventDefault(); showTool('edit')" id="nav-edit-tab">Düzenle</a>
+            </div>
+            <div class="lang-switcher">
+                <select id="lang-select" onchange="setLanguage(this.value)">
+                    <option value="tr">Türkçe</option>
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="de">Deutsch</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Home View -->
+        <section id="view-home" class="view active">
+            <div class="hero">
+                <h1>PDF'lerinizi Kolayca Düzenleyin</h1>
+                <p>Tamamen tarayıcınızda çalışan, ultra hızlı ve %100 gizli PDF araçları.</p>
+            </div>
+
+            <div class="tools-grid">
+                <!-- GRUP 1: Temel PDF İşlemleri -->
+                <div class="tool-card" onclick="showTool('merge')">
+                    <div class="tool-icon merge-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>PDF Birleştir</h3>
+                    <p>Birden fazla PDF dosyasını tek bir belgede sıralayarak birleştirin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('split')">
+                    <div class="tool-icon split-icon"><i class="fa-solid fa-scissors"></i></div>
+                    <h3>PDF Ayır</h3>
+                    <p>PDF belgelerinizdeki sayfaları ayırarak bağımsız dosyalar yapın.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('organizepages')">
+                    <div class="tool-icon delete-icon"><i class="fa-solid fa-table-cells"></i></div>
+                    <h3>Sayfaları Düzenle/Sil</h3>
+                    <p>PDF sayfalarını görüntüleyin, silin ve sürükleyerek yerlerini değiştirin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('compress')">
+                    <div class="tool-icon merge-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i
+                            class="fa-solid fa-file-contract"></i></div>
+                    <h3>PDF Sıkıştır</h3>
+                    <p>Kaliteyi koruyarak PDF dosya boyutunu küçültün.</p>
+                </div>
+
+                <!-- GRUP 2: Dönüştürme Araçları -->
+                <div class="tool-card" onclick="showTool('word2pdf')">
+                    <div class="tool-icon word-icon"><i class="fa-solid fa-file-word"></i></div>
+                    <h3>Word'den PDF'e</h3>
+                    <p>Word (DOCX) belgelerinizi anında PDF formatına çevirin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('pdf2word')">
+                    <div class="tool-icon pdf2word-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3>PDF'ten Word'e</h3>
+                    <p>PDF içindeki metinleri okuyup (.txt) Word belgesi yapın.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('excel2pdf')">
+                    <div class="tool-icon excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                    <h3>Excel'den PDF'e</h3>
+                    <p>Excel tablolarınızı (XLSX) kolay okunabilir bir PDF belgesi yapın.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('pdf2excel')">
+                    <div class="tool-icon excel-icon"><i class="fa-solid fa-file-excel"></i></div>
+                    <h3>PDF'ten Excel'e</h3>
+                    <p>PDF içindeki tabloları ve verileri anında Excel'e aktarın.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('ppt2pdf')">
+                    <div class="tool-icon word-icon" style="background: linear-gradient(135deg, #f43f5e, #e11d48);"><i
+                            class="fa-solid fa-file-powerpoint"></i></div>
+                    <h3>PPT'den PDF'e</h3>
+                    <p>Slayt metinlerini PDF'e aktarın; görseller ve tasarım korunmaz.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('pdf2ppt')">
+                    <div class="tool-icon word-icon" style="background: linear-gradient(135deg, #fbbf24, #d97706);"><i
+                            class="fa-solid fa-file-powerpoint"></i></div>
+                    <h3>PDF'ten PPT'ye</h3>
+                    <p>PDF sayfalarınızı düzenlenebilir sunum slaytlarına çevirin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('jpg2pdf')">
+                    <div class="tool-icon jpg2pdf-icon"><i class="fa-solid fa-file-image"></i></div>
+                    <h3>JPG'den PDF'e</h3>
+                    <p>Resim dosyalarınızı (JPG/PNG) tek bir PDF belgesine dönüştürün.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('pdf2jpg')">
+                    <div class="tool-icon pdf2jpg-icon"><i class="fa-regular fa-image"></i></div>
+                    <h3>PDF'ten JPG'e</h3>
+                    <p>PDF sayfalarını yüksek kaliteli resim (.jpg) dosyası olarak dışa aktarın.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('html2pdf')">
+                    <div class="tool-icon word-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);"><i
+                            class="fa-solid fa-globe"></i></div>
+                    <h3>HTML'den PDF'e</h3>
+                    <p>Web sayfalarını veya HTML kodlarını PDF'e dönüştürün.</p>
+                </div>
+
+                <!-- GRUP 3: Düzenleme & İşaretleme -->
+                <div class="tool-card" onclick="showTool('edit')">
+                    <div class="tool-icon merge-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);"><i
+                            class="fa-solid fa-pen-to-square"></i></div>
+                    <h3>PDF Düzenle</h3>
+                    <p>Metin, resim, şekil ve açıklama ekleyerek PDF'i düzenleyin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('sign')">
+                    <div class="tool-icon watermark-icon"
+                        style="background: linear-gradient(135deg, #10b981, #3b82f6);"><i
+                            class="fa-solid fa-signature"></i></div>
+                    <h3>İmza Ekle</h3>
+                    <p>Kendi imzanızı yükleyin ve belgenin üzerine kolayca yerleştirin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('watermark')">
+                    <div class="tool-icon watermark-icon"><i class="fa-solid fa-stamp"></i></div>
+                    <h3>Filigran Ekle</h3>
+                    <p>Sayfalarınıza şeffaf metin mühürleri ekleyin (Örn: GIZLIDIR).</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('pagenumbers')">
+                    <div class="tool-icon pagenum-icon"><i class="fa-solid fa-list-ol"></i></div>
+                    <h3>Sayfa Numarası</h3>
+                    <p>PDF belgenizin sayfalarına kolayca sayfa numarası ekleyin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('rotate')">
+                    <div class="tool-icon rotate-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                    <h3>PDF Döndür</h3>
+                    <p>Ters veya yan dönmüş PDF sayfalarınızı anında düzeltin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('crop')">
+                    <div class="tool-icon delete-icon" style="background: linear-gradient(135deg, #ec4899, #be185d);"><i
+                            class="fa-solid fa-crop"></i></div>
+                    <h3>PDF Kırp</h3>
+                    <p>Sayfa kenarlarını kırpın veya belirli alanı seçin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('redact')">
+                    <div class="tool-icon delete-icon" style="background: linear-gradient(135deg, #111827, #000000);"><i
+                            class="fa-solid fa-eye-slash"></i></div>
+                    <h3>Redakte Et</h3>
+                    <p>Hassas bilgilerin üzerini kalıcı olarak kapatın ve gizleyin.</p>
+                </div>
+
+                <!-- GRUP 4: Güvenlik -->
+                <div class="tool-card" onclick="showTool('protect')">
+                    <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #1e293b, #0f172a);"><i
+                            class="fa-solid fa-lock"></i></div>
+                    <h3>Şifrele</h3>
+                    <p>PDF'lerinize başkalarının açamaması için güçlü şifreler koyun.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('unlock')">
+                    <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #64748b, #334155);"><i
+                            class="fa-solid fa-lock-open"></i></div>
+                    <h3>Şifre Çöz</h3>
+                    <p>Şifresini bildiğiniz PDF'lerden korumayı kalıcı olarak kaldırın.</p>
+                </div>
+
+                <!-- GRUP 5: Gelişmiş Araçlar -->
+                <div class="tool-card" onclick="showTool('ocr')">
+                    <div class="tool-icon watermark-icon"
+                        style="background: linear-gradient(135deg, #6366f1, #4338ca);"><i
+                            class="fa-solid fa-expand"></i></div>
+                    <h3>OCR PDF</h3>
+                    <p>Taranmış PDF'leri aranabilir ve düzenlenebilir metne çevirin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('scantopdf')">
+                    <div class="tool-icon jpg2pdf-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <h3>Tarat ve PDF Yap</h3>
+                    <p>Kameranızı kullanarak belgeleri tarayıp anında PDF oluşturun.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('compare')">
+                    <div class="tool-icon pagenum-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <i class="fa-solid fa-columns"></i>
+                    </div>
+                    <h3>PDF Karşılaştır</h3>
+                    <p>İki PDF dosyası arasındaki metin ve görsel farkları inceleyin.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('repair')">
+                    <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #6b7280, #374151);"><i
+                            class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>PDF Tamir Et</h3>
+                    <p>Bozulmuş veya hatalı PDF dosyalarını düzeltmeye çalışın.</p>
+                </div>
+
+                <div class="tool-card" onclick="showTool('pdf2pdfa')">
+                    <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #4b5563, #1f2937);"><i
+                            class="fa-solid fa-box-archive"></i></div>
+                    <h3>PDF'ten PDF/A'ya</h3>
+                    <p>Uzun süreli arşivleme için ISO-standartlı PDF formatına geçin.</p>
+                </div>
+            </div>
+
+            <!-- Premium SEO Descriptive & FAQ Section at the bottom -->
+            <hr style="border: 0; height: 1px; background: var(--border); margin: 5rem 0 3rem 0;">
+
+            <div class="seo-faq-section">
+                <h2 id="faq-section-title" style="font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 3rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Neden PDFsHub?</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                    <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--primary);"><i class="fa-solid fa-shield-halved"></i> <span id="feature1-title">%100 Gizlilik ve Güvenlik</span></h3>
+                        <p id="feature1-desc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Dosyalarınız hiçbir sunucuya yüklenmez. Tüm işlemler doğrudan tarayıcınızda gerçekleştirilir. Verileriniz tamamen sizde kalır.</p>
+                    </div>
+                    <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--secondary);"><i class="fa-solid fa-bolt"></i> <span id="feature2-title">Ultra Hızlı Performans</span></h3>
+                        <p id="feature2-desc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Veri transferi olmadan, WebAssembly teknolojisi sayesinde büyük PDF belgelerini bile milisaniyeler içinde işleyin.</p>
+                    </div>
+                    <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #10b981;"><i class="fa-solid fa-coins"></i> <span id="feature3-title">Tamamen Ücretsiz</span></h3>
+                        <p id="feature3-desc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Üyelik, abonelik ya da limit olmaksızın tüm araçları sınırsız kullanın. Reklamsız ve temiz bir deneyim.</p>
+                    </div>
+                </div>
+
+                <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+                    <h3 id="faq-section-sub" style="font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 2rem;">Sıkça Sorulan Sorular</h3>
+                    
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--surface); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <h4 id="faq1-q" style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">Dosyalarım çalınabilir mi? Sitede veri saklanıyor mu?</h4>
+                        <p id="faq1-a" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Kesinlikle hayır. PDFsHub, tamamen istemci taraflı çalışır. Dosyalarınız hiçbir sunucuya gönderilmez, işlenmez veya kaydedilmez.</p>
+                    </div>
+
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--surface); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <h4 id="faq2-q" style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">PDF Karşılaştırma aracı nasıl çalışıyor?</h4>
+                        <p id="faq2-a" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">İki PDF yüklediğinizde, tarayıcınızda metin çıkarılır ve gelişmiş diff algoritması ile farklar renklendirilerek gösterilir.</p>
+                    </div>
+
+                    <div class="faq-item" style="margin-bottom: 1.5rem; background: var(--surface); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <h4 id="faq3-q" style="font-weight: 700; margin-bottom: 0.5rem; font-size: 1.05rem;">Mobil cihazlarda kamera ile tarama yapabilir miyim?</h4>
+                        <p id="faq3-a" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Evet! Tarat ve PDF Yap aracı ile doğrudan kameranızı kullanarak belgeleri tarayıp anında PDF oluşturabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tool View Template -->
+        <section id="view-tool" class="view">
+            <div class="tool-header">
+                <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Geri Dön</button>
+                <h2 id="tool-title">Araç Başlığı</h2>
+                <p id="tool-desc">Araç açıklaması buraya gelecek.</p>
+            </div>
+
+            <!-- Drag & Drop Area -->
+            <div class="upload-area" id="drop-zone">
+                <input type="file" id="file-input" multiple class="hidden-input">
+                <div class="upload-content">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <h3>Dosyaları buraya sürükleyin</h3>
+                    <p>veya</p>
+                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">Bilgisayardan Seç</button>
+                </div>
+            </div>
+
+            <!-- File List Area -->
+            <div class="file-list-container" id="file-list-container" style="display: none;">
+                <div class="file-list" id="file-list">
+                    <!-- File list will go here -->
+                </div>
+
+                <!-- Tool Options -->
+                <div class="tool-options" id="tool-options" style="display: none;">
+
+                    <div id="options-merge" class="options-panel" style="display: none;">
+                        <p class="info-text"><i class="fa-solid fa-circle-info"></i> <span id="merge-info-text">Dosyaları sürükleyerek sıralarını değiştirebilirsiniz.</span></p>
+                    </div>
+
+                    <div id="options-protect" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="protect-pwd-label">Yeni Şifre:</label>
+                            <input type="text" id="protect-password" placeholder="Şifre belirleyin...">
+                        </div>
+                    </div>
+
+                    <div id="options-unlock" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="unlock-pwd-label">PDF Şifresi:</label>
+                            <input type="text" id="unlock-password" placeholder="Mevcut şifreyi girin...">
+                        </div>
+                    </div>
+
+                    <div id="options-sign" class="options-panel" style="display: none;">
+                        <div class="input-group" style="margin-bottom:15px;">
+                            <label id="sign-img-label">İmza Resminizi Yükleyin (PNG/JPG):</label>
+                            <input type="file" id="sign-image-input" accept="image/*">
+                        </div>
+                        <p class="info-text"><i class="fa-solid fa-circle-info"></i> <span id="sign-img-info">İmza, belgenin ilk sayfasının sağ alt köşesine eklenecektir.</span></p>
+                    </div>
+
+                    <div id="options-jpg2pdf" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="jpg2pdf-orient-label">Sayfa Yönü:</label>
+                            <select id="jpg2pdf-orientation">
+                                <option value="portrait">Dikey (A4)</option>
+                                <option value="landscape">Yatay (A4)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="options-watermark" class="options-panel" style="display: none;">
+                        <p class="info-text" style="color:var(--danger); font-size: 0.85rem; margin-bottom: 5px;"><span id="watermark-warning-text">* Lütfen Türkçe karakter (İ, ğ, ş, vs.) KULLANMAYIN.</span></p>
+                        <div class="input-group">
+                            <label id="watermark-text-label">Filigran Metni:</label>
+                            <input type="text" id="watermark-text" value="GIZLIDIR" placeholder="Metin girin...">
+                        </div>
+                    </div>
+
+                    <div id="options-rotate" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="rotate-dir-label">Döndürme Yönü:</label>
+                            <select id="rotate-degrees">
+                                <option value="90">Sağa 90°</option>
+                                <option value="180">180° Ters</option>
+                                <option value="270">Sola 90° (270°)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="options-pagenumbers" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="pagenum-pos-label">Numara Konumu:</label>
+                            <select id="pagenum-position">
+                                <option value="bottom-right">Sağ Alt Köşe</option>
+                                <option value="bottom-center">Orta Alt</option>
+                                <option value="top-right">Sağ Üst Köşe</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="options-organizepages" class="options-panel" style="display: none; padding: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <p class="info-text mb-0"><i class="fa-solid fa-circle-info"></i> <span id="organize-info-text">Sayfaların yerini <strong>sürükleyerek</strong> değiştirin. Silmek istediğiniz sayfaların <strong>işaretini kaldırın</strong>.</span></p>
+                            <button id="organize-select-all-btn" class="btn-primary" style="padding: 6px 16px; font-size: 0.9rem; background: var(--secondary);" onclick="selectAllOrganize(true)">Hepsini Seç</button>
+                        </div>
+
+                        <div id="organize-loading" style="text-align: center; padding: 2rem; display: none;">
+                            <div class="loader" style="width: 40px; height: 40px; border-width: 4px; margin: 0 auto 10px auto;"></div>
+                            <p id="organize-loading-text">Sayfalar oluşturuluyor, lütfen bekleyin...</p>
+                        </div>
+
+                        <div id="organize-grid" class="organize-grid">
+                            <!-- Page thumbnails will go here -->
+                        </div>
+                    </div>
+
+                    <div id="options-compress" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="compress-level-label">Sıkıştırma Seviyesi:</label>
+                            <select id="compress-level">
+                                <option value="extreme">Ekstrem Sıkıştırma (Düşük Kalite)</option>
+                                <option value="recommended" selected>Önerilen Sıkıştırma (İyi Kalite)</option>
+                                <option value="low">Az Sıkıştırma (Yüksek Kalite)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="options-html2pdf" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="html2pdf-url-label">Web Sayfası URL veya HTML Kodu:</label>
+                            <textarea id="html-content" placeholder="https://google.com veya <html>...</html>" style="width:100%; height:150px; padding:12px; border-radius:8px; border:1px solid var(--border); font-family:monospace; font-size:0.9rem; outline:none; transition:border-color 0.2s;" oninput="updateHtmlPreview()"></textarea>
+                        </div>
+                        <div id="html-preview-container" style="margin-top: 15px; display: none;">
+                            <label style="font-weight:600; font-size:0.9rem; display:block; margin-bottom:5px;">Canlı Önizleme / Live Preview:</label>
+                            <div id="html-preview-box" style="border: 1px solid var(--border); border-radius: 8px; padding: 15px; background: #fff; max-height: 200px; overflow-y: auto;"></div>
+                        </div>
+                        <p class="info-text" style="margin-top:5px;"><i class="fa-solid fa-circle-info"></i> <span id="html2pdf-info-text">HTML kodu girmek en güvenli yöntemdir.</span></p>
+                    </div>
+
+                    <div id="options-ocr" class="options-panel" style="display: none;">
+                        <div class="input-group">
+                            <label id="ocr-lang-label">Dil Seçimi:</label>
+                            <select id="ocr-lang">
+                                <option value="tur">Türkçe</option>
+                                <option value="eng">İngilizce</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="options-edit" class="options-panel" style="display: none; padding: 0; margin: 0;">
+                        <!-- TOP TOOLBAR -->
+                        <div class="edit-topbar">
+                            <div class="edit-tb-group">
+                                <button type="button" class="edit-tb-btn" id="edit-btn-undo" onclick="editUndo()" title="Geri Al"><i class="fa-solid fa-rotate-left"></i></button>
+                                <button type="button" class="edit-tb-btn" id="edit-btn-redo" onclick="editRedo()" title="İleri Al"><i class="fa-solid fa-rotate-right"></i></button>
+                            </div>
+                            <div class="edit-tb-sep"></div>
+                            <div class="edit-tb-group">
+                                <button type="button" class="edit-tb-btn active" id="edit-btn-select" onclick="setEditTool('select')" title="Seç"><i class="fa-solid fa-arrow-pointer"></i></button>
+                                <div class="edit-shapes-wrap">
+                                    <button type="button" class="edit-tb-btn" id="edit-btn-pen" onclick="toggleEditPenMenu()" title="Kalem"><i class="fa-solid fa-pen"></i>&thinsp;<i class="fa-solid fa-caret-down" style="font-size:0.6em;"></i></button>
+                                    <div class="edit-pen-dropdown" id="edit-pen-dropdown">
+                                        <div class="edit-dd-row">
+                                            <span class="edit-dd-label" id="pen-color-label">Renk</span>
+                                            <input type="color" id="edit-pen-color" value="#000000" class="edit-tb-colorpick">
+                                        </div>
+                                        <div class="edit-dd-row">
+                                            <span class="edit-dd-label" id="pen-width-label">Kalınlık</span>
+                                            <input type="range" id="edit-pen-width" min="1" max="30" value="3" class="edit-dd-range" oninput="document.getElementById('edit-pen-width-val').textContent=this.value+'px'">
+                                            <span class="edit-dd-val" id="edit-pen-width-val">3px</span>
+                                        </div>
+                                        <div class="edit-dd-row">
+                                            <span class="edit-dd-label" id="pen-opacity-label">Opaklık</span>
+                                            <input type="range" id="edit-pen-opacity" min="10" max="100" value="100" class="edit-dd-range" oninput="document.getElementById('edit-pen-opacity-val').textContent=this.value+'%'">
+                                            <span class="edit-dd-val" id="edit-pen-opacity-val">100%</span>
+                                        </div>
+                                        <div class="edit-quick-colors">
+                                            <button class="edit-qcolor" style="background:#000000" onclick="document.getElementById('edit-pen-color').value='#000000'" title="Siyah"></button>
+                                            <button class="edit-qcolor" style="background:#ffffff;border-color:#ddd" onclick="document.getElementById('edit-pen-color').value='#ffffff'" title="Beyaz"></button>
+                                            <button class="edit-qcolor" style="background:#ef4444" onclick="document.getElementById('edit-pen-color').value='#ef4444'" title="Kırmızı"></button>
+                                            <button class="edit-qcolor" style="background:#f97316" onclick="document.getElementById('edit-pen-color').value='#f97316'" title="Turuncu"></button>
+                                            <button class="edit-qcolor" style="background:#eab308" onclick="document.getElementById('edit-pen-color').value='#eab308'" title="Sarı"></button>
+                                            <button class="edit-qcolor" style="background:#22c55e" onclick="document.getElementById('edit-pen-color').value='#22c55e'" title="Yeşil"></button>
+                                            <button class="edit-qcolor" style="background:#3b82f6" onclick="document.getElementById('edit-pen-color').value='#3b82f6'" title="Mavi"></button>
+                                            <button class="edit-qcolor" style="background:#8b5cf6" onclick="document.getElementById('edit-pen-color').value='#8b5cf6'" title="Mor"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="edit-shapes-wrap">
+                                    <button type="button" class="edit-tb-btn" id="edit-btn-shapes" onclick="toggleEditShapesMenu()" title="Şekiller"><i class="fa-solid fa-shapes"></i>&thinsp;<i class="fa-solid fa-caret-down" style="font-size:0.6em;"></i></button>
+                                    <div class="edit-shapes-dropdown" id="edit-shapes-dropdown">
+                                        <button type="button" class="edit-shape-opt" onclick="setEditShapeType('rectangle')"><i class="fa-solid fa-square"></i> <span id="edit-shape-rect-label">Kutucuk / Dikdörtgen</span></button>
+                                        <button type="button" class="edit-shape-opt" onclick="setEditShapeType('circle')"><i class="fa-solid fa-circle"></i> <span id="edit-shape-circle-label">Daire</span></button>
+                                        <button type="button" class="edit-shape-opt" onclick="setEditShapeType('ellipse')"><i class="fa-regular fa-circle"></i> <span id="edit-shape-ellipse-label">Elips</span></button>
+                                        <button type="button" class="edit-shape-opt" onclick="setEditShapeType('triangle')"><i class="fa-solid fa-play" style="transform:rotate(-90deg);display:inline-block;font-size:0.85em;"></i> <span id="edit-shape-triangle-label">Üçgen</span></button>
+                                        <button type="button" class="edit-shape-opt" onclick="setEditShapeType('line')"><i class="fa-solid fa-minus"></i> <span id="edit-shape-line-label">Çizgi</span></button>
+                                        <button type="button" class="edit-shape-opt" onclick="setEditShapeType('arrow')"><i class="fa-solid fa-arrow-right-long"></i> <span id="edit-shape-arrow-label">Ok</span></button>
+                                    </div>
+                                </div>
+                                <button type="button" class="edit-tb-btn" id="edit-btn-eraser" onclick="setEditTool('eraser')" title="Silgi"><i class="fa-solid fa-eraser"></i></button>
+                            </div>
+                            <div class="edit-tb-sep"></div>
+                            <div class="edit-tb-group">
+                                <button type="button" class="edit-tb-btn" id="edit-btn-text" onclick="setEditTool('text')" title="Metin Ekle"><i class="fa-solid fa-t"></i></button>
+                                <button type="button" class="edit-tb-btn" id="edit-btn-image" onclick="addImageToPageDialog()" title="Resim Ekle"><i class="fa-solid fa-image"></i></button>
+                                <input type="file" id="edit-image-input" accept="image/png, image/jpeg" style="display:none;" onchange="addImageToCurrentPage(event)">
+                                <button type="button" class="edit-tb-btn" id="edit-btn-sign" onclick="openSigModal()" title="İmza Ekle"><i class="fa-solid fa-signature"></i></button>
+                            </div>
+                            <div class="edit-tb-sep"></div>
+                            <div class="edit-tb-group edit-tb-controls">
+                                <!-- hidden native color inputs — JS reads/writes these -->
+                                <input type="color" id="edit-stroke-color" value="#000000" oninput="syncColorBtn('stroke');updateSelectedElementStyle()" style="position:absolute;opacity:0;width:0;height:0;pointer-events:none;tabindex=-1">
+                                <input type="color" id="edit-fill-color"   value="none" oninput="syncColorBtn('fill');updateSelectedElementStyle()"   style="position:absolute;opacity:0;width:0;height:0;pointer-events:none;tabindex=-1">
+                                <input type="color" id="edit-text-color"   value="#000000" oninput="syncColorBtn('text');updateSelectedElementStyle()"   style="position:absolute;opacity:0;width:0;height:0;pointer-events:none;tabindex=-1">
+                                <!-- Stroke color swatch -->
+                                <div class="edit-tb-ctrl-item" id="edit-stroke-color-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-stroke">Dış Hat</span>
+                                    <button type="button" class="edit-color-swatch-btn" id="edit-stroke-color-btn" style="background:#000000" onclick="showColorPalette('stroke',this)" title="Dış Hat Rengi"></button>
+                                </div>
+                                <!-- Fill color swatch -->
+                                <div class="edit-tb-ctrl-item" id="edit-fill-color-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-fill">İç Dolgu</span>
+                                    <button type="button" class="edit-color-swatch-btn transparent-pattern" id="edit-fill-color-btn" style="background:none;" onclick="showColorPalette('fill',this)" title="İç Dolgu Rengi"></button>
+                                </div>
+                                <!-- Text color swatch -->
+                                <div class="edit-tb-ctrl-item" id="edit-text-color-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-text-color">Metin</span>
+                                    <button type="button" class="edit-color-swatch-btn" id="edit-text-color-btn" style="background:#000000" onclick="showColorPalette('text',this)" title="Metin Rengi"></button>
+                                </div>
+                                <div class="edit-tb-ctrl-item" id="edit-stroke-width-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-strokew">Hat</span>
+                                    <input type="number" id="edit-stroke-width" min="0" max="30" value="2" oninput="updateSelectedElementStyle()" class="edit-tb-numinput" style="width:44px;">
+                                </div>
+                                <div class="edit-tb-ctrl-item" id="edit-font-size-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-fontsize">Boyut</span>
+                                    <input type="number" id="edit-font-size" min="8" max="150" value="24" oninput="updateSelectedElementStyle()" class="edit-tb-numinput" style="width:48px;">
+                                </div>
+                                <div class="edit-tb-ctrl-item" id="edit-font-weight-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-fontstyle">Kalınlık</span>
+                                    <select id="edit-font-weight" onchange="updateSelectedElementStyle()" class="edit-tb-select">
+                                        <option value="400" id="edit-fw-normal">Normal</option>
+                                        <option value="700" id="edit-fw-bold">Kalın (Bold)</option>
+                                    </select>
+                                </div>
+                                <div class="edit-tb-ctrl-item" id="edit-font-family-label">
+                                    <span class="edit-tb-ctrl-label" id="lbl-fontfamily">Font</span>
+                                    <select id="edit-font-family" onchange="updateSelectedElementStyle()" class="edit-tb-select" style="min-width:76px;">
+                                        <option value="Arial, sans-serif">Arial</option>
+                                        <option value="'Times New Roman', serif">Times</option>
+                                        <option value="'Courier New', monospace">Courier</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="edit-tb-sep"></div>
+                            <div class="edit-tb-group">
+                                <button type="button" class="edit-tb-btn" id="edit-copy-btn" onclick="copySelectedElement()" title="Kopyala / Çoğalt (Ctrl+D)"><i class="fa-solid fa-copy"></i></button>
+                                <button type="button" class="edit-tb-btn edit-tb-danger" id="edit-delete-btn" onclick="deleteSelectedElement()" title="Sil (Delete)"><i class="fa-solid fa-trash"></i></button>
+                            </div>
+                            <div class="edit-tb-sep"></div>
+                            <div class="edit-tb-group">
+                                <button type="button" class="edit-tb-btn" onclick="changeEditZoom(-0.15)" title="Küçült"><i class="fa-solid fa-minus"></i></button>
+                                <span class="edit-zoom-display" id="edit-zoom-display">100%</span>
+                                <button type="button" class="edit-tb-btn" onclick="changeEditZoom(0.15)" title="Büyüt"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="edit-tb-group" style="margin-left:auto;">
+                                <button type="button" class="edit-tb-btn edit-tb-save-btn" id="edit-save-btn" onclick="document.getElementById('action-btn').click()" title="PDF'yi İndir">
+                                    <i class="fa-solid fa-floppy-disk"></i>&ensp;<span id="edit-save-label">İndir</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- WORKSPACE -->
+                        <div id="edit-workspace">
+                            <div id="edit-zoom-container"></div>
+                        </div>
+                    </div>
+
+                    <div id="options-compare" class="options-panel" style="display: none;">
+                        <p class="info-text"><i class="fa-solid fa-circle-info"></i> <span id="compare-info-text">Lütfen iki PDF dosyası yükleyin.</span></p>
+                        <!-- Visual Compare Output container -->
+                        <div id="compare-result" style="display:none; margin-top:20px; background:#fff; border:1px solid var(--border); border-radius:8px; padding:20px; text-align:left; max-height:400px; overflow-y:auto; font-family:monospace; font-size:0.9rem; box-shadow:var(--shadow-sm);"></div>
+                    </div>
+
+                    <div id="options-redact" class="options-panel" style="display: none; padding: 2rem;">
+                        <p class="info-text" style="margin-bottom: 10px;"><i class="fa-solid fa-circle-info"></i> <span id="redact-info-text">Aşağıdaki sayfa önizlemelerinde <strong>mouse ile sürükleyerek</strong> gizlemek istediğiniz alanları seçin.</span></p>
+                        <div id="redact-loading" style="text-align: center; padding: 2rem; display: none;">
+                            <div class="loader" style="width: 40px; height: 40px; border-width: 4px; margin: 0 auto 10px auto;"></div>
+                            <p id="redact-loading-text">Sayfa önizlemeleri oluşturuluyor...</p>
+                        </div>
+                        <div id="redact-pages-container" class="redact-pages-container"></div>
+                        <button type="button" id="redact-clear-btn" class="btn-primary" onclick="clearAllRedactRegions()" style="margin-top:10px; padding:8px 16px; font-size:0.9rem; background:var(--danger);"><i class="fa-solid fa-trash"></i> Tüm Seçimleri Temizle</button>
+                    </div>
+
+                    <div id="options-split" class="options-panel" style="display: none; padding: 2rem;">
+                        <p class="info-text" style="margin-bottom: 15px;"><i class="fa-solid fa-circle-info"></i> <span id="split-info-text">Ayırmak istediğiniz sayfaları seçin. Seçilmemiş sayfalar ayıklanmayacak.</span></p>
+                        <div id="split-loading" style="text-align: center; padding: 2rem; display: none;">
+                            <div class="loader" style="width: 40px; height: 40px; border-width: 4px; margin: 0 auto 10px auto;"></div>
+                            <p id="split-loading-text">Sayfalar oluşturuluyor, lütfen bekleyin...</p>
+                        </div>
+                        <div id="split-grid" class="organize-grid" style="margin-bottom: 15px;">
+                            <!-- Page checkboxes will go here -->
+                        </div>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button type="button" class="btn-primary" style="background: var(--secondary);" onclick="splitSelectAll(true)" id="split-select-all-btn"><i class="fa-solid fa-check-double"></i> <span id="split-select-all-text">Hepsini Seç</span></button>
+                            <button type="button" class="btn-primary" style="background: var(--danger);" onclick="splitSelectAll(false)" id="split-deselect-all-btn"><i class="fa-solid fa-xmark"></i> <span id="split-deselect-all-text">Hiçbirini Seçme</span></button>
+                        </div>
+                    </div>
+
+                    <div id="options-word2pdf" class="options-panel" style="display: none;">
+                        <p class="info-text" style="margin-bottom: 10px;"><i class="fa-solid fa-circle-info"></i> <span id="word2pdf-info-text">Yalnızca .docx dosyaları desteklenir.</span></p>
+                    </div>
+
+                    <div id="options-ppt2pdf" class="options-panel" style="display: none;">
+                        <p class="info-text"><i class="fa-solid fa-circle-info"></i> <span id="ppt2pdf-info-text">Yalnızca slayt metinleri aktarılır; görseller ve özgün tasarım korunmaz.</span></p>
+                    </div>
+
+                    <div id="options-pdf2ppt" class="options-panel" style="display: none;">
+                        <p class="info-text"><i class="fa-solid fa-circle-info"></i> <span id="pdf2ppt-info-text">PDF'in her sayfası ayrı bir PowerPoint slaydına dönüştürülecektir.</span></p>
+                    </div>
+
+                    <div id="options-crop" class="options-panel" style="display: none;">
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; margin-bottom: 10px; display: block;"><span id="crop-mode-label">Kırpma Modu:</span></label>
+                            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                <button type="button" class="btn-primary" style="flex: 1; background: var(--primary);" onclick="setCropMode('manual')" id="crop-manual-btn"><i class="fa-solid fa-sliders"></i> <span id="crop-manual-text">Manuel (mm)</span></button>
+                                <button type="button" class="btn-primary" style="flex: 1; background: var(--secondary);" onclick="setCropMode('visual')" id="crop-visual-btn"><i class="fa-solid fa-crop"></i> <span id="crop-visual-text">Görsel Kırpma</span></button>
+                            </div>
+                        </div>
+
+                        <div id="crop-manual-container" style="display: block;">
+                            <p class="info-text" style="margin-bottom: 10px;"><i class="fa-solid fa-circle-info"></i> <span id="crop-manual-info">Kesilecek kenar boşluklarını milimetre (mm) cinsinden girin. 0 = değişiklik yok.</span></p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <div class="input-group"><label><span id="crop-top-label">Üst (mm):</span></label><input type="number" id="crop-top" value="0" min="0" max="200" step="1"></div>
+                                <div class="input-group"><label><span id="crop-bottom-label">Alt (mm):</span></label><input type="number" id="crop-bottom" value="0" min="0" max="200" step="1"></div>
+                                <div class="input-group"><label><span id="crop-left-label">Sol (mm):</span></label><input type="number" id="crop-left" value="0" min="0" max="200" step="1"></div>
+                                <div class="input-group"><label><span id="crop-right-label">Sağ (mm):</span></label><input type="number" id="crop-right" value="0" min="0" max="200" step="1"></div>
+                            </div>
+                        </div>
+
+                        <div id="crop-visual-container" style="display: none;">
+                            <p class="info-text" style="margin-bottom: 10px;"><i class="fa-solid fa-circle-info"></i> <span id="crop-visual-info">Kırpmak istediğiniz alanı mouse ile sürükleyerek seçin. Beyaz alan silinecek.</span></p>
+                            <div id="crop-canvas-container" style="border: 2px solid var(--border); border-radius: 8px; overflow: auto; max-height: 400px; background: #f5f5f5; position: relative;">
+                                <canvas id="crop-canvas" style="cursor: crosshair; display: block; margin: auto;"></canvas>
+                            </div>
+                            <div style="margin-top: 10px; font-size: 0.85rem; color: #666;">
+                                <p id="crop-visual-coords" style="margin: 0;">Seçim: -</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="options-scantopdf" class="options-panel" style="display: none;">
+                        <div id="camera-container" style="display:none; margin-bottom: 15px;">
+                            <video id="scan-video" autoplay playsinline style="width: 100%; max-width: 480px; border-radius: 8px; background: #000; display: block; margin: 0 auto; box-shadow:var(--shadow-md);"></video>
+                            <div style="display:flex; justify-content:center; gap: 10px; margin-top: 10px;">
+                                <button type="button" class="btn-primary" id="capture-btn" style="padding: 8px 16px; font-size: 0.9rem;"><i class="fa-solid fa-camera"></i> Fotoğraf Çek</button>
+                                <button type="button" class="btn-primary" id="stop-camera-btn" style="padding: 8px 16px; font-size: 0.9rem; background: var(--danger);"><i class="fa-solid fa-video-slash"></i> Kamerayı Kapat</button>
+                            </div>
+                        </div>
+                        <div style="display:flex; flex-direction:column; align-items:center; gap: 10px;">
+                            <button type="button" class="btn-primary" id="start-camera-btn"><i class="fa-solid fa-video"></i> Kamerayı Başlat</button>
+                            <p id="scan-or-upload-text" class="info-text">veya doğrudan kameranızla çekilmiş bir fotoğraf yükleyin:</p>
+                            <input type="file" id="scan-file-input" accept="image/*" capture="environment" style="display:none;">
+                            <button type="button" id="scan-take-upload-btn" class="btn-primary" onclick="document.getElementById('scan-file-input').click()" style="background:var(--secondary);"><i class="fa-solid fa-mobile-screen-button"></i> Fotoğraf Çek / Yükle</button>
+                        </div>
+                        <div id="scan-thumbnails" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; justify-content:center;"></div>
+                    </div>
+
+                </div>
+
+                <div class="action-bar">
+                    <button id="action-btn" class="btn-action">İşlemi Başlat</button>
+                </div>
+            </div>
+
+            <!-- Processing / Result Area -->
+            <div class="result-area" id="result-area" style="display: none;">
+                <div style="text-align: center;">
+                    <div class="loader" id="loader" style="margin: 0 auto;"></div>
+                    <p id="processing-status" style="margin-top: 20px; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; display: none;"></p>
+                </div>
+                <div class="result-content" id="result-content" style="display: none;">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>İşlem Tamamlandı!</h3>
+                    <p>Dosyanız hazır.</p>
+                    <a id="download-btn" class="btn-download" href="#" download="islemli_dosya.pdf">
+                        <i class="fa-solid fa-download"></i> İndir
+                    </a>
+                    <button id="reuse-tool-btn" onclick="reuseCurrentTool()" style="margin-top:12px; background:none; border:2px solid var(--border); color:var(--text-muted); padding:0.55rem 1.4rem; border-radius:var(--radius-sm); font-size:0.9rem; font-weight:600; cursor:pointer; transition:all 0.2s; display:block; width:fit-content; margin-left:auto; margin-right:auto;">
+                        <i class="fa-solid fa-rotate-left"></i> <span id="reuse-btn-text">Yeniden Kullan</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hidden Container for HTML2PDF rendering -->
+            <div id="render-container"
+                style="display:none; padding: 20mm; font-family: sans-serif; background:white; color:black; width: 210mm;">
+            </div>
+
+            <!-- Sleek Feedback Modal (Triggered on Success/Error) -->
+            <div id="feedback-modal" class="feedback-modal" style="display:none;">
+                <div class="feedback-content">
+                    <button class="feedback-close" onclick="document.getElementById('feedback-modal').style.display='none'"><i class="fa-solid fa-xmark"></i></button>
+                    <h3 id="feedback-title" style="margin-bottom:10px;">Deneyiminiz Nasıldı?</h3>
+
+                    <p id="feedback-desc" style="color:var(--text-muted); font-size:0.9rem; margin-bottom:15px;">Bu aracı (Word'den PDF'e) daha iyi yapabilmemiz için puan verin:</p>
+                    <div id="star-rating" class="star-rating" style="font-size:2rem; cursor:pointer; margin-bottom:20px; display:flex; justify-content:center; gap:10px;">
+                        <i class="fa-solid fa-star" data-star="1"></i>
+                        <i class="fa-solid fa-star" data-star="2"></i>
+                        <i class="fa-solid fa-star" data-star="3"></i>
+                        <i class="fa-solid fa-star" data-star="4"></i>
+                        <i class="fa-solid fa-star" data-star="5"></i>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div style="display:flex; align-items:center; gap:8px; font-size:1.3rem; font-weight:700; color:var(--text-main);">
+                    <img src="logo.png" alt="PDFsHub Logo" style="height:28px; width:auto;">
+                    PDFsHub
+                </div>
+                <p id="footer-tagline" style="color:var(--text-muted); font-size:0.88rem; margin-top:0.6rem; max-width:260px; line-height:1.6;">Tarayıcınızda çalışan, %100 gizli ve ücretsiz PDF araçları.</p>
+            </div>
+            <div class="footer-links">
+                <h4 id="footer-tools-title">Temel Araçlar</h4>
+                <ul>
+                    <li><a href="/#merge" data-tool-id="merge" onclick="event.preventDefault(); showTool('merge')">PDF Birleştir</a></li>
+                    <li><a href="/#split" data-tool-id="split" onclick="event.preventDefault(); showTool('split')">PDF Ayır</a></li>
+                    <li><a href="/#compress" data-tool-id="compress" onclick="event.preventDefault(); showTool('compress')">PDF Sıkıştır</a></li>
+                    <li><a href="/#protect" data-tool-id="protect" onclick="event.preventDefault(); showTool('protect')">PDF Şifrele</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 id="footer-convert-title">Dönüştürme</h4>
+                <ul>
+                    <li><a href="/#word2pdf" data-tool-id="word2pdf" onclick="event.preventDefault(); showTool('word2pdf')">Word'den PDF'e</a></li>
+                    <li><a href="/#jpg2pdf" data-tool-id="jpg2pdf" onclick="event.preventDefault(); showTool('jpg2pdf')">JPG'den PDF'e</a></li>
+                    <li><a href="/#pdf2jpg" data-tool-id="pdf2jpg" onclick="event.preventDefault(); showTool('pdf2jpg')">PDF'ten JPG'e</a></li>
+                    <li><a href="/#ocr" data-tool-id="ocr" onclick="event.preventDefault(); showTool('ocr')">OCR PDF</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 id="footer-legal-title">Yasal</h4>
+                <ul>
+                    <li><a id="footer-link-privacy" href="privacy.html">Gizlilik Politikası</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p id="footer-copy">&copy; 2026 PDFsHub &mdash; Tüm hakları saklıdır. &nbsp;|&nbsp; <a href="privacy.html" style="color:var(--primary);">Gizlilik Politikası</a></p>
+        </div>
+    </footer>
+
+    <script src="app.js?v=10"></script>
+
+    <!-- Signature Modal -->
+    <div id="sig-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;">
+        <div style="background:white;border-radius:16px;padding:24px;width:560px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                <h3 id="sig-modal-title" style="margin:0;font-size:1.1rem;">İmza Ekle</h3>
+                <button onclick="closeSigModal()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:#666;">✕</button>
+            </div>
+            <div style="display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+                <button id="sig-tab-type-btn" class="sig-tab active" data-tab="type" onclick="switchSigTab('type')" style="padding:6px 14px;border:1px solid #e2e8f0;border-radius:8px;background:var(--primary);color:white;cursor:pointer;font-size:0.85rem;">✏️ Yaz</button>
+                <button id="sig-tab-draw-btn" class="sig-tab" data-tab="draw" onclick="switchSigTab('draw')" style="padding:6px 14px;border:1px solid #e2e8f0;border-radius:8px;background:white;color:#444;cursor:pointer;font-size:0.85rem;">🖊️ Çiz</button>
+                <button id="sig-tab-upload-btn" class="sig-tab" data-tab="upload" onclick="switchSigTab('upload')" style="padding:6px 14px;border:1px solid #e2e8f0;border-radius:8px;background:white;color:#444;cursor:pointer;font-size:0.85rem;">📁 Yükle</button>
+            </div>
+            <div id="sig-tab-type" style="display:block;">
+                <input type="text" id="sig-text-input" placeholder="İmzanızı buraya yazın..." oninput="document.getElementById('sig-type-preview').textContent=this.value||'İmza önizleme'" style="width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;font-size:1rem;margin-bottom:10px;box-sizing:border-box;">
+                <div style="display:flex;gap:8px;margin-bottom:10px;align-items:center;">
+                    <label style="font-size:0.82rem;color:#666;">Font:</label>
+                    <select id="sig-font-select" style="border:1px solid #e2e8f0;border-radius:6px;padding:4px 8px;font-size:0.85rem;" onchange="document.getElementById('sig-type-preview').style.fontFamily=this.value">
+                        <option value="Dancing Script">Dancing Script</option>
+                        <option value="Pacifico">Pacifico</option>
+                        <option value="Caveat">Caveat</option>
+                    </select>
+                </div>
+                <div id="sig-type-preview" style="font-family:'Dancing Script';font-size:2.5rem;min-height:80px;border:1px dashed #e2e8f0;border-radius:8px;padding:10px 16px;color:#000;word-break:break-all;">
+                    İmza önizleme
+                </div>
+            </div>
+            <div id="sig-tab-draw" style="display:none;">
+                <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
+                    <span id="sig-draw-color-label" style="font-size:0.82rem;color:#666;">Renk:</span>
+                    <button class="sig-color-btn active" data-color="#000000" onclick="setSigDrawColor('#000000')" style="width:24px;height:24px;border-radius:50%;background:#000;border:2px solid transparent;cursor:pointer;"></button>
+                    <button class="sig-color-btn" data-color="#0000cc" onclick="setSigDrawColor('#0000cc')" style="width:24px;height:24px;border-radius:50%;background:#0000cc;border:2px solid transparent;cursor:pointer;"></button>
+                    <button class="sig-color-btn" data-color="#cc0000" onclick="setSigDrawColor('#cc0000')" style="width:24px;height:24px;border-radius:50%;background:#cc0000;border:2px solid transparent;cursor:pointer;"></button>
+                    <button id="sig-clear-btn" onclick="clearSigCanvas()" style="margin-left:auto;padding:4px 10px;border:1px solid #e2e8f0;border-radius:6px;background:white;cursor:pointer;font-size:0.8rem;">Temizle</button>
+                </div>
+                <canvas id="sig-draw-canvas" width="500" height="180" style="width:100%;border:1px solid #e2e8f0;border-radius:8px;cursor:crosshair;touch-action:none;background:#fafafa;"></canvas>
+            </div>
+            <div id="sig-tab-upload" style="display:none;text-align:center;padding:20px 0;">
+                <input type="file" id="sig-upload-input" accept="image/*" onchange="loadSigUpload(event)" style="margin-bottom:12px;">
+                <br><img id="sig-upload-preview" style="max-width:100%;max-height:180px;display:none;border-radius:8px;margin-top:8px;">
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px;border-top:1px solid #e2e8f0;padding-top:16px;">
+                <button id="sig-cancel-btn" onclick="closeSigModal()" style="padding:8px 18px;border:1px solid #e2e8f0;border-radius:8px;background:white;cursor:pointer;">İptal</button>
+                <button id="sig-apply-btn" onclick="applySig()" style="padding:8px 18px;border:none;border-radius:8px;background:var(--primary);color:white;cursor:pointer;font-weight:600;">PDF'e Ekle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display:none;">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <i class="fa-solid fa-cookie-bite" style="color:var(--primary); font-size:1.4rem; flex-shrink:0;"></i>
+                <p id="cookie-text">Bu siteyi kullanarak <a href="privacy.html" style="color:var(--primary);font-weight:600;">Gizlilik Politikamızı</a> kabul etmiş olursunuz. Dosyalarınız asla sunucuya yüklenmez.</p>
+            </div>
+            <div class="cookie-banner-actions">
+                <a id="cookie-details-btn" href="privacy.html" class="cookie-btn-details">Daha Fazla Bilgi</a>
+                <button id="cookie-accept-btn" class="cookie-btn-accept" onclick="acceptCookies()">Kabul Et</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var cookieI18n = {
+            tr: { text:'Bu siteyi kullanarak <a href="privacy.html" style="color:var(--primary);font-weight:600;">Gizlilik Politikamızı</a> kabul etmiş olursunuz. Dosyalarınız asla sunucuya yüklenmez.', details:'Daha Fazla Bilgi', accept:'Kabul Et' },
+            en: { text:'By using this site, you agree to our <a href="privacy.html" style="color:var(--primary);font-weight:600;">Privacy Policy</a>. Your files are never uploaded to any server.', details:'Learn More', accept:'Accept' },
+            ja: { text:'このサイトを使用することで、<a href="privacy.html" style="color:var(--primary);font-weight:600;">プライバシーポリシー</a>に同意します。ファイルはサーバーに送信されません。', details:'詳細情報', accept:'同意する' },
+            hi: { text:'इस साइट का उपयोग करके आप हमारी <a href="privacy.html" style="color:var(--primary);font-weight:600;">गोपनीयता नीति</a> से सहमत हैं। फ़ाइलें कभी सर्वर पर नहीं भेजी जातीं।', details:'अधिक जानें', accept:'स्वीकार' },
+            de: { text:'Mit der Nutzung dieser Website stimmen Sie unserer <a href="privacy.html" style="color:var(--primary);font-weight:600;">Datenschutzrichtlinie</a> zu. Ihre Dateien werden nie hochgeladen.', details:'Mehr erfahren', accept:'Akzeptieren' }
+        };
+
+        window.updateCookieBanner = function(lang) {
+            var t = cookieI18n[lang] || cookieI18n.tr;
+            var el = document.getElementById('cookie-text');
+            var det = document.getElementById('cookie-details-btn');
+            var acc = document.getElementById('cookie-accept-btn');
+            if (el) el.innerHTML = t.text;
+            if (det) det.textContent = t.details;
+            if (acc) acc.textContent = t.accept;
+        };
+
+        if (!localStorage.getItem('cookieConsent')) {
+            var b = document.getElementById('cookie-banner');
+            if (b) b.style.display = 'block';
+        }
+
+        window.updateCookieBanner(localStorage.getItem('pdfshub_lang') || 'tr');
+
+        window.acceptCookies = function() {
+            localStorage.setItem('cookieConsent', '1');
+            var b = document.getElementById('cookie-banner');
+            if (b) {
+                b.style.animation = 'slideDownBanner 0.3s ease-in forwards';
+                setTimeout(function() { b.style.display = 'none'; }, 300);
+            }
+        };
+    })();
+    </script>
+
+    <!-- Anti-Theft Protection -->
+    <script>
+        // Block right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Block developer tool shortcuts (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener('keydown', function(e) {
+            if(e.key === 'F12' ||
+              (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) ||
+              (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's'))) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+</body>
+
+</html>
