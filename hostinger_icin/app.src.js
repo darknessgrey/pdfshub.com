@@ -138,7 +138,7 @@ const toolsMetadata = {
         redact: { title: "Redakte Et", desc: "PDF üzerindeki hassas veya gizli bilgilerin üzerini siyah bantla kapatın." },
         compare: { title: "PDF Karşılaştır", desc: "İki PDF belgesi arasındaki metinsel farkları bulup gösterin." },
         scantopdf: { title: "Tarat ve PDF Yap", desc: "Web kameranızı veya telefon kameranızı kullanarak döküman tarayıp anında PDF yapın." },
-        pdf2pdfa: { title: "PDF'ten PDF/A'ya", desc: "Uzun süreli dijital arşivleme için standart PDF/A formatına geçin." }
+        pdf2pdfa: { title: "PDF Bilgilerini Güncelle", desc: "PDF Creator bilgisini PDFsHub olarak düzenler; PDF/A dönüşümü veya uygunluk doğrulaması yapmaz." }
     },
     en: {
         merge: { title: "Merge PDF", desc: "Combine several PDF files into one quickly and securely in your browser." },
@@ -167,7 +167,7 @@ const toolsMetadata = {
         redact: { title: "Redact PDF", desc: "Permanently blackout sensitive information from your PDF." },
         compare: { title: "Compare PDF", desc: "Find textual and visual differences between two PDF versions." },
         scantopdf: { title: "Scan to PDF", desc: "Use your device camera to scan paper documents straight to PDF." },
-        pdf2pdfa: { title: "PDF to PDF/A", desc: "Convert standard PDFs to ISO-standardized PDF/A for archiving." }
+        pdf2pdfa: { title: "Update PDF Metadata", desc: "Sets the PDF Creator metadata to PDFsHub; it does not convert to or validate PDF/A." }
     },
     ja: {
         merge:        { title: "PDF結合",           desc: "複数のPDFファイルをブラウザで素早く1つに結合します。" },
@@ -196,7 +196,7 @@ const toolsMetadata = {
         redact:       { title: "黒塗り処理",         desc: "PDFから機密情報を永続的に黒塗りします。" },
         compare:      { title: "PDF比較",           desc: "2つのPDFバージョン間の差異を検出します。" },
         scantopdf:    { title: "スキャンしてPDF化",  desc: "カメラで紙文書をスキャンしてPDFを作成します。" },
-        pdf2pdfa:     { title: "PDFからPDF/A",      desc: "長期アーカイブのためにISO標準PDF/A形式に変換します。" }
+        pdf2pdfa:     { title: "PDFメタデータを更新", desc: "PDF Creator情報をPDFsHubに設定します。PDF/A変換や適合性検証は行いません。" }
     },
     hi: {
         merge:        { title: "PDF मर्ज करें",      desc: "ब्राउज़र में कई PDF को जल्दी एक में मिलाएं।" },
@@ -225,7 +225,7 @@ const toolsMetadata = {
         redact:       { title: "गोपनीय जानकारी छिपाएं", desc: "PDF से संवेदनशील जानकारी स्थायी रूप से हटाएं।" },
         compare:      { title: "PDF तुलना करें",      desc: "दो PDF संस्करणों के बीच अंतर खोजें।" },
         scantopdf:    { title: "स्कैन करके PDF बनाएं", desc: "कैमरे से कागज़ स्कैन करके PDF बनाएं।" },
-        pdf2pdfa:     { title: "PDF से PDF/A",        desc: "दीर्घकालिक संग्रह के लिए PDF/A में बदलें।" }
+        pdf2pdfa:     { title: "PDF मेटाडेटा अपडेट करें", desc: "PDF Creator जानकारी को PDFsHub सेट करता है; यह PDF/A में बदलता या मान्य नहीं करता।" }
     },
     de: {
         merge:        { title: "PDF zusammenführen",  desc: "Mehrere PDFs schnell und sicher im Browser zu einem zusammenführen." },
@@ -254,7 +254,7 @@ const toolsMetadata = {
         redact:       { title: "PDF schwärzen",        desc: "Sensible Informationen dauerhaft aus PDF entfernen." },
         compare:      { title: "PDFs vergleichen",     desc: "Textunterschiede zwischen zwei PDF-Versionen finden." },
         scantopdf:    { title: "Scannen zu PDF",       desc: "Mit der Kamera Papierdokumente scannen und als PDF speichern." },
-        pdf2pdfa:     { title: "PDF zu PDF/A",         desc: "PDFs in ISO-standardisiertes PDF/A für die Archivierung konvertieren." }
+        pdf2pdfa:     { title: "PDF-Metadaten aktualisieren", desc: "Setzt den PDF-Creator auf PDFsHub; es erfolgt keine PDF/A-Konvertierung oder Validierung." }
     }
 };
 
@@ -3656,7 +3656,7 @@ async function performScanToPdf() {
 async function performPdf2Pdfa() {
     const pdfDoc = await PDFLib.PDFDocument.load(await selectedFiles[0].arrayBuffer());
     pdfDoc.setCreator('PDFsHub');
-    return { url: URL.createObjectURL(new Blob([await pdfDoc.save()])), filename: 'arşiv.pdf' };
+    return { url: URL.createObjectURL(new Blob([await pdfDoc.save()])), filename: 'pdf_metadata_updated.pdf' };
 }
 
 // Translations and Language Setting
