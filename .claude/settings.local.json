@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masaüstü\\\\site\" | Where-Object { $_.Name -notlike \"node_modules\" } | Select-Object Name, PSIsContainer)",
+      "Bash(node -e ' *)",
+      "PowerShell(Get-NetTCPConnection -State Listen | Where-Object { $_.LocalPort -ge 3000 -and $_.LocalPort -le 9999 } | Select-Object LocalPort, OwningProcess | ForEach-Object { $proc = Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue; [PSCustomObject]@{ Port=$_.LocalPort; PID=$_.OwningProcess; Name=$proc.Name } })",
+      "PowerShell(Get-NetTCPConnection -State Listen | Where-Object { $_.LocalAddress -eq '127.0.0.1' -or $_.LocalAddress -eq '0.0.0.0' } | Select-Object LocalAddress, LocalPort, OwningProcess | ForEach-Object { $proc = Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue; [PSCustomObject]@{ Address=$_.LocalAddress; Port=$_.LocalPort; PID=$_.OwningProcess; Name=$proc.Name } } | Format-Table)",
+      "Bash(node --check app.src.js)",
+      "Bash(node build.js)",
+      "Bash(npx http-server *)",
+      "Bash(Start-Process -NoNewWindow -FilePath \"npx\" -ArgumentList \"http-server\",\"-p\",\"8000\",\"--cors\",\"-c-1\")",
+      "Bash(python -m http.server 8000)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/index.html)",
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masa�st�\\\\site\\\\app.js\"    \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masa�st�\\\\site\\\\hostinger_icin\\\\app.js\"    -Force)",
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masa�st�\\\\site\\\\index.html\" \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masa�st�\\\\site\\\\hostinger_icin\\\\index.html\" -Force)",
+      "PowerShell(Copy-Item \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masa�st�\\\\site\\\\index.css\"  \"c:\\\\Users\\\\gkt57\\\\OneDrive\\\\Masa�st�\\\\site\\\\hostinger_icin\\\\index.css\"  -Force)",
+      "Bash(powershell -c \"\\(Select-String -Path index.html -Pattern '<section' -AllMatches\\).Matches.Count; \\(Select-String -Path index.html -Pattern '</section>' -AllMatches\\).Matches.Count\")",
+      "Bash(Get-Content \"c:/Users/gkt57/OneDrive/Masaüstü/site/index.css\")",
+      "Bash(Select-Object -Last 20)",
+      "Bash(Get-Content \"c:/Users/gkt57/OneDrive/Masaüstü/site/hostinger_icin/app.js\")",
+      "Bash(Select-Object -First 100)",
+      "PowerShell(Copy-Item \"c:/Users/gkt57/OneDrive/Masa�st�/site/hostinger_icin/app.src.js\" \"c:/Users/gkt57/OneDrive/Masa�st�/site/hostinger_icin/app.js\" -Force)",
+      "Bash(pkill -f \"http.server 8000\")"
+    ]
+  }
+}
