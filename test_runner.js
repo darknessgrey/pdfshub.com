@@ -5,6 +5,11 @@ console.log("====================================================");
 console.log("PDFsHub Automated Tool Processor Sanity Test Suite");
 console.log("====================================================");
 
+let splitOutputMode = 'individual';
+let splitTileChecked = true;
+let watermarkDrawnText = [];
+let pdfTextDrawCount = 0;
+
 // Mock DOM environment
 global.window = {
     location: { hash: '' },
@@ -17,7 +22,7 @@ const mockPageElement = {
     getWidth: () => 600,
     getHeight: () => 800,
     drawImage: () => {},
-    drawText: () => {},
+    drawText: () => { pdfTextDrawCount++; },
     drawRectangle: () => {},
     drawLine: () => {},
     getRotation: () => ({ angle: 0 }),
@@ -39,8 +44,20 @@ global.document = {
                 ]
             };
         }
+        if (id === 'split-grid') {
+            return {
+                children: [
+                    {
+                        dataset: { pageIndex: '0' },
+                        querySelector: () => ({ checked: splitTileChecked })
+                    }
+                ]
+            };
+        }
+        if (id === 'split-output-mode') return { value: splitOutputMode };
         return {
             value: id.includes('password') ? 'mock-password'
+                : id === 'watermark-text' ? 'ĞğİıŞş'
                 : id.startsWith('crop-') ? '10'
                 : id === 'compress-level' ? 'recommended'
                 : id === 'ocr-lang' ? 'eng'
@@ -61,6 +78,10 @@ global.document = {
             getContext: () => ({
                 drawImage: () => {},
                 fillRect: () => {},
+                fillText: (text) => watermarkDrawnText.push(text),
+                measureText: (text) => ({ width: text.length * 20 }),
+                putImageData: () => {},
+                strokeRect: () => {},
                 toDataURL: () => 'data:image/png;base64,mock'
             }),
             innerHTML: '',
@@ -75,6 +96,10 @@ global.document = {
         getContext: () => ({
             drawImage: () => {},
             fillRect: () => {},
+            fillText: (text) => watermarkDrawnText.push(text),
+            measureText: (text) => ({ width: text.length * 20 }),
+            putImageData: () => {},
+            strokeRect: () => {},
             toDataURL: () => 'data:image/png;base64,mock'
         }),
         toBlob: (callback) => callback(new Blob([])),
@@ -116,6 +141,7 @@ global.PDFLib = {
         create: async () => ({
             copyPages: async () => [mockPageElement],
             addPage: () => mockPageElement,
+            registerFontkit: () => {},
             save: async () => new Uint8Array([1, 2, 3]),
             getPageIndices: () => [0],
             getPageCount: () => 1,
@@ -182,7 +208,12 @@ global.XLSX = {
     }),
     utils: {
         sheet_to_html: () => '<table></table>',
-        aoa_to_sheet: () => ({}),
+        aoa_to_sheet: (rows) => {
+            if (!Array.isArray(rows) || !rows.every(Array.isArray)) {
+                throw new Error('aoa_to_sheet expects an array of rows.');
+            }
+            return { rows };
+        },
         book_new: () => ({}),
         book_append_sheet: () => {}
     },
@@ -204,7 +235,15 @@ global.mammoth = {
 
 global.Tesseract = {
     createWorker: async () => ({
-        recognize: async () => ({ data: { text: 'OCR text' } }),
+        recognize: async () => ({
+            data: {
+                text: 'OCR text',
+                words: [
+                    { text: 'OCR', bbox: { x0: 10, y0: 10, x1: 55, y1: 30 } },
+                    { text: 'text', bbox: { x0: 60, y0: 10, x1: 100, y1: 30 } }
+                ]
+            }
+        }),
         terminate: async () => {}
     })
 };
@@ -213,10 +252,12 @@ global.PptxGenJS = class PptxGenJS {
     addSlide() {
         return { addImage: () => {} };
     }
-    async writeFile() {
+    async write() {
         return new Blob([]);
     }
 };
+global.window.PptxGenJS = global.PptxGenJS;
+global.window.fontkit = {};
 
 global.Diff = {
     diffLines: () => [{ added: true, value: 'added text' }, { removed: true, value: 'removed text' }]
@@ -310,12 +351,40 @@ async function runTests() {
 
         try {
             console.log(`Testing tool processor: ${name}...`);
+            if (name === 'ocr') pdfTextDrawCount = 0;
             const res = await procFn();
             console.log(`  ✓ Success! Output file: ${res.filename}, URL: ${res.url}`);
+            if (name === 'ocr' && res.filename !== 'ocr_aranabilir.pdf') {
+                throw new Error('OCR must return a searchable PDF, not a text file.');
+            }
+            if (name === 'ocr' && pdfTextDrawCount === 0) {
+                throw new Error('OCR PDF must contain a selectable text layer.');
+            }
+            if (name === 'watermark' && !watermarkDrawnText.includes('ĞğİıŞş')) {
+                throw new Error('Watermark text was altered instead of preserving Unicode characters.');
+            }
         } catch (err) {
             console.error(`  ✗ FAILED: ${name} threw an error:`, err.stack || err.message);
             failedCount++;
         }
+    }
+
+    try {
+        splitOutputMode = 'combined';
+        const combined = await processors.split();
+        if (combined.filename !== 'secilen_sayfalar.pdf') throw new Error('Combined split mode did not produce one PDF.');
+        splitTileChecked = false;
+        let rejectedEmptySelection = false;
+        try {
+            await processors.split();
+        } catch (error) {
+            rejectedEmptySelection = true;
+        }
+        if (!rejectedEmptySelection) throw new Error('Split must reject an empty page selection.');
+        console.log('  ✓ Split selection and combined output checks passed.');
+    } catch (error) {
+        failedCount++;
+        console.error('  ✗ FAILED: split selection checks:', error.message);
     }
 
     console.log("----------------------------------------------------");

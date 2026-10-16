@@ -16,13 +16,14 @@
     <meta property="og:url" content="https://pdfshub.com">
     <meta property="og:title" content="PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları">
     <meta property="og:description" content="Tarayıcınızda çalışan, %100 güvenli ve ultra hızlı PDF dönüştürme ve düzenleme araçları.">
-    <meta property="og:image" content="https://pdfshub.com/assets/og-image.png">
+    <meta property="og:image" content="https://pdfshub.com/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://pdfshub.com">
     <meta property="twitter:title" content="PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları">
     <meta property="twitter:description" content="Tarayıcınızda çalışan, %100 güvenli ve ultra hızlı PDF dönüştürme ve düzenleme araçları.">
+    <meta property="twitter:image" content="https://pdfshub.com/logo.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +47,10 @@
          crossorigin="anonymous"></script>
 
     <link rel="alternate" hreflang="tr" href="https://pdfshub.com">
+    <link rel="alternate" hreflang="en" href="https://pdfshub.com/?lang=en">
+    <link rel="alternate" hreflang="ja" href="https://pdfshub.com/?lang=ja">
+    <link rel="alternate" hreflang="hi" href="https://pdfshub.com/?lang=hi">
+    <link rel="alternate" hreflang="de" href="https://pdfshub.com/?lang=de">
     <link rel="alternate" hreflang="x-default" href="https://pdfshub.com">
 
     <!-- JSON-LD Structured Data -->
@@ -175,25 +180,23 @@
 
             <div class="tools-grid">
                 <!-- GRUP 1: Temel PDF İşlemleri -->
-                <div class="tool-card" onclick="showTool('merge')">
+                <a href="merge.html" class="tool-card" onclick="event.preventDefault(); showTool('merge')">
                     <div class="tool-icon merge-icon"><i class="fa-solid fa-layer-group"></i></div>
                     <h3>PDF Birleştir</h3>
                     <p>Birden fazla PDF dosyasını tek bir belgede sıralayarak birleştirin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('split')">
+                </a>
+                <a href="split.html" class="tool-card" onclick="event.preventDefault(); showTool('split')">
                     <div class="tool-icon split-icon"><i class="fa-solid fa-scissors"></i></div>
                     <h3>PDF Ayır</h3>
                     <p>PDF belgelerinizdeki sayfaları ayırarak bağımsız dosyalar yapın.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('organizepages')">
+                <a href="organizepages.html" class="tool-card" onclick="event.preventDefault(); showTool('organizepages')">
                     <div class="tool-icon delete-icon"><i class="fa-solid fa-table-cells"></i></div>
                     <h3>Sayfaları Düzenle/Sil</h3>
                     <p>PDF sayfalarını görüntüleyin, silin ve sürükleyerek yerlerini değiştirin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('compress')">
+                </a>
+                <a href="compress.html" class="tool-card" onclick="event.preventDefault(); showTool('compress')">
                     <div class="tool-icon merge-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i
                             class="fa-solid fa-file-contract"></i></div>
                     <h3>PDF Sıkıştır</h3>
@@ -201,57 +204,53 @@
                 </div>
 
                 <!-- GRUP 2: Dönüştürme Araçları -->
-                <div class="tool-card" onclick="showTool('word2pdf')">
+                <a href="word2pdf.html" class="tool-card" onclick="event.preventDefault(); showTool('word2pdf')">
                     <div class="tool-icon word-icon"><i class="fa-solid fa-file-word"></i></div>
                     <h3>Word'den PDF'e</h3>
                     <p>Word (DOCX) belgelerinizi anında PDF formatına çevirin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('pdf2word')">
+                </a>
+                <a href="pdf2word.html" class="tool-card" onclick="event.preventDefault(); showTool('pdf2word')">
                     <div class="tool-icon pdf2word-icon"><i class="fa-solid fa-file-lines"></i></div>
                     <h3>PDF'ten Word'e</h3>
                     <p>PDF içindeki metinleri okuyup (.txt) Word belgesi yapın.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('excel2pdf')">
+                <a href="excel2pdf.html" class="tool-card" onclick="event.preventDefault(); showTool('excel2pdf')">
                     <div class="tool-icon excel-icon"><i class="fa-solid fa-file-excel"></i></div>
                     <h3>Excel'den PDF'e</h3>
                     <p>Excel tablolarınızı (XLSX) kolay okunabilir bir PDF belgesi yapın.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('pdf2excel')">
+                </a>
+                <a href="pdf2excel.html" class="tool-card" onclick="event.preventDefault(); showTool('pdf2excel')">
                     <div class="tool-icon excel-icon"><i class="fa-solid fa-file-excel"></i></div>
                     <h3>PDF'ten Excel'e</h3>
                     <p>PDF içindeki tabloları ve verileri anında Excel'e aktarın.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('ppt2pdf')">
+                <a href="ppt2pdf.html" class="tool-card" onclick="event.preventDefault(); showTool('ppt2pdf')">
                     <div class="tool-icon word-icon" style="background: linear-gradient(135deg, #f43f5e, #e11d48);"><i
                             class="fa-solid fa-file-powerpoint"></i></div>
                     <h3>PPT'den PDF'e</h3>
                     <p>Slayt metinlerini PDF'e aktarın; görseller ve tasarım korunmaz.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('pdf2ppt')">
+                </a>
+                <a href="pdf2ppt.html" class="tool-card" onclick="event.preventDefault(); showTool('pdf2ppt')">
                     <div class="tool-icon word-icon" style="background: linear-gradient(135deg, #fbbf24, #d97706);"><i
                             class="fa-solid fa-file-powerpoint"></i></div>
                     <h3>PDF'ten PPT'ye</h3>
                     <p>PDF sayfalarınızı düzenlenebilir sunum slaytlarına çevirin.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('jpg2pdf')">
+                <a href="jpg2pdf.html" class="tool-card" onclick="event.preventDefault(); showTool('jpg2pdf')">
                     <div class="tool-icon jpg2pdf-icon"><i class="fa-solid fa-file-image"></i></div>
                     <h3>JPG'den PDF'e</h3>
                     <p>Resim dosyalarınızı (JPG/PNG) tek bir PDF belgesine dönüştürün.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('pdf2jpg')">
+                </a>
+                <a href="pdf2jpg.html" class="tool-card" onclick="event.preventDefault(); showTool('pdf2jpg')">
                     <div class="tool-icon pdf2jpg-icon"><i class="fa-regular fa-image"></i></div>
                     <h3>PDF'ten JPG'e</h3>
                     <p>PDF sayfalarını yüksek kaliteli resim (.jpg) dosyası olarak dışa aktarın.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('html2pdf')">
+                <a href="html2pdf.html" class="tool-card" onclick="event.preventDefault(); showTool('html2pdf')">
                     <div class="tool-icon word-icon" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);"><i
                             class="fa-solid fa-globe"></i></div>
                     <h3>HTML'den PDF'e</h3>
@@ -259,14 +258,13 @@
                 </div>
 
                 <!-- GRUP 3: Düzenleme & İşaretleme -->
-                <div class="tool-card" onclick="showTool('edit')">
+                <a href="edit.html" class="tool-card" onclick="event.preventDefault(); showTool('edit')">
                     <div class="tool-icon merge-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);"><i
                             class="fa-solid fa-pen-to-square"></i></div>
                     <h3>PDF Düzenle</h3>
                     <p>Metin, resim, şekil ve açıklama ekleyerek PDF'i düzenleyin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('sign')">
+                </a>
+                <a href="sign.html" class="tool-card" onclick="event.preventDefault(); showTool('sign')">
                     <div class="tool-icon watermark-icon"
                         style="background: linear-gradient(135deg, #10b981, #3b82f6);"><i
                             class="fa-solid fa-signature"></i></div>
@@ -274,32 +272,30 @@
                     <p>Kendi imzanızı yükleyin ve belgenin üzerine kolayca yerleştirin.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('watermark')">
+                <a href="watermark.html" class="tool-card" onclick="event.preventDefault(); showTool('watermark')">
                     <div class="tool-icon watermark-icon"><i class="fa-solid fa-stamp"></i></div>
                     <h3>Filigran Ekle</h3>
                     <p>Sayfalarınıza şeffaf metin mühürleri ekleyin (Örn: GIZLIDIR).</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('pagenumbers')">
+                </a>
+                <a href="pagenumbers.html" class="tool-card" onclick="event.preventDefault(); showTool('pagenumbers')">
                     <div class="tool-icon pagenum-icon"><i class="fa-solid fa-list-ol"></i></div>
                     <h3>Sayfa Numarası</h3>
                     <p>PDF belgenizin sayfalarına kolayca sayfa numarası ekleyin.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('rotate')">
+                <a href="rotate.html" class="tool-card" onclick="event.preventDefault(); showTool('rotate')">
                     <div class="tool-icon rotate-icon"><i class="fa-solid fa-rotate-right"></i></div>
                     <h3>PDF Döndür</h3>
                     <p>Ters veya yan dönmüş PDF sayfalarınızı anında düzeltin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('crop')">
+                </a>
+                <a href="crop.html" class="tool-card" onclick="event.preventDefault(); showTool('crop')">
                     <div class="tool-icon delete-icon" style="background: linear-gradient(135deg, #ec4899, #be185d);"><i
                             class="fa-solid fa-crop"></i></div>
                     <h3>PDF Kırp</h3>
                     <p>Sayfa kenarlarını kırpın veya belirli alanı seçin.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('redact')">
+                <a href="redact.html" class="tool-card" onclick="event.preventDefault(); showTool('redact')">
                     <div class="tool-icon delete-icon" style="background: linear-gradient(135deg, #111827, #000000);"><i
                             class="fa-solid fa-eye-slash"></i></div>
                     <h3>Redakte Et</h3>
@@ -307,14 +303,13 @@
                 </div>
 
                 <!-- GRUP 4: Güvenlik -->
-                <div class="tool-card" onclick="showTool('protect')">
+                <a href="protect.html" class="tool-card" onclick="event.preventDefault(); showTool('protect')">
                     <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #1e293b, #0f172a);"><i
                             class="fa-solid fa-lock"></i></div>
                     <h3>Şifrele</h3>
                     <p>PDF'lerinize başkalarının açamaması için güçlü şifreler koyun.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('unlock')">
+                </a>
+                <a href="unlock.html" class="tool-card" onclick="event.preventDefault(); showTool('unlock')">
                     <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #64748b, #334155);"><i
                             class="fa-solid fa-lock-open"></i></div>
                     <h3>Şifre Çöz</h3>
@@ -322,15 +317,14 @@
                 </div>
 
                 <!-- GRUP 5: Gelişmiş Araçlar -->
-                <div class="tool-card" onclick="showTool('ocr')">
+                <a href="ocr.html" class="tool-card" onclick="event.preventDefault(); showTool('ocr')">
                     <div class="tool-icon watermark-icon"
                         style="background: linear-gradient(135deg, #6366f1, #4338ca);"><i
                             class="fa-solid fa-expand"></i></div>
                     <h3>OCR PDF</h3>
                     <p>Taranmış PDF'leri aranabilir ve düzenlenebilir metne çevirin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('scantopdf')">
+                </a>
+                <a href="scantopdf.html" class="tool-card" onclick="event.preventDefault(); showTool('scantopdf')">
                     <div class="tool-icon jpg2pdf-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
                         <i class="fa-solid fa-camera"></i>
                     </div>
@@ -338,28 +332,27 @@
                     <p>Kameranızı kullanarak belgeleri tarayıp anında PDF oluşturun.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('compare')">
+                <a href="compare.html" class="tool-card" onclick="event.preventDefault(); showTool('compare')">
                     <div class="tool-icon pagenum-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
                         <i class="fa-solid fa-columns"></i>
                     </div>
                     <h3>PDF Karşılaştır</h3>
                     <p>İki PDF dosyası arasındaki metin ve görsel farkları inceleyin.</p>
-                </div>
-
-                <div class="tool-card" onclick="showTool('repair')">
+                </a>
+                <a href="repair.html" class="tool-card" onclick="event.preventDefault(); showTool('repair')">
                     <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #6b7280, #374151);"><i
                             class="fa-solid fa-screwdriver-wrench"></i></div>
                     <h3>PDF Tamir Et</h3>
                     <p>Bozulmuş veya hatalı PDF dosyalarını düzeltmeye çalışın.</p>
                 </div>
 
-                <div class="tool-card" onclick="showTool('pdf2pdfa')">
+                <a href="pdf2pdfa.html" class="tool-card" onclick="event.preventDefault(); showTool('pdf2pdfa')">
                     <div class="tool-icon rotate-icon" style="background: linear-gradient(135deg, #4b5563, #1f2937);"><i
                             class="fa-solid fa-box-archive"></i></div>
                     <h3>PDF Bilgilerini Güncelle</h3>
                     <p>Creator bilgisini PDFsHub olarak ayarlayın; PDF/A'ya dönüştürmez.</p>
+                </a>
                 </div>
-            </div>
 
             <!-- Premium SEO Descriptive & FAQ Section at the bottom -->
             <hr style="border: 0; height: 1px; background: var(--border); margin: 5rem 0 3rem 0;">
@@ -826,19 +819,19 @@
             <div class="footer-links">
                 <h4 id="footer-tools-title">Temel Araçlar</h4>
                 <ul>
-                    <li><a href="/#merge" data-tool-id="merge" onclick="event.preventDefault(); showTool('merge')">PDF Birleştir</a></li>
-                    <li><a href="/#split" data-tool-id="split" onclick="event.preventDefault(); showTool('split')">PDF Ayır</a></li>
-                    <li><a href="/#compress" data-tool-id="compress" onclick="event.preventDefault(); showTool('compress')">PDF Sıkıştır</a></li>
-                    <li><a href="/#protect" data-tool-id="protect" onclick="event.preventDefault(); showTool('protect')">PDF Şifrele</a></li>
+                    <li><a href="merge.html" data-tool-id="merge" onclick="event.preventDefault(); showTool('merge')">PDF Birleştir</a></li>
+                    <li><a href="split.html" data-tool-id="split" onclick="event.preventDefault(); showTool('split')">PDF Ayır</a></li>
+                    <li><a href="compress.html" data-tool-id="compress" onclick="event.preventDefault(); showTool('compress')">PDF Sıkıştır</a></li>
+                    <li><a href="protect.html" data-tool-id="protect" onclick="event.preventDefault(); showTool('protect')">PDF Şifrele</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4 id="footer-convert-title">Dönüştürme</h4>
                 <ul>
-                    <li><a href="/#word2pdf" data-tool-id="word2pdf" onclick="event.preventDefault(); showTool('word2pdf')">Word'den PDF'e</a></li>
-                    <li><a href="/#jpg2pdf" data-tool-id="jpg2pdf" onclick="event.preventDefault(); showTool('jpg2pdf')">JPG'den PDF'e</a></li>
-                    <li><a href="/#pdf2jpg" data-tool-id="pdf2jpg" onclick="event.preventDefault(); showTool('pdf2jpg')">PDF'ten JPG'e</a></li>
-                    <li><a href="/#ocr" data-tool-id="ocr" onclick="event.preventDefault(); showTool('ocr')">OCR PDF</a></li>
+                    <li><a href="word2pdf.html" data-tool-id="word2pdf" onclick="event.preventDefault(); showTool('word2pdf')">Word'den PDF'e</a></li>
+                    <li><a href="jpg2pdf.html" data-tool-id="jpg2pdf" onclick="event.preventDefault(); showTool('jpg2pdf')">JPG'den PDF'e</a></li>
+                    <li><a href="pdf2jpg.html" data-tool-id="pdf2jpg" onclick="event.preventDefault(); showTool('pdf2jpg')">PDF'ten JPG'e</a></li>
+                    <li><a href="ocr.html" data-tool-id="ocr" onclick="event.preventDefault(); showTool('ocr')">OCR PDF</a></li>
                 </ul>
             </div>
             <div class="footer-links">

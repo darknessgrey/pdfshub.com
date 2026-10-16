@@ -4,6 +4,12 @@ let currentLang = 'tr';
 let scannedPages = [];
 let scanStream = null;
 let redactRegions = {}; // { pageIndex: [{x,y,w,h}] }
+let cropPdf = null;
+let cropRegions = {};
+let cropPageIndex = 0;
+let cropViewport = null;
+let cropBaseImage = null;
+let currentCropMode = 'manual';
 let editItems = []; // [{text, page, position, fontSize, color}]
 let visualEditPages = [];
 let selectedEditElement = null;
@@ -21,10 +27,10 @@ let autoOpenSigModal = false;
 // Required CDN scripts mapping for each tool (lazy loaded on demand for top speed & perfect SEO score)
 const toolScripts = {
     merge: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
-    split: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'],
+    split: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     organizepages: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     protect: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
-    unlock: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
+    unlock: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     sign: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
     jpg2pdf: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
     pdf2jpg: ['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'],
@@ -37,11 +43,11 @@ const toolScripts = {
     rotate: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
     compress: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     html2pdf: ['https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'],
-    crop: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
+    crop: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     repair: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
-    ocr: ['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'],
+    ocr: ['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', 'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js', 'https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js'],
     ppt2pdf: ['https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js', 'https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js'],
-    pdf2ppt: ['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js'],
+    pdf2ppt: ['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', 'https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js'],
     edit: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     redact: ['https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'],
     compare: ['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jsdiff/5.1.0/diff.min.js'],
@@ -134,7 +140,7 @@ const toolsMetadata = {
         repair: { title: "PDF Tamir Et", desc: "Hatalı veya bozuk yapıdaki PDF dosyalarını onarın." },
         ocr: { title: "OCR PDF", desc: "Taranmış resim veya PDF belgelerindeki metinleri otomatik tanıyarak çıkarın." },
         ppt2pdf: { title: "PPT'den PDF'e", desc: "Slayt metinlerini PDF'e aktarır; görseller ve tasarım korunmaz." },
-        pdf2ppt: { title: "PDF'ten PPT'ye", desc: "PDF dökümanınızı düzenlenebilir PPT slaytlarına dönüştürün." },
+        pdf2ppt: { title: "PDF'ten PPT'ye", desc: "PDF sayfalarını görünümünü koruyan PowerPoint slaytlarına aktarın; içerik görsel olarak eklenir." },
         edit: { title: "PDF Düzenle", desc: "PDF üzerine yazı yazın, resim ve şekil ekleyin." },
         redact: { title: "Redakte Et", desc: "PDF üzerindeki hassas veya gizli bilgilerin üzerini siyah bantla kapatın." },
         compare: { title: "PDF Karşılaştır", desc: "İki PDF belgesi arasındaki metinsel farkları bulup gösterin." },
@@ -163,7 +169,7 @@ const toolsMetadata = {
         repair: { title: "Repair PDF", desc: "Fix damaged or corrupt structural layouts of PDF files." },
         ocr: { title: "OCR PDF", desc: "Convert scanned PDFs and images into editable text." },
         ppt2pdf: { title: "PPT to PDF", desc: "Extract slide text into a simple PDF; images and original layout are not preserved." },
-        pdf2ppt: { title: "PDF to PPT", desc: "Convert PDF pages into editable PowerPoint slides." },
+        pdf2ppt: { title: "PDF to PPT", desc: "Convert each PDF page into a PowerPoint slide image. The page appearance is preserved, but its contents are not editable." },
         edit: { title: "Edit PDF", desc: "Add text, drawings, and custom images to your PDF." },
         redact: { title: "Redact PDF", desc: "Permanently blackout sensitive information from your PDF." },
         compare: { title: "Compare PDF", desc: "Find textual and visual differences between two PDF versions." },
@@ -192,7 +198,7 @@ const toolsMetadata = {
         repair:       { title: "PDF修復",           desc: "破損または壊れたPDFファイルを修正します。" },
         ocr:          { title: "OCR PDF",           desc: "スキャンしたPDFや画像を編集可能なテキストに変換します。" },
         ppt2pdf:      { title: "PPTからPDF",        desc: "スライドのテキストのみPDFに抽出します。画像や元のレイアウトは保持されません。" },
-        pdf2ppt:      { title: "PDFからPPT",        desc: "PDFページを編集可能なPowerPointスライドに変換します。" },
+        pdf2ppt:      { title: "PDFからPPT",        desc: "各PDFページを画像としてPowerPointスライドに配置し、ページの見た目を保持します。内容は編集できません。" },
         edit:         { title: "PDF編集",           desc: "PDFにテキスト、図形、画像を追加します。" },
         redact:       { title: "黒塗り処理",         desc: "PDFから機密情報を永続的に黒塗りします。" },
         compare:      { title: "PDF比較",           desc: "2つのPDFバージョン間の差異を検出します。" },
@@ -221,7 +227,7 @@ const toolsMetadata = {
         repair:       { title: "PDF सुधारें",         desc: "क्षतिग्रस्त PDF फ़ाइलें ठीक करें।" },
         ocr:          { title: "OCR PDF",            desc: "स्कैन किए PDF को संपादन योग्य टेक्स्ट में बदलें।" },
         ppt2pdf:      { title: "PPT से PDF",          desc: "केवल स्लाइड का टेक्स्ट PDF में निकालता है; चित्र और मूल लेआउट सुरक्षित नहीं रहते।" },
-        pdf2ppt:      { title: "PDF से PPT",          desc: "PDF पृष्ठों को संपादन योग्य PowerPoint में बदलें।" },
+        pdf2ppt:      { title: "PDF से PPT",          desc: "हर PDF पृष्ठ को PowerPoint स्लाइड में छवि के रूप में जोड़ें। दिखावट बनी रहती है, लेकिन सामग्री संपादन योग्य नहीं होती।" },
         edit:         { title: "PDF संपादित करें",    desc: "PDF में टेक्स्ट, चित्र और आकार जोड़ें।" },
         redact:       { title: "गोपनीय जानकारी छिपाएं", desc: "PDF से संवेदनशील जानकारी स्थायी रूप से हटाएं।" },
         compare:      { title: "PDF तुलना करें",      desc: "दो PDF संस्करणों के बीच अंतर खोजें।" },
@@ -250,7 +256,7 @@ const toolsMetadata = {
         repair:       { title: "PDF reparieren",       desc: "Beschädigte oder korrupte PDF-Dateien reparieren." },
         ocr:          { title: "OCR PDF",              desc: "Gescannte PDFs und Bilder in bearbeitbaren Text umwandeln." },
         ppt2pdf:      { title: "PPT zu PDF",           desc: "Extrahiert nur Folientext; Bilder und ursprüngliches Layout bleiben nicht erhalten." },
-        pdf2ppt:      { title: "PDF zu PPT",           desc: "PDF-Seiten in bearbeitbare PowerPoint-Folien umwandeln." },
+        pdf2ppt:      { title: "PDF zu PPT",           desc: "Jede PDF-Seite wird als Bild in eine PowerPoint-Folie eingefügt. Das Aussehen bleibt erhalten, der Inhalt ist jedoch nicht bearbeitbar." },
         edit:         { title: "PDF bearbeiten",       desc: "Text, Zeichnungen und Bilder zum PDF hinzufügen." },
         redact:       { title: "PDF schwärzen",        desc: "Sensible Informationen dauerhaft aus PDF entfernen." },
         compare:      { title: "PDFs vergleichen",     desc: "Textunterschiede zwischen zwei PDF-Versionen finden." },
@@ -451,7 +457,7 @@ const uiI18n = {
         'sign-img-info':'İmza, belgenin ilk sayfasının sağ alt köşesine eklenecektir.',
         'jpg2pdf-orient-label':'Sayfa Yönü:',
         'watermark-text-label':'Filigran Metni:',
-        'watermark-warning-text':'* Lütfen Türkçe karakter (İ, ğ, ş, vs.) KULLANMAYIN.',
+        'watermark-warning-text':'* Tüm harfleri ve Türkçe karakterleri kullanabilirsiniz.',
         'rotate-dir-label':'Döndürme Yönü:','pagenum-pos-label':'Numara Konumu:',
         'organize-info-text':'Sayfaların yerini <strong>sürükleyerek</strong> değiştirin. Silmek istediğiniz sayfaların <strong>işaretini kaldırın</strong>.',
         'organize-loading-text':'Sayfalar oluşturuluyor, lütfen bekleyin...',
@@ -468,7 +474,7 @@ const uiI18n = {
         'split-select-all-text':'Hepsini Seç','split-deselect-all-text':'Hiçbirini Seçme',
         'word2pdf-info-text':'.docx dosyalarını destekler. Dosyanız otomatik olarak PDF\'e dönüştürülecektir.',
         'ppt2pdf-info-text':'Yalnızca slayt metinleri aktarılır; görseller ve özgün tasarım korunmaz.',
-        'pdf2ppt-info-text':'PDF\'in her sayfası ayrı bir PowerPoint slaydına dönüştürülecektir.',
+        'pdf2ppt-info-text':'Her PDF sayfası görünümünü koruyan bir slayt görseli olarak aktarılır; içerik düzenlenemez.',
         'crop-mode-label':'Kırpma Modu:','crop-manual-text':'Manuel (mm)','crop-visual-text':'Görsel Kırpma',
         'crop-manual-info':'Kesilecek kenar boşluklarını milimetre (mm) cinsinden girin. 0 = değişiklik yok.',
         'crop-visual-info':'Kırpmak istediğiniz alanı mouse ile sürükleyerek seçin.',
@@ -514,7 +520,7 @@ const uiI18n = {
         'sign-img-info':'The signature will be placed in the bottom-right corner of the first page.',
         'jpg2pdf-orient-label':'Page Orientation:',
         'watermark-text-label':'Watermark Text:',
-        'watermark-warning-text':'* Avoid special characters.',
+        'watermark-warning-text':'* All letters and special characters are supported.',
         'rotate-dir-label':'Rotation Direction:','pagenum-pos-label':'Number Position:',
         'organize-info-text':'<strong>Drag</strong> pages to reorder. <strong>Uncheck</strong> pages to delete.',
         'organize-loading-text':'Generating pages, please wait...',
@@ -531,7 +537,7 @@ const uiI18n = {
         'split-select-all-text':'Select All','split-deselect-all-text':'Deselect All',
         'word2pdf-info-text':'Supports .docx files only. Will be automatically converted to PDF.',
         'ppt2pdf-info-text':'Only slide text is extracted; images, layout, and original formatting are not preserved.',
-        'pdf2ppt-info-text':'Each PDF page will be converted to a separate PowerPoint slide.',
+        'pdf2ppt-info-text':'Each PDF page becomes a slide image. Its appearance is preserved, but the contents are not editable.',
         'crop-mode-label':'Crop Mode:','crop-manual-text':'Manual (mm)','crop-visual-text':'Visual Crop',
         'crop-manual-info':'Enter crop margins in millimeters (mm). 0 = no change.',
         'crop-visual-info':'Drag to select the area to keep.',
@@ -577,7 +583,7 @@ const uiI18n = {
         'sign-img-info':'署名は最初のページの右下に配置されます。',
         'jpg2pdf-orient-label':'ページの向き:',
         'watermark-text-label':'透かしテキスト:',
-        'watermark-warning-text':'* 特殊文字は避けてください。',
+        'watermark-warning-text':'* すべての文字を使用できます。',
         'rotate-dir-label':'回転方向:','pagenum-pos-label':'ページ番号の位置:',
         'organize-info-text':'ページを<strong>ドラッグ</strong>して並べ替え。削除は<strong>チェックを外す</strong>。',
         'organize-loading-text':'ページを生成中...','organize-select-all-btn':'すべて選択',
@@ -592,7 +598,7 @@ const uiI18n = {
         'split-loading-text':'ページを生成中...','split-select-all-text':'すべて選択','split-deselect-all-text':'すべて解除',
         'word2pdf-info-text':'.docxをサポート。自動的にPDFに変換されます。',
         'ppt2pdf-info-text':'スライドのテキストのみ抽出し、画像や元のレイアウトは保持されません。',
-        'pdf2ppt-info-text':'各PDFページが個別のPowerPointスライドに変換されます。',
+        'pdf2ppt-info-text':'各PDFページは見た目を保持したスライド画像として追加されます。内容は編集できません。',
         'crop-mode-label':'クロップモード:','crop-manual-text':'手動 (mm)','crop-visual-text':'ビジュアル',
         'crop-manual-info':'mm単位でマージンを入力。0 = 変更なし。',
         'crop-visual-info':'保持する領域をドラッグして選択。',
@@ -638,7 +644,7 @@ const uiI18n = {
         'sign-img-info':'हस्ताक्षर पहले पृष्ठ के दाएं नीचे रखा जाएगा।',
         'jpg2pdf-orient-label':'पृष्ठ अभिविन्यास:',
         'watermark-text-label':'वॉटरमार्क पाठ:',
-        'watermark-warning-text':'* विशेष वर्ण न उपयोग करें।',
+        'watermark-warning-text':'* सभी अक्षर और विशेष वर्ण समर्थित हैं।',
         'rotate-dir-label':'घुमाने की दिशा:','pagenum-pos-label':'नंबर स्थिति:',
         'organize-info-text':'पृष्ठ <strong>खींचकर</strong> पुनर्व्यवस्थित करें। हटाने के लिए <strong>अनचेक करें</strong>।',
         'organize-loading-text':'पृष्ठ बना रहे हैं...','organize-select-all-btn':'सभी चुनें',
@@ -653,7 +659,7 @@ const uiI18n = {
         'split-loading-text':'पृष्ठ बना रहे हैं...','split-select-all-text':'सभी चुनें','split-deselect-all-text':'सभी हटाएं',
         'word2pdf-info-text':'.docx फ़ाइलें समर्थित हैं। स्वचालित रूप से PDF में बदलेगा।',
         'ppt2pdf-info-text':'केवल स्लाइड का टेक्स्ट निकलेगा; चित्र और मूल लेआउट सुरक्षित नहीं रहेंगे।',
-        'pdf2ppt-info-text':'प्रत्येक PDF पृष्ठ अलग स्लाइड बनेगा।',
+        'pdf2ppt-info-text':'हर PDF पृष्ठ दिखावट बनाए रखते हुए स्लाइड छवि बनेगा; सामग्री संपादन योग्य नहीं होगी।',
         'crop-mode-label':'क्रॉप मोड:','crop-manual-text':'मैनुअल (mm)','crop-visual-text':'विज़ुअल',
         'crop-manual-info':'mm में मार्जिन दर्ज करें। 0 = कोई परिवर्तन नहीं।',
         'crop-visual-info':'रखने के लिए क्षेत्र खींचें।',
@@ -699,7 +705,7 @@ const uiI18n = {
         'sign-img-info':'Die Unterschrift wird unten rechts auf der ersten Seite platziert.',
         'jpg2pdf-orient-label':'Seitenausrichtung:',
         'watermark-text-label':'Wasserzeichentext:',
-        'watermark-warning-text':'* Keine Sonderzeichen verwenden.',
+        'watermark-warning-text':'* Alle Buchstaben und Sonderzeichen werden unterstützt.',
         'rotate-dir-label':'Drehrichtung:','pagenum-pos-label':'Nummerposition:',
         'organize-info-text':'Seiten durch <strong>Ziehen</strong> neu anordnen. <strong>Deaktivieren</strong> zum Löschen.',
         'organize-loading-text':'Seiten werden erstellt...','organize-select-all-btn':'Alle auswählen',
@@ -714,7 +720,7 @@ const uiI18n = {
         'split-loading-text':'Seiten werden erstellt...','split-select-all-text':'Alle auswählen','split-deselect-all-text':'Alle abwählen',
         'word2pdf-info-text':'.docx wird unterstützt. Automatisch in PDF konvertiert.',
         'ppt2pdf-info-text':'Nur Folientext wird extrahiert; Bilder und ursprüngliches Layout bleiben nicht erhalten.',
-        'pdf2ppt-info-text':'Jede PDF-Seite wird in eine eigene PowerPoint-Folie konvertiert.',
+        'pdf2ppt-info-text':'Jede PDF-Seite wird als Folienbild eingefügt. Das Aussehen bleibt erhalten, der Inhalt ist nicht bearbeitbar.',
         'crop-mode-label':'Zuschneidemodus:','crop-manual-text':'Manuell (mm)','crop-visual-text':'Visuell',
         'crop-manual-info':'Ränder in mm eingeben. 0 = keine Änderung.',
         'crop-visual-info':'Bereich durch Ziehen auswählen.',
@@ -787,31 +793,52 @@ function applyUiTranslations(lang) {
     // Feedback title
     const ft = document.getElementById('feedback-title');
     if (ft && u['_feedback_title']) ft.textContent = u['_feedback_title'];
+    updateToolControlTranslations();
 }
 
 // Dynamic SPA Routing and SEO Meta Tag Handler
 function handleRouting() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const toolParam = urlParams.get('tool');
     const hash = window.location.hash.replace('#', '');
-    if (hash && toolsMetadata[currentLang][hash]) {
-        showTool(hash);
+    const bodyTool = (typeof document !== 'undefined' && document.body) ? document.body.dataset.tool : null;
+    const pathMatch = (typeof window !== 'undefined' && window.location.pathname) ? window.location.pathname.match(/\/([a-zA-Z0-9_-]+)(?:\.html)?$/) : null;
+    const pathCandidate = (pathMatch && pathMatch[1] !== 'index' && pathMatch[1] !== 'privacy') ? pathMatch[1] : null;
+
+    const langMeta = (toolsMetadata && toolsMetadata[currentLang]) ? toolsMetadata[currentLang] : (toolsMetadata ? toolsMetadata.tr : {});
+    const targetTool = (hash && langMeta[hash]) ? hash
+        : (bodyTool && langMeta[bodyTool]) ? bodyTool
+        : (toolParam && langMeta[toolParam]) ? toolParam
+        : (pathCandidate && langMeta[pathCandidate]) ? pathCandidate
+        : null;
+
+    if (targetTool) {
+        showTool(targetTool);
     } else {
         goHome();
     }
 }
 
 function goHome() {
+    if (typeof window !== 'undefined' && window.location.pathname && !window.location.pathname.endsWith('index.html') && window.location.pathname !== '/' && window.location.pathname !== '') {
+        window.location.href = 'index.html';
+        return;
+    }
     if (window.location.hash !== '' && window.location.hash !== '#') {
         window.location.hash = '';
         return;
     }
     
-    viewTool.classList.remove('active', 'edit-active');
-    viewHome.classList.add('active');
+    if (viewTool) viewTool.classList.remove('active', 'edit-active');
+    if (viewHome) viewHome.classList.add('active');
     
     // Restore default Homepage SEO title & meta description
     document.title = "PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları";
-    document.querySelector('meta[name="description"]').setAttribute("content", 
-        "Tamamen tarayıcınızda çalışan, %100 gizli, ultra hızlı ve ücretsiz PDF birleştirme, ayırma, şifreleme, sıkıştırma ve dönüştürme araçları.");
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute("content", 
+            "Tamamen tarayıcınızda çalışan, %100 gizli, ultra hızlı ve ücretsiz PDF birleştirme, ayırma, şifreleme, sıkıştırma ve dönüştürme araçları.");
+    }
     
     // Stop camera if navigating away from scantopdf
     stopCamera();
@@ -819,7 +846,8 @@ function goHome() {
 }
 
 async function showTool(toolId) {
-    if (window.location.hash !== `#${toolId}`) {
+    const isStandalonePage = (typeof document !== 'undefined' && document.body && document.body.dataset.tool);
+    if (!isStandalonePage && window.location.hash !== `#${toolId}`) {
         window.location.hash = toolId;
         return;
     }
@@ -828,49 +856,65 @@ async function showTool(toolId) {
 
     if (toolId === 'sign') {
         autoOpenSigModal = true;
-        if (window.location.hash !== '#edit') { window.location.hash = 'edit'; return; }
+        if (!isStandalonePage && window.location.hash !== '#edit') { window.location.hash = 'edit'; return; }
         toolId = 'edit';
         currentTool = 'edit';
     }
 
     // Dynamic SEO Metadata Injector
-    const meta = toolsMetadata[currentLang][toolId];
-    document.title = `${meta.title} - Ücretsiz PDFsHub Aracı`;
-    document.querySelector('meta[name="description"]').setAttribute("content", meta.desc);
+    const langMeta = (toolsMetadata && toolsMetadata[currentLang]) ? toolsMetadata[currentLang] : (toolsMetadata ? toolsMetadata.tr : {});
+    const meta = langMeta[toolId];
+    if (meta) {
+        document.title = `${meta.title} - Ücretsiz PDFsHub Aracı`;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute("content", meta.desc);
+        if (toolTitle) toolTitle.textContent = meta.title;
+        if (toolDesc) toolDesc.textContent = meta.desc;
+    }
 
     // Show loading overlay, fetch and load dependencies dynamically (Zero homepage size!)
     await loadRequiredScripts(toolId);
 
-    toolTitle.textContent = meta.title;
-    toolDesc.textContent = meta.desc;
-
     // Reset specialized tool custom areas
-    document.getElementById('compare-result').style.display = 'none';
-    document.getElementById('compare-result').innerHTML = '';
+    const compRes = document.getElementById('compare-result');
+    if (compRes) { compRes.style.display = 'none'; compRes.innerHTML = ''; }
     scannedPages = [];
-    document.getElementById('scan-thumbnails').innerHTML = '';
+    const scanThumbs = document.getElementById('scan-thumbnails');
+    if (scanThumbs) scanThumbs.innerHTML = '';
     redactRegions = {};
-    document.getElementById('redact-pages-container').innerHTML = '';
+    const redactCont = document.getElementById('redact-pages-container');
+    if (redactCont) redactCont.innerHTML = '';
     editItems = [];
     const editList = document.getElementById('edit-items-list');
     if (editList) editList.innerHTML = '';
     
     // Setup allowed formats
-    if (toolId === 'jpg2pdf') fileInput.accept = "image/jpeg, image/png";
-    else if (toolId === 'word2pdf') fileInput.accept = ".docx";
-    else if (toolId === 'ppt2pdf') fileInput.accept = ".pptx";
-    else if (toolId === 'excel2pdf') fileInput.accept = ".xlsx, .xls";
-    else fileInput.accept = "application/pdf";
+    if (fileInput) {
+        if (toolId === 'jpg2pdf') fileInput.accept = "image/jpeg, image/png";
+        else if (toolId === 'word2pdf') fileInput.accept = ".docx";
+        else if (toolId === 'ppt2pdf') fileInput.accept = ".pptx";
+        else if (toolId === 'excel2pdf') fileInput.accept = ".xlsx, .xls";
+        else if (toolId === 'html2pdf') fileInput.accept = "application/pdf,.html,.htm,text/html";
+        else fileInput.accept = "application/pdf";
+    }
 
-    viewHome.classList.remove('active');
-    viewTool.classList.add('active');
-    viewTool.classList.toggle('edit-active', toolId === 'edit');
+    if (viewHome) viewHome.classList.remove('active');
+    if (viewTool) {
+        viewTool.classList.add('active');
+        viewTool.classList.toggle('edit-active', toolId === 'edit');
+    }
     resetToolState();
+    if (toolId === 'split') ensureSplitOutputMode();
+    if (toolId === 'crop') setupCropControls();
     
     // Specific Tool Activations
     if (toolId === 'scantopdf') {
-        dropZone.style.display = 'none';
-        fileListContainer.style.display = 'block';
+        if (dropZone) dropZone.style.display = 'none';
+        if (fileListContainer) fileListContainer.style.display = 'block';
+        setupToolOptionsVisibility();
+    } else if (toolId === 'html2pdf') {
+        if (dropZone) dropZone.style.display = 'block';
+        if (fileListContainer) fileListContainer.style.display = 'block';
         setupToolOptionsVisibility();
     }
 }
@@ -894,6 +938,25 @@ function resetToolState() {
     document.querySelectorAll('.options-panel').forEach(p => p.style.display = 'none');
     toolOptions.style.display = 'none';
     document.getElementById('organize-grid').innerHTML = '';
+    const splitGrid = document.getElementById('split-grid');
+    if (splitGrid) splitGrid.innerHTML = '';
+    const splitMode = document.getElementById('split-output-mode');
+    if (splitMode) splitMode.value = 'individual';
+    cropPdf = null;
+    cropRegions = {};
+    cropPageIndex = 0;
+    cropViewport = null;
+    cropBaseImage = null;
+    currentCropMode = 'manual';
+    cropSelectionActive = false;
+    cropDragStart = null;
+    cropDragCurrent = null;
+    const cropCanvas = document.getElementById('crop-canvas');
+    if (cropCanvas) {
+        cropCanvas.width = 0;
+        cropCanvas.height = 0;
+    }
+    if (currentTool === 'crop' && window.setCropMode) window.setCropMode('manual');
     fileListContainer.classList.remove('edit-mode');
     viewTool.classList.remove('edit-active');
 }
@@ -930,12 +993,18 @@ async function extractTextViaOcr(pdf, statusCallback) {
             
             const { data } = await worker.recognize(canvas);
             const rows = [];
-            data.words.forEach(word => {
+            const words = Array.isArray(data.words) ? data.words : String(data.text || '')
+                .split(/\r?\n/)
+                .flatMap((line, lineIndex) => line.trim().split(/\s+/).filter(Boolean).map((text, wordIndex) => ({
+                    text,
+                    bbox: { x0: wordIndex * 90, y0: lineIndex * 28, x1: wordIndex * 90 + 80, y1: lineIndex * 28 + 22 }
+                })));
+            words.forEach(word => {
                 if (!word.text || word.text.trim() === '') return;
                 const y = word.bbox.y0;
                 const x = word.bbox.x0;
-                // Y tolerance of 15 units since OCR text lines might drift slightly
-                let row = rows.find(r => Math.abs(r.y - y) <= 15);
+                const lineHeight = Math.max(1, word.bbox.y1 - word.bbox.y0);
+                let row = rows.find(r => Math.abs(r.y - y) <= Math.max(8, lineHeight * 0.55));
                 if (!row) {
                     row = { y: y, items: [] };
                     rows.push(row);
@@ -1006,7 +1075,8 @@ async function handleFiles(files) {
         else if (currentTool === 'word2pdf') valid = name.endsWith('.docx');
         else if (currentTool === 'ppt2pdf') valid = name.endsWith('.pptx');
         else if (currentTool === 'excel2pdf') valid = name.endsWith('.xlsx') || name.endsWith('.xls');
-        else valid = type === 'application/pdf';
+        else if (currentTool === 'html2pdf') valid = type === 'application/pdf' || name.endsWith('.pdf') || name.endsWith('.html') || name.endsWith('.htm');
+        else valid = type === 'application/pdf' || name.endsWith('.pdf');
         
         if (valid) selectedFiles.push(file);
         else alert(currentLang === 'tr' ? `Geçersiz format: ${file.name}` : `Invalid format: ${file.name}`);
@@ -1016,6 +1086,12 @@ async function handleFiles(files) {
         fileListContainer.style.display = 'block';
         setupToolOptionsVisibility();
         updateFileListUI();
+        try {
+            if (currentTool === 'split') await loadSplitGrid();
+            if (currentTool === 'crop') await loadCropPreview();
+        } catch (error) {
+            alert(error.message);
+        }
         if (currentTool === 'organizepages') await loadOrganizeGrid();
         if (currentTool === 'redact') await loadRedactPreview();
         if (currentTool === 'edit') await loadEditWorkspace();
@@ -1049,6 +1125,9 @@ function updateFileListUI() {
     const minFiles = ['merge', 'jpg2pdf', 'compare'].includes(currentTool) ? 2 : 1;
     if (currentTool === 'scantopdf') {
         actionBtn.disabled = scannedPages.length === 0;
+    } else if (currentTool === 'html2pdf') {
+        const htmlContent = document.getElementById('html-content');
+        actionBtn.disabled = selectedFiles.length === 0 && !(htmlContent && htmlContent.value.trim());
     } else {
         actionBtn.disabled = selectedFiles.length < minFiles;
     }
@@ -1096,14 +1175,297 @@ async function loadOrganizeGrid() {
             info.appendChild(num); info.appendChild(checkbox);
             thumb.appendChild(canvas); thumb.appendChild(info);
             
-            thumb.addEventListener('dragstart', function (e) { draggedThumb = this; e.dataTransfer.effectAllowed = 'move'; setTimeout(() => this.style.opacity = '0.5', 0); });
-            thumb.addEventListener('dragover', (e) => e.preventDefault());
-            thumb.addEventListener('drop', function (e) { e.stopPropagation(); if (draggedThumb !== this) { const thumbsArray = Array.from(grid.children); const fromIndex = thumbsArray.indexOf(draggedThumb); const toIndex = thumbsArray.indexOf(this); if (fromIndex < toIndex) this.parentNode.insertBefore(draggedThumb, this.nextSibling); else this.parentNode.insertBefore(draggedThumb, this); } draggedThumb.style.opacity = '1'; draggedThumb = null; return false; });
-            thumb.addEventListener('dragend', function () { this.style.opacity = '1'; });
+            thumb.addEventListener('dragstart', function (e) {
+                draggedThumb = this;
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/plain', this.dataset.originalIndex);
+                this.classList.add('dragging');
+            });
+            thumb.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                if (!draggedThumb || draggedThumb === this) return;
+                const rect = this.getBoundingClientRect();
+                const after = e.clientY > rect.top + rect.height / 2 ||
+                    (Math.abs(e.clientY - (rect.top + rect.height / 2)) < rect.height / 3 && e.clientX > rect.left + rect.width / 2);
+                grid.insertBefore(draggedThumb, after ? this.nextSibling : this);
+            });
+            thumb.addEventListener('drop', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+            thumb.addEventListener('dragend', function () {
+                this.classList.remove('dragging');
+                draggedThumb = null;
+            });
             grid.appendChild(thumb);
         }
     } catch (error) { console.error("Grid load error:", error); }
     finally { loading.style.display = 'none'; actionBtn.disabled = false; }
+}
+
+function ensureSplitOutputMode() {
+    const panel = document.getElementById('options-split');
+    if (!panel || document.getElementById('split-output-mode')) return;
+    const controls = document.createElement('div');
+    controls.className = 'split-output-controls';
+    controls.innerHTML = `
+        <label id="split-output-label" for="split-output-mode"></label>
+        <select id="split-output-mode">
+            <option id="split-mode-individual" value="individual"></option>
+            <option id="split-mode-combined" value="combined"></option>
+        </select>`;
+    panel.appendChild(controls);
+    updateToolControlTranslations();
+}
+
+async function loadSplitGrid() {
+    const grid = document.getElementById('split-grid');
+    const loading = document.getElementById('split-loading');
+    if (!grid || !loading) return;
+    grid.innerHTML = '';
+    loading.style.display = 'block';
+    actionBtn.disabled = true;
+    try {
+        const pdf = await pdfjsLib.getDocument({
+            data: new Uint8Array(await selectedFiles[0].arrayBuffer()),
+            disableWorker: true
+        }).promise;
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: 0.28 });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+
+            const tile = document.createElement('label');
+            tile.className = 'page-thumbnail';
+            tile.dataset.pageIndex = String(i - 1);
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = true;
+            checkbox.className = 'page-checkbox';
+            checkbox.setAttribute('aria-label', `${currentLang === 'tr' ? 'Sayfa' : 'Page'} ${i}`);
+            checkbox.addEventListener('change', () => tile.classList.toggle('unchecked', !checkbox.checked));
+
+            const info = document.createElement('div');
+            info.className = 'page-thumbnail-info';
+            const pageLabel = document.createElement('span');
+            pageLabel.textContent = `${currentLang === 'tr' ? 'Sayfa' : 'Page'} ${i}`;
+            info.append(pageLabel, checkbox);
+            tile.append(canvas, info);
+            grid.appendChild(tile);
+        }
+    } catch (error) {
+        throw new Error(currentLang === 'tr'
+            ? `PDF sayfalarının önizlemesi oluşturulamadı: ${error.message}`
+            : `Could not preview the PDF pages: ${error.message}`);
+    } finally {
+        loading.style.display = 'none';
+        actionBtn.disabled = false;
+    }
+}
+
+window.splitSelectAll = function (checked) {
+    document.querySelectorAll('#split-grid .page-checkbox').forEach(checkbox => {
+        checkbox.checked = checked;
+        checkbox.closest('.page-thumbnail').classList.toggle('unchecked', !checked);
+    });
+};
+
+function setupCropControls() {
+    const visualContainer = document.getElementById('crop-visual-container');
+    const canvasContainer = document.getElementById('crop-canvas-container');
+    if (!visualContainer || !canvasContainer || document.getElementById('crop-page-controls')) return;
+    canvasContainer.style.display = 'block';
+    const controls = document.createElement('div');
+    controls.id = 'crop-page-controls';
+    controls.className = 'crop-page-controls';
+    controls.innerHTML = `
+        <button type="button" class="btn-primary" id="crop-page-previous"></button>
+        <strong id="crop-page-status"></strong>
+        <button type="button" class="btn-primary" id="crop-page-next"></button>
+        <button type="button" class="btn-primary" id="crop-page-clear"></button>`;
+    visualContainer.appendChild(controls);
+    updateToolControlTranslations();
+    const canvas = document.getElementById('crop-canvas');
+    canvas.style.maxWidth = '100%';
+    canvas.style.height = 'auto';
+    canvas.addEventListener('pointerdown', startCropSelection);
+    canvas.addEventListener('pointermove', moveCropSelection);
+    canvas.addEventListener('pointerup', finishCropSelection);
+    canvas.addEventListener('pointercancel', finishCropSelection);
+    document.getElementById('crop-page-previous').addEventListener('click', () => changeCropPage(-1));
+    document.getElementById('crop-page-next').addEventListener('click', () => changeCropPage(1));
+    document.getElementById('crop-page-clear').addEventListener('click', clearCurrentCropSelection);
+}
+
+function updateToolControlTranslations() {
+    const dictionary = {
+        tr: ['Seçilen sayfaları nasıl ayırmak istiyorsunuz?', 'Her sayfayı ayrı PDF olarak indir (ZIP)', 'Seçilen sayfaları tek PDF olarak birleştir', 'Önceki Sayfa', 'Sonraki Sayfa', 'Seçimi Temizle'],
+        en: ['How should the selected pages be split?', 'Download each page as a separate PDF (ZIP)', 'Combine selected pages into one PDF', 'Previous page', 'Next page', 'Clear selection'],
+        ja: ['選択したページの分割方法', '各ページを個別のPDFでダウンロード (ZIP)', '選択したページを1つのPDFに結合', '前のページ', '次のページ', '選択をクリア'],
+        hi: ['चुने गए पृष्ठों को कैसे अलग करें?', 'हर पृष्ठ को अलग PDF के रूप में डाउनलोड करें (ZIP)', 'चुने गए पृष्ठों को एक PDF में मिलाएं', 'पिछला पृष्ठ', 'अगला पृष्ठ', 'चयन साफ़ करें'],
+        de: ['Wie sollen die ausgewählten Seiten getrennt werden?', 'Jede Seite als separate PDF herunterladen (ZIP)', 'Ausgewählte Seiten in einer PDF zusammenfassen', 'Vorherige Seite', 'Nächste Seite', 'Auswahl löschen']
+    };
+    const labels = dictionary[currentLang] || dictionary.en;
+    const ids = ['split-output-label', 'split-mode-individual', 'split-mode-combined', 'crop-page-previous', 'crop-page-next', 'crop-page-clear'];
+    ids.forEach((id, index) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = labels[index];
+    });
+}
+
+let cropDragStart = null;
+let cropDragCurrent = null;
+let cropSelectionActive = false;
+
+window.setCropMode = function (mode) {
+    const visual = mode === 'visual';
+    currentCropMode = visual ? 'visual' : 'manual';
+    const manual = document.getElementById('crop-manual-container');
+    const visualContainer = document.getElementById('crop-visual-container');
+    const manualButton = document.getElementById('crop-manual-btn');
+    const visualButton = document.getElementById('crop-visual-btn');
+    if (manual) manual.style.display = visual ? 'none' : 'block';
+    if (visualContainer) visualContainer.style.display = visual ? 'block' : 'none';
+    if (manualButton) manualButton.style.background = visual ? 'var(--secondary)' : 'var(--primary)';
+    if (visualButton) visualButton.style.background = visual ? 'var(--primary)' : 'var(--secondary)';
+};
+
+async function loadCropPreview() {
+    setupCropControls();
+    cropRegions = {};
+    cropPageIndex = 0;
+    actionBtn.disabled = true;
+    try {
+        cropPdf = await pdfjsLib.getDocument({
+            data: new Uint8Array(await selectedFiles[0].arrayBuffer()),
+            disableWorker: true
+        }).promise;
+        await renderCropPage();
+    } finally {
+        actionBtn.disabled = false;
+    }
+}
+
+async function renderCropPage() {
+    if (!cropPdf) return;
+    const canvas = document.getElementById('crop-canvas');
+    const context = canvas.getContext('2d');
+    const page = await cropPdf.getPage(cropPageIndex + 1);
+    const baseViewport = page.getViewport({ scale: 1 });
+    const scale = Math.min(1, 680 / baseViewport.width);
+    cropViewport = page.getViewport({ scale });
+    canvas.width = cropViewport.width;
+    canvas.height = cropViewport.height;
+    await page.render({ canvasContext: context, viewport: cropViewport }).promise;
+    cropBaseImage = context.getImageData(0, 0, canvas.width, canvas.height);
+    drawCropSelection();
+    const status = document.getElementById('crop-page-status');
+    status.textContent = `${currentLang === 'tr' ? 'Sayfa' : 'Page'} ${cropPageIndex + 1} / ${cropPdf.numPages}`;
+    document.getElementById('crop-page-previous').disabled = cropPageIndex === 0;
+    document.getElementById('crop-page-next').disabled = cropPageIndex === cropPdf.numPages - 1;
+    const coords = document.getElementById('crop-visual-coords');
+    const selection = cropRegions[cropPageIndex];
+    coords.textContent = selection
+        ? `${currentLang === 'tr' ? 'Kırpma alanı seçildi' : 'Crop area selected'}`
+        : `${currentLang === 'tr' ? 'Kırpılacak alanı sürükleyerek seçin' : 'Drag to select the area to keep'}`;
+}
+
+function changeCropPage(offset) {
+    if (!cropPdf) return;
+    cropPageIndex = Math.max(0, Math.min(cropPdf.numPages - 1, cropPageIndex + offset));
+    renderCropPage().catch(error => alert(error.message));
+}
+
+function cropCanvasPoint(event) {
+    const canvas = document.getElementById('crop-canvas');
+    const rect = canvas.getBoundingClientRect();
+    return {
+        x: Math.max(0, Math.min(canvas.width, (event.clientX - rect.left) * canvas.width / rect.width)),
+        y: Math.max(0, Math.min(canvas.height, (event.clientY - rect.top) * canvas.height / rect.height))
+    };
+}
+
+function startCropSelection(event) {
+    if (event.button !== 0 || !cropPdf) return;
+    event.preventDefault();
+    cropSelectionActive = true;
+    cropDragStart = cropCanvasPoint(event);
+    cropDragCurrent = cropDragStart;
+    event.currentTarget.setPointerCapture(event.pointerId);
+}
+
+function moveCropSelection(event) {
+    if (!cropSelectionActive) return;
+    cropDragCurrent = cropCanvasPoint(event);
+    drawCropSelection();
+}
+
+function finishCropSelection(event) {
+    if (!cropSelectionActive || !cropDragStart) return;
+    cropDragCurrent = cropCanvasPoint(event);
+    cropSelectionActive = false;
+    const x = Math.min(cropDragStart.x, cropDragCurrent.x);
+    const y = Math.min(cropDragStart.y, cropDragCurrent.y);
+    const width = Math.abs(cropDragCurrent.x - cropDragStart.x);
+    const height = Math.abs(cropDragCurrent.y - cropDragStart.y);
+    if (width >= 5 && height >= 5) {
+        const p1 = cropViewport.convertToPdfPoint
+            ? cropViewport.convertToPdfPoint(x, y)
+            : [x / cropViewport.scale, cropViewport.height / cropViewport.scale - y / cropViewport.scale];
+        const p2 = cropViewport.convertToPdfPoint
+            ? cropViewport.convertToPdfPoint(x + width, y + height)
+            : [(x + width) / cropViewport.scale, cropViewport.height / cropViewport.scale - (y + height) / cropViewport.scale];
+        cropRegions[cropPageIndex] = {
+            x: Math.min(p1[0], p2[0]),
+            y: Math.min(p1[1], p2[1]),
+            width: Math.abs(p2[0] - p1[0]),
+            height: Math.abs(p2[1] - p1[1])
+        };
+    }
+    cropDragStart = null;
+    cropDragCurrent = null;
+    drawCropSelection();
+    const coords = document.getElementById('crop-visual-coords');
+    if (coords) coords.textContent = currentLang === 'tr' ? 'Kırpma alanı seçildi' : 'Crop area selected';
+}
+
+function drawCropSelection() {
+    const canvas = document.getElementById('crop-canvas');
+    if (!canvas || !cropBaseImage) return;
+    const context = canvas.getContext('2d');
+    context.putImageData(cropBaseImage, 0, 0);
+    let bounds = null;
+    if (cropSelectionActive && cropDragStart && cropDragCurrent) {
+        bounds = {
+            x: Math.min(cropDragStart.x, cropDragCurrent.x),
+            y: Math.min(cropDragStart.y, cropDragCurrent.y),
+            width: Math.abs(cropDragCurrent.x - cropDragStart.x),
+            height: Math.abs(cropDragCurrent.y - cropDragStart.y)
+        };
+    } else if (cropRegions[cropPageIndex] && cropViewport.convertToViewportPoint) {
+        const region = cropRegions[cropPageIndex];
+        const p1 = cropViewport.convertToViewportPoint(region.x, region.y + region.height);
+        const p2 = cropViewport.convertToViewportPoint(region.x + region.width, region.y);
+        bounds = { x: Math.min(p1[0], p2[0]), y: Math.min(p1[1], p2[1]), width: Math.abs(p2[0] - p1[0]), height: Math.abs(p2[1] - p1[1]) };
+    }
+    if (bounds) {
+        context.fillStyle = 'rgba(220, 38, 38, 0.12)';
+        context.strokeStyle = '#dc2626';
+        context.lineWidth = 2;
+        context.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
+        context.strokeRect(bounds.x, bounds.y, bounds.width, bounds.height);
+    }
+}
+
+function clearCurrentCropSelection() {
+    delete cropRegions[cropPageIndex];
+    drawCropSelection();
+    const coords = document.getElementById('crop-visual-coords');
+    if (coords) coords.textContent = currentLang === 'tr' ? 'Kırpılacak alanı sürükleyerek seçin' : 'Drag to select the area to keep';
 }
 
 window.selectAllOrganize = function (force) {
@@ -1128,6 +1490,9 @@ window.updateHtmlPreview = function() {
         }
     } else {
         container.style.display = 'none';
+    }
+    if (currentTool === 'html2pdf' && selectedFiles.length === 0) {
+        actionBtn.disabled = !content.trim();
     }
 };
 
@@ -1335,10 +1700,16 @@ window.submitFeedback = function(rating) {
 window.reuseCurrentTool = function() {
     resetToolState();
     dropZone.style.display = 'block';
+    if (currentTool === 'html2pdf') {
+        fileListContainer.style.display = 'block';
+        setupToolOptionsVisibility();
+    }
 };
 
 actionBtn.addEventListener('click', async () => {
-    if (selectedFiles.length === 0 && currentTool !== 'scantopdf') return;
+    const htmlContent = document.getElementById('html-content');
+    const canConvertHtmlWithoutFile = currentTool === 'html2pdf' && htmlContent && htmlContent.value.trim();
+    if (selectedFiles.length === 0 && currentTool !== 'scantopdf' && !canConvertHtmlWithoutFile) return;
     fileListContainer.style.display = 'none'; resultArea.style.display = 'flex'; loader.style.display = 'block'; resultContent.style.display = 'none';
     trackEvent(currentTool, 'start');
     try {
@@ -1383,13 +1754,29 @@ async function performMerge() {
 
 async function performSplit() {
     const { PDFDocument } = PDFLib;
-    const zip = new JSZip();
     const pdfDoc = await PDFDocument.load(await selectedFiles[0].arrayBuffer());
-    for (let i = 0; i < pdfDoc.getPageCount(); i++) {
+    const grid = document.getElementById('split-grid');
+    const selectedPages = Array.from(grid.children)
+        .filter(tile => tile.querySelector('.page-checkbox').checked)
+        .map(tile => parseInt(tile.dataset.pageIndex, 10));
+    if (selectedPages.length === 0) {
+        throw new Error(currentLang === 'tr' ? 'Ayırmak için en az bir sayfa seçin.' : 'Select at least one page to split.');
+    }
+
+    const outputMode = document.getElementById('split-output-mode')?.value || 'individual';
+    if (outputMode === 'combined') {
+        const outputPdf = await PDFDocument.create();
+        const pages = await outputPdf.copyPages(pdfDoc, selectedPages);
+        pages.forEach(page => outputPdf.addPage(page));
+        return { url: URL.createObjectURL(new Blob([await outputPdf.save()], { type: 'application/pdf' })), filename: 'secilen_sayfalar.pdf' };
+    }
+
+    const zip = new JSZip();
+    for (const pageIndex of selectedPages) {
         const newPdf = await PDFDocument.create();
-        const [page] = await newPdf.copyPages(pdfDoc, [i]);
+        const [page] = await newPdf.copyPages(pdfDoc, [pageIndex]);
         newPdf.addPage(page);
-        zip.file(`sayfa_${i + 1}.pdf`, await newPdf.save());
+        zip.file(`sayfa_${pageIndex + 1}.pdf`, await newPdf.save());
     }
     return { url: URL.createObjectURL(await zip.generateAsync({ type: "blob" })), filename: 'ayrilmis.zip' };
 }
@@ -1429,16 +1816,38 @@ async function performWord2Pdf() {
             ? 'Sadece .docx formatı desteklenir. Lütfen geçerli bir Word belgesi yükleyin.'
             : 'Only .docx files are supported. Please upload a valid Word document.');
     }
+    const container = document.getElementById('render-container');
+    const originalDisplay = container.style.display;
     try {
         const res = await mammoth.convertToHtml({ arrayBuffer: await selectedFiles[0].arrayBuffer() });
-        const container = document.getElementById('render-container'); container.innerHTML = res.value; container.style.display = 'block';
-        const blob = await html2pdf().set({ margin: 10, html2canvas: { scale: 2 } }).from(container).output('blob');
-        container.style.display = 'none'; container.innerHTML = '';
+        container.innerHTML = window.DOMPurify ? DOMPurify.sanitize(res.value) : res.value;
+        container.style.display = 'block';
+        container.style.position = 'fixed';
+        container.style.left = '0';
+        container.style.top = '0';
+        container.style.zIndex = '-1';
+        if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        const blob = await html2pdf().set({
+            margin: 10,
+            filename: 'word.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak: { mode: ['css', 'legacy'] }
+        }).from(container).output('blob');
+        if (!blob || blob.size === 0) throw new Error('The PDF renderer returned an empty document.');
         return { url: URL.createObjectURL(blob), filename: 'word.pdf' };
     } catch (err) {
         throw new Error(currentLang === 'tr'
-            ? 'Word dosyası işlenemedi. Lütfen geçerli bir .docx dosyası yükleyin.'
-            : 'Word file could not be processed. Please use a valid .docx file.');
+            ? `Word dosyası PDF'e dönüştürülemedi: ${err.message}`
+            : `Word document could not be converted to PDF: ${err.message}`);
+    } finally {
+        container.style.display = originalDisplay;
+        container.style.position = '';
+        container.style.left = '';
+        container.style.top = '';
+        container.style.zIndex = '';
+        container.innerHTML = '';
     }
 }
 
@@ -1520,55 +1929,56 @@ async function performPdf2Word() {
 
 async function performPdf2Excel() {
     const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(await selectedFiles[0].arrayBuffer()), disableWorker: true }).promise;
-    let data = [];
-    let totalItems = 0;
+    const pageRows = [];
     
     for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);
         const textContent = await page.getTextContent();
-        totalItems += textContent.items.length;
-        
         const rows = [];
         textContent.items.forEach(item => {
-            if (!item.str || item.str.trim() === '') return;
+            if (!item.str || item.str.trim() === '' || !item.transform) return;
             const y = item.transform[5];
             const x = item.transform[4];
-            let row = rows.find(r => Math.abs(r.y - y) <= 5);
+            const fontSize = Math.max(1, Math.abs(item.transform[3] || item.height || 10));
+            let row = rows.find(r => Math.abs(r.y - y) <= Math.max(3, fontSize * 0.45));
             if (!row) {
                 row = { y: y, items: [] };
                 rows.push(row);
             }
-            row.items.push({ x: x, str: item.str });
+            row.items.push({ x: x, str: item.str.trim() });
         });
         
         // Sort rows top-to-bottom (Y descending)
         rows.sort((a, b) => b.y - a.y);
-        
+        const outputRows = [];
         rows.forEach(row => {
             // Sort items left-to-right (X ascending)
             row.items.sort((a, b) => a.x - b.x);
             const rowValues = row.items.map(item => item.str);
             if (rowValues.length > 0) {
-                data.push(rowValues);
+                outputRows.push(rowValues);
+            }
+        });
+        pageRows.push(outputRows);
+    }
+    
+    if (pageRows.some(rows => rows.length === 0)) {
+        updateProcessingStatus(currentLang === 'tr' 
+            ? "Metin içermeyen sayfalar tespit edildi. Bu sayfalar OCR ile taranıyor..."
+            : "Pages without text were detected. Scanning those pages with OCR...");
+        
+        const ocrPages = await extractTextViaOcr(pdf, updateProcessingStatus);
+        pageRows.forEach((rows, pageIndex) => {
+            if (rows.length === 0) {
+                pageRows[pageIndex] = (ocrPages[pageIndex] || []).map(rowItems => rowItems.map(item => item.str));
             }
         });
     }
     
-    if (totalItems === 0 || data.length === 0) {
-        updateProcessingStatus(currentLang === 'tr' 
-            ? "Taranmış PDF tespit edildi. Metinler otomatik olarak OCR ile taranıyor, lütfen bekleyin..." 
-            : "Scanned PDF detected. Reading text automatically via OCR, please wait...");
-        
-        const ocrPages = await extractTextViaOcr(pdf, updateProcessingStatus);
-        
-        data = [];
-        ocrPages.forEach(pageRows => {
-            pageRows.forEach(rowItems => {
-                data.push(rowItems.map(item => item.str));
-            });
-        });
-    }
-    
+    const data = pageRows.flat();
+    if (data.length === 0) throw new Error(currentLang === 'tr'
+        ? 'PDF içinde Excel tablosuna aktarılabilecek metin bulunamadı.'
+        : 'No text could be extracted from this PDF.');
     const ws = XLSX.utils.aoa_to_sheet(data);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "PDF Verileri");
@@ -1596,9 +2006,36 @@ async function performProtect() {
 async function performUnlock() {
     const pass = document.getElementById('unlock-password').value; 
     if (!pass) throw new Error(currentLang === 'tr' ? "Şifreyi giriniz" : "Password required to unlock");
-    
-    const pdfDoc = await PDFLib.PDFDocument.load(await selectedFiles[0].arrayBuffer(), { password: pass });
-    return { url: URL.createObjectURL(new Blob([await pdfDoc.save()])), filename: 'sifresiz.pdf' };
+    try {
+        const pdf = await pdfjsLib.getDocument({
+            data: new Uint8Array(await selectedFiles[0].arrayBuffer()),
+            password: pass,
+            disableWorker: true
+        }).promise;
+        const output = await PDFLib.PDFDocument.create();
+        for (let i = 1; i <= pdf.numPages; i++) {
+            updateProcessingStatus(currentLang === 'tr'
+                ? `Sayfa ${i} / ${pdf.numPages} şifresiz kopyaya aktarılıyor...`
+                : `Copying page ${i} / ${pdf.numPages} to the unlocked PDF...`);
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: 2 });
+            const canvas = document.createElement('canvas');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+            const pngBytes = await (await fetch(canvas.toDataURL('image/png'))).arrayBuffer();
+            const image = await output.embedPng(pngBytes);
+            const baseViewport = page.getViewport({ scale: 1 });
+            const outputPage = output.addPage([baseViewport.width, baseViewport.height]);
+            outputPage.drawImage(image, { x: 0, y: 0, width: baseViewport.width, height: baseViewport.height });
+        }
+        return { url: URL.createObjectURL(new Blob([await output.save()], { type: 'application/pdf' })), filename: 'sifresiz.pdf' };
+    } catch (error) {
+        const passwordError = error.name === 'PasswordException' || /password/i.test(error.message);
+        throw new Error(passwordError
+            ? (currentLang === 'tr' ? 'PDF şifresi yanlış veya dosya parolası açılamıyor.' : 'The PDF password is incorrect or could not be accepted.')
+            : `${currentLang === 'tr' ? 'PDF şifresi çözülemedi' : 'Could not unlock the PDF'}: ${error.message}`);
+    }
 }
 
 async function performSign() {
@@ -1634,9 +2071,33 @@ async function performOrganizePages() {
 }
 
 async function performWatermark() {
-    const text = (document.getElementById('watermark-text').value || 'GIZLIDIR').replace(/[çğıiöşüÇĞİIÖŞÜ]/g, m => ({ 'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u', 'Ç': 'C', 'Ğ': 'G', 'İ': 'I', 'Ö': 'O', 'Ş': 'S', 'Ü': 'U' }[m] || m));
-    const pdfDoc = await PDFLib.PDFDocument.load(await selectedFiles[0].arrayBuffer()), font = await pdfDoc.embedFont(PDFLib.StandardFonts.CourierBold);
-    pdfDoc.getPages().forEach(page => { const { width, height } = page.getSize(); page.drawText(text, { x: width / 2 - text.length * 15, y: height / 2, size: 60, font, color: PDFLib.rgb(0.5, 0.5, 0.5), opacity: 0.3, rotate: PDFLib.degrees(45) }); });
+    const text = document.getElementById('watermark-text').value || 'GIZLIDIR';
+    const pdfDoc = await PDFLib.PDFDocument.load(await selectedFiles[0].arrayBuffer());
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    const fontSize = 72;
+    context.font = `700 ${fontSize}px Arial, sans-serif`;
+    const textWidth = Math.ceil(context.measureText(text).width);
+    canvas.width = textWidth + 32;
+    canvas.height = fontSize + 32;
+    context.font = `700 ${fontSize}px Arial, sans-serif`;
+    context.fillStyle = 'rgba(128, 128, 128, 0.3)';
+    context.textBaseline = 'middle';
+    context.fillText(text, 16, canvas.height / 2);
+    const pngBytes = await (await fetch(canvas.toDataURL('image/png'))).arrayBuffer();
+    const watermark = await pdfDoc.embedPng(pngBytes);
+    pdfDoc.getPages().forEach(page => {
+        const { width, height } = page.getSize();
+        const targetWidth = Math.min(width * 0.9, height * 1.1);
+        const targetHeight = targetWidth * watermark.height / watermark.width;
+        page.drawImage(watermark, {
+            x: (width - targetWidth) / 2,
+            y: (height - targetHeight) / 2,
+            width: targetWidth,
+            height: targetHeight,
+            rotate: PDFLib.degrees(45)
+        });
+    });
     return { url: URL.createObjectURL(new Blob([await pdfDoc.save()])), filename: 'filigranlı.pdf' };
 }
 
@@ -1709,7 +2170,13 @@ async function performCompress() {
 }
 
 async function performHtml2Pdf() {
-    const content = document.getElementById('html-content').value;
+    const file = selectedFiles[0];
+    if (file && (file.type === 'application/pdf' || /\.pdf$/i.test(file.name))) {
+        return { url: URL.createObjectURL(new Blob([await file.arrayBuffer()], { type: 'application/pdf' })), filename: file.name.replace(/\.pdf$/i, '') + '_pdf.pdf' };
+    }
+    const content = file && /\.(html?|xhtml)$/i.test(file.name)
+        ? await file.text()
+        : document.getElementById('html-content').value;
     if (!content) throw new Error(currentLang === 'tr' ? "İçerik veya URL giriniz" : "Provide content or link");
 
     const container = document.getElementById('render-container');
@@ -1721,36 +2188,60 @@ async function performHtml2Pdf() {
     }
 
     container.style.display = 'block';
-    const blob = await html2pdf().set({ margin: 10 }).from(container).output('blob');
-    container.style.display = 'none'; container.innerHTML = '';
-    return { url: URL.createObjectURL(blob), filename: 'web_sayfasi.pdf' };
+    try {
+        if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        const blob = await html2pdf().set({
+            margin: 10,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak: { mode: ['css', 'legacy'] }
+        }).from(container).output('blob');
+        if (!blob || blob.size === 0) throw new Error('The PDF renderer returned an empty document.');
+        return { url: URL.createObjectURL(blob), filename: 'web_sayfasi.pdf' };
+    } finally {
+        container.style.display = 'none';
+        container.innerHTML = '';
+    }
 }
 
 async function performCrop() {
-    const mmToPoints = 2.83465; // 1mm = 2.83465 PDF points
-    const topMm = parseFloat(document.getElementById('crop-top').value) || 0;
-    const bottomMm = parseFloat(document.getElementById('crop-bottom').value) || 0;
-    const leftMm = parseFloat(document.getElementById('crop-left').value) || 0;
-    const rightMm = parseFloat(document.getElementById('crop-right').value) || 0;
-    
-    if (topMm === 0 && bottomMm === 0 && leftMm === 0 && rightMm === 0) {
-        throw new Error(currentLang === 'tr' ? 'En az bir kenardan kırpma değeri girin.' : 'Enter at least one crop margin.');
-    }
-    
-    const top = topMm * mmToPoints;
-    const bottom = bottomMm * mmToPoints;
-    const left = leftMm * mmToPoints;
-    const right = rightMm * mmToPoints;
-    
     const pdfDoc = await PDFLib.PDFDocument.load(await selectedFiles[0].arrayBuffer());
-    pdfDoc.getPages().forEach(page => {
-        const { width, height } = page.getSize();
-        const newW = width - left - right;
-        const newH = height - top - bottom;
-        if (newW <= 0 || newH <= 0) return; // skip if margins too large
-        page.setCropBox(left, bottom, newW, newH);
-        page.setTrimBox(left, bottom, newW, newH);
-    });
+    const pages = pdfDoc.getPages();
+    if (currentCropMode === 'visual') {
+        const selectedCount = Object.keys(cropRegions).length;
+        if (selectedCount === 0) throw new Error(currentLang === 'tr'
+            ? 'Kırpmak istediğiniz her sayfada alan seçin.'
+            : 'Select a crop area on at least one page.');
+        pages.forEach((page, index) => {
+            const region = cropRegions[index];
+            if (!region) return;
+            if (region.width <= 0 || region.height <= 0) {
+                throw new Error(`${currentLang === 'tr' ? 'Sayfa' : 'Page'} ${index + 1}: ${currentLang === 'tr' ? 'geçersiz kırpma alanı.' : 'invalid crop area.'}`);
+            }
+            page.setCropBox(region.x, region.y, region.width, region.height);
+            page.setTrimBox(region.x, region.y, region.width, region.height);
+        });
+    } else {
+        const mmToPoints = 2.83465;
+        const top = (parseFloat(document.getElementById('crop-top').value) || 0) * mmToPoints;
+        const bottom = (parseFloat(document.getElementById('crop-bottom').value) || 0) * mmToPoints;
+        const left = (parseFloat(document.getElementById('crop-left').value) || 0) * mmToPoints;
+        const right = (parseFloat(document.getElementById('crop-right').value) || 0) * mmToPoints;
+        if (top === 0 && bottom === 0 && left === 0 && right === 0) {
+            throw new Error(currentLang === 'tr' ? 'En az bir kenardan kırpma değeri girin.' : 'Enter at least one crop margin.');
+        }
+        pages.forEach((page, index) => {
+            const { width, height } = page.getSize();
+            const newW = width - left - right;
+            const newH = height - top - bottom;
+            if (newW <= 0 || newH <= 0) {
+                throw new Error(`${currentLang === 'tr' ? 'Sayfa' : 'Page'} ${index + 1}: ${currentLang === 'tr' ? 'kenar boşlukları sayfadan büyük.' : 'crop margins exceed the page size.'}`);
+            }
+            page.setCropBox(left, bottom, newW, newH);
+            page.setTrimBox(left, bottom, newW, newH);
+        });
+    }
     return { url: URL.createObjectURL(new Blob([await pdfDoc.save()])), filename: 'kirpilmis.pdf' };
 }
 
@@ -1805,31 +2296,69 @@ async function performRepair() {
 async function performOcr() {
     const lang = document.getElementById('ocr-lang').value;
     const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(await selectedFiles[0].arrayBuffer()) }).promise;
-    let extractedText = "";
-    
-    // Tesseract.js v5: create a worker with the desired language
+    const output = await PDFLib.PDFDocument.create();
     const worker = await Tesseract.createWorker(lang);
-    
     try {
+        const fontResponse = await fetch('https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf');
+        if (fontResponse.ok === false) throw new Error(`Could not load the Unicode font (${fontResponse.status}).`);
+        const fontBytes = new Uint8Array(await fontResponse.arrayBuffer());
+        if (!window.fontkit) throw new Error('The Unicode PDF font module could not be loaded.');
+        output.registerFontkit(window.fontkit);
+        const font = await output.embedFont(fontBytes, { subset: true });
+
         for (let i = 1; i <= pdf.numPages; i++) {
             updateProcessingStatus(currentLang === 'tr'
                 ? `Sayfa ${i} / ${pdf.numPages} OCR ile taranıyor...`
                 : `Scanning page ${i} / ${pdf.numPages} with OCR...`);
             const page = await pdf.getPage(i);
-            const viewport = page.getViewport({ scale: 2.0 });
+            const baseViewport = page.getViewport({ scale: 1 });
+            const viewport = page.getViewport({ scale: 2 });
             const canvas = document.createElement('canvas');
             canvas.width = viewport.width; canvas.height = viewport.height;
             await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-            const { data: { text } } = await worker.recognize(canvas);
-            extractedText += `--- Sayfa ${i} ---\n` + text + "\n\n";
+            const { data } = await worker.recognize(canvas);
+            const pngBytes = await (await fetch(canvas.toDataURL('image/png'))).arrayBuffer();
+            const image = await output.embedPng(pngBytes);
+            const outputPage = output.addPage([baseViewport.width, baseViewport.height]);
+            outputPage.drawImage(image, { x: 0, y: 0, width: baseViewport.width, height: baseViewport.height });
+
+            const words = Array.isArray(data.words) ? data.words : [];
+            for (const word of words) {
+                const text = String(word.text || '').trim();
+                if (!text) continue;
+                const xScale = baseViewport.width / viewport.width;
+                const yScale = baseViewport.height / viewport.height;
+                const x = word.bbox.x0 * xScale;
+                const y = baseViewport.height - word.bbox.y1 * yScale;
+                const size = Math.max(4, Math.min(36, (word.bbox.y1 - word.bbox.y0) * yScale * 0.85));
+                outputPage.drawText(text, {
+                    x,
+                    y,
+                    size,
+                    font,
+                    color: PDFLib.rgb(0, 0, 0),
+                    opacity: 0.005
+                });
+            }
         }
     } finally {
         await worker.terminate();
     }
-    return { url: URL.createObjectURL(new Blob([extractedText])), filename: 'ocr_sonucu.txt' };
+    return { url: URL.createObjectURL(new Blob([await output.save()], { type: 'application/pdf' })), filename: 'ocr_aranabilir.pdf' };
 }
 
-// FIXED: Client-Side XML Slides Parsing PPTX-to-PDF Conversion! Fully client-side!
+function safeStandardFontText(text, font) {
+    return Array.from(text).map(character => {
+        try {
+            font.encodeText(character);
+            return character;
+        } catch (error) {
+            return '?';
+        }
+    }).join('');
+}
+
+// Converts extracted slide text into a readable PDF in the browser.
 async function performPpt2Pdf() {
     const file = selectedFiles[0];
     const zip = await JSZip.loadAsync(file);
@@ -1880,12 +2409,10 @@ async function performPpt2Pdf() {
         
         // Draw elegant brand headers
         page.drawText(`Slide ${i + 1} / ${slideFiles.length}`, { x: 50, y: 35, size: 10, font, color: rgb(0.5, 0.5, 0.5) });
-        page.drawText("PDFsHub.com - PPT to PDF Converter", { x: 600, y: 35, size: 10, font, color: rgb(0.4, 0.5, 0.8) });
-        
+
         let yOffset = 500;
         if (lines.length > 0) {
-            // Draw title text
-            page.drawText(lines[0].substring(0, 60), { x: 50, y: yOffset, size: 24, font, color: rgb(0.1, 0.2, 0.5) });
+            page.drawText(safeStandardFontText(lines[0].substring(0, 60), font), { x: 50, y: yOffset, size: 24, font, color: rgb(0.1, 0.2, 0.5) });
             
             // Draw visual divider
             page.drawLine({
@@ -1898,7 +2425,7 @@ async function performPpt2Pdf() {
             
             for (let j = 1; j < lines.length; j++) {
                 if (yOffset < 70) break;
-                page.drawText(`• ${lines[j].substring(0, 95)}`, { x: 70, y: yOffset, size: 14, font, color: rgb(0.2, 0.2, 0.2) });
+                page.drawText(`- ${safeStandardFontText(lines[j].substring(0, 95), font)}`, { x: 70, y: yOffset, size: 14, font, color: rgb(0.2, 0.2, 0.2) });
                 yOffset -= 25;
             }
         } else {
@@ -1910,15 +2437,36 @@ async function performPpt2Pdf() {
 }
 
 async function performPdf2Ppt() {
-    const pptx = new PptxGenJS();
+    const PptxConstructor = window.pptxgen || window.PptxGenJS;
+    if (typeof PptxConstructor !== 'function') {
+        throw new Error(currentLang === 'tr' ? 'PowerPoint dönüştürme modülü yüklenemedi.' : 'The PowerPoint conversion module could not be loaded.');
+    }
+    const pptx = new PptxConstructor();
+    pptx.layout = 'LAYOUT_WIDE';
     const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(await selectedFiles[0].arrayBuffer()) }).promise;
+    const slideWidth = 13.333;
+    const slideHeight = 7.5;
     for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i), viewport = page.getViewport({ scale: 1.5 }), canvas = document.createElement('canvas');
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 1.5 });
+        const canvas = document.createElement('canvas');
         canvas.width = viewport.width; canvas.height = viewport.height;
         await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-        pptx.addSlide().addImage({ data: canvas.toDataURL('image/png'), x: 0, y: 0, w: '100%', h: '100%' });
+        const scale = Math.min(slideWidth / viewport.width, slideHeight / viewport.height);
+        const width = viewport.width * scale;
+        const height = viewport.height * scale;
+        pptx.addSlide().addImage({
+            data: canvas.toDataURL('image/png'),
+            x: (slideWidth - width) / 2,
+            y: (slideHeight - height) / 2,
+            w: width,
+            h: height
+        });
     }
-    const blob = await pptx.writeFile({ outputType: 'blob' });
+    const blob = await pptx.write({ outputType: 'blob' });
+    if (!(blob instanceof Blob) || blob.size === 0) {
+        throw new Error(currentLang === 'tr' ? 'PowerPoint dosyası oluşturulamadı.' : 'The PowerPoint file could not be created.');
+    }
     return { url: URL.createObjectURL(blob), filename: 'sunum.pptx' };
 }
 
@@ -3456,6 +4004,7 @@ function setupRedactDrawing(container, pageIndex) {
     
     container.addEventListener('mousedown', (e) => {
         if (e.button !== 0) return;
+        if (e.target.closest('.redact-region')) return;
         const rect = container.getBoundingClientRect();
         startX = e.clientX - rect.left;
         startY = e.clientY - rect.top;
@@ -3504,8 +4053,8 @@ function setupRedactDrawing(container, pageIndex) {
         
         if (w < 5 || h < 5) return; // Too small, ignore
         
-        const regionIdx = redactRegions[pageIndex].length;
-        redactRegions[pageIndex].push({ x, y, w, h });
+        const region = { x, y, w, h };
+        redactRegions[pageIndex].push(region);
         
         // Create visual region marker
         const regionDiv = document.createElement('div');
@@ -3514,13 +4063,42 @@ function setupRedactDrawing(container, pageIndex) {
         regionDiv.style.top = y + 'px';
         regionDiv.style.width = w + 'px';
         regionDiv.style.height = h + 'px';
+        regionDiv.style.cursor = 'move';
+        regionDiv.style.touchAction = 'none';
+
+        let dragStart = null;
+        regionDiv.addEventListener('pointerdown', (ev) => {
+            if (ev.target.closest('.redact-region-delete')) return;
+            ev.preventDefault();
+            ev.stopPropagation();
+            dragStart = {
+                pointerX: ev.clientX,
+                pointerY: ev.clientY,
+                x: region.x,
+                y: region.y
+            };
+            regionDiv.setPointerCapture(ev.pointerId);
+        });
+        regionDiv.addEventListener('pointermove', (ev) => {
+            if (!dragStart) return;
+            const maxX = Math.max(0, container.clientWidth - region.w);
+            const maxY = Math.max(0, container.clientHeight - region.h);
+            region.x = Math.max(0, Math.min(maxX, dragStart.x + ev.clientX - dragStart.pointerX));
+            region.y = Math.max(0, Math.min(maxY, dragStart.y + ev.clientY - dragStart.pointerY));
+            regionDiv.style.left = `${region.x}px`;
+            regionDiv.style.top = `${region.y}px`;
+        });
+        const stopRegionDrag = () => { dragStart = null; };
+        regionDiv.addEventListener('pointerup', stopRegionDrag);
+        regionDiv.addEventListener('pointercancel', stopRegionDrag);
         
         const delBtn = document.createElement('button');
         delBtn.className = 'redact-region-delete';
         delBtn.innerHTML = '&times;';
         delBtn.onclick = (ev) => {
             ev.stopPropagation();
-            redactRegions[pageIndex].splice(regionIdx, 1);
+            const regionIndex = redactRegions[pageIndex].indexOf(region);
+            if (regionIndex !== -1) redactRegions[pageIndex].splice(regionIndex, 1);
             regionDiv.remove();
         };
         regionDiv.appendChild(delBtn);
@@ -3811,6 +4389,14 @@ window.addEventListener('hashchange', handleRouting);
 
 async function detectAndSetLanguage() {
     try {
+        if (typeof window !== 'undefined' && window.location.search) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const langParam = urlParams.get('lang');
+            if (langParam && ['tr', 'en', 'ja', 'hi', 'de'].includes(langParam)) {
+                setLanguage(langParam);
+                return;
+            }
+        }
         const storedLang = localStorage.getItem('pdfshub_lang');
         if (storedLang && ['tr', 'en', 'ja', 'hi', 'de'].includes(storedLang)) {
             setLanguage(storedLang);

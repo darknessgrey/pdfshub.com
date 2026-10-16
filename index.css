@@ -266,6 +266,8 @@ body.editing-mode .navbar {
     text-align: center;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
 }
 
 .tool-card::before {
@@ -1810,4 +1812,53 @@ body.editing-mode .navbar {
         width: 100%;
         justify-content: flex-end;
     }
+}
+
+.split-output-controls {
+    display: grid;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+}
+
+.split-output-controls label {
+    font-weight: 600;
+}
+
+.split-output-controls select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text-main);
+}
+
+.crop-page-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.crop-page-controls button {
+    padding: 8px 12px;
+}
+
+#crop-canvas {
+    touch-action: none;
+}
+
+.page-thumbnail.dragging {
+    opacity: 0.45;
+    transform: scale(0.97);
+}
+
+.redact-region {
+    touch-action: none;
 }
