@@ -90,3 +90,6 @@
 .acc-link { font-size: 0.9rem; font-weight: 600; color: var(--text-main); text-decoration: none; padding: 0 0.4rem; }
 .acc-link:hover { color: var(--primary); }
 @media (max-width: 640px) { .acc-link { display: none; } }
+
+.nav-links a, .acc-link, .acc-btn { white-space: nowrap; }
+@media (max-width: 1180px) { .acc-link { display: none; } }

@@ -393,11 +393,6 @@ for (const toolId of Object.keys(toolsData)) {
     const cardPattern = new RegExp(`<div class="tool-card" onclick="showTool\\('${toolId}'\\)">`, 'g');
     updatedIndex = updatedIndex.replace(cardPattern, `<a href="${toolId}.html" class="tool-card" onclick="event.preventDefault(); showTool('${toolId}')">`);
 }
-// Replace closing </div> of tool cards with </a> inside .tools-grid
-// We can do this cleanly by replacing each card structure or just matching tool-card closing tags
-updatedIndex = updatedIndex.replace(/<a href="([^"]+)\.html" class="tool-card" onclick="event\.preventDefault\(\); showTool\('([^']+)'\)">([\s\S]*?)<\/div>\s*(\n\s*(?:<div class="tool-card"|<a href=|<\/div>))/g, (m, href, tId, inner, next) => {
-    return `<a href="${href}.html" class="tool-card" onclick="event.preventDefault(); showTool('${tId}')">${inner}</a>\n                ${next.trim()}`;
-});
 fs.writeFileSync(path.join(__dirname, 'index.html'), updatedIndex, 'utf8');
 console.log("index.html updated with SEO crawlable internal links!");
 
