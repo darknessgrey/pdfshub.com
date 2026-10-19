@@ -1,3 +1,4 @@
 node_modules/
 app_temp.js
-hostinger_icin.zip
+api/config.php
+.claude/

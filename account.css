@@ -1,0 +1,92 @@
+.account-nav { display: flex; align-items: center; gap: 0.5rem; position: relative; }
+.acc-btn { font: inherit; font-size: 0.9rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: var(--radius-sm); border: 1px solid transparent; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+.acc-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.acc-btn-primary { background: var(--primary); color: #fff; }
+.acc-btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+.acc-btn-ghost { background: transparent; color: var(--text-main); border-color: var(--border); }
+.acc-btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+.acc-btn-block { width: 100%; padding: 0.75rem 1rem; }
+.acc-avatar { width: 36px; height: 36px; border-radius: 50%; border: none; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; font-weight: 700; cursor: pointer; }
+.acc-menu { position: absolute; right: 0; top: 44px; min-width: 220px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); padding: 0.4rem; z-index: 10001; display: flex; flex-direction: column; }
+.acc-menu[hidden] { display: none; }
+.acc-menu-head { padding: 0.6rem 0.7rem; border-bottom: 1px solid var(--border); margin-bottom: 0.3rem; display: flex; flex-direction: column; font-size: 0.85rem; }
+.acc-menu-head span { color: var(--text-muted); word-break: break-all; }
+.acc-menu a, .acc-menu button { text-align: left; padding: 0.55rem 0.7rem; border: none; background: none; border-radius: 6px; font: inherit; font-size: 0.9rem; color: var(--text-main); cursor: pointer; text-decoration: none; }
+.acc-menu a:hover, .acc-menu button:hover { background: var(--primary-light); }
+
+.acc-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); display: flex; align-items: center; justify-content: center; z-index: 10050; padding: 1rem; }
+.acc-card { position: relative; background: var(--surface); border-radius: var(--radius-md); padding: 2rem; width: 400px; max-width: 100%; max-height: 95vh; overflow-y: auto; box-shadow: var(--shadow-lg); }
+.acc-card h3 { font-size: 1.3rem; margin-bottom: 1.2rem; text-align: center; }
+.acc-close { position: absolute; top: 0.6rem; right: 0.9rem; background: none; border: none; font-size: 1.6rem; color: var(--text-muted); cursor: pointer; }
+.acc-google { display: flex; justify-content: center; min-height: 44px; }
+.acc-sep { display: flex; align-items: center; gap: 0.8rem; margin: 1rem 0; color: var(--text-muted); font-size: 0.85rem; }
+.acc-sep::before, .acc-sep::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.acc-form { display: flex; flex-direction: column; gap: 0.9rem; }
+.acc-field { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.85rem; font-weight: 600; }
+.acc-field input { padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: var(--radius-sm); font: inherit; font-weight: 400; }
+.acc-field input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+.acc-field small { font-weight: 400; color: var(--text-muted); }
+.acc-error { color: var(--danger); font-size: 0.85rem; min-height: 1.1em; }
+.acc-muted { color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+.acc-switch { margin-top: 1rem; text-align: center; font-size: 0.88rem; color: var(--text-muted); }
+.acc-switch a { color: var(--primary); font-weight: 600; text-decoration: none; }
+
+@media (max-width: 640px) {
+    .account-nav .acc-btn-ghost { display: none; }
+}
+
+/* Workflows page */
+.wf-main { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem 3rem; flex: 1; }
+.wf-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.wf-grid[hidden], .wf-login[hidden] { display: none; }
+.wf-side { display: flex; flex-direction: column; gap: 1.5rem; }
+.wf-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 0.9rem; }
+.wf-card h2 { font-size: 1.15rem; }
+.wf-card h3 { font-size: 0.95rem; color: var(--text-muted); }
+.wf-login { max-width: 460px; margin: 0 auto; align-items: center; text-align: center; }
+.wf-login-icon { font-size: 2.2rem; color: var(--primary); }
+.wf-login p { color: var(--text-muted); }
+.wf-login-actions { display: flex; gap: 0.6rem; }
+.wf-opt { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.85rem; font-weight: 600; }
+.wf-opt input, .wf-opt select, .wf-add { padding: 0.6rem 0.75rem; border: 1px solid var(--border); border-radius: var(--radius-sm); font: inherit; font-weight: 400; background: var(--surface); }
+.wf-opt input:focus, .wf-opt select:focus, .wf-add:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+.wf-steps { display: flex; flex-direction: column; gap: 0.7rem; }
+.wf-step { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg-color); padding: 0.7rem 0.8rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.wf-step-head { display: flex; align-items: center; gap: 0.7rem; }
+.wf-step-head > i { color: var(--primary); width: 1.2rem; text-align: center; }
+.wf-step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.wf-step-name { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.wf-step-name small { color: var(--text-muted); }
+.wf-step-actions { display: flex; gap: 0.25rem; }
+.wf-step-actions button { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); cursor: pointer; color: var(--text-muted); }
+.wf-step-actions button:hover:not(:disabled) { color: var(--primary); border-color: var(--primary); }
+.wf-step-actions button:disabled { opacity: 0.35; cursor: default; }
+.wf-step-opts { display: flex; flex-direction: column; gap: 0.6rem; }
+.wf-note, .wf-empty { color: var(--text-muted); font-size: 0.82rem; }
+.wf-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.wf-message { font-size: 0.88rem; min-height: 1.1em; color: var(--text-muted); }
+.wf-message.ok { color: var(--success); }
+.wf-message.error { color: var(--danger); }
+.wf-drop { border: 2px dashed var(--border); border-radius: var(--radius-md); padding: 1.4rem; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--text-muted); transition: all 0.2s; }
+.wf-drop i { font-size: 1.6rem; color: var(--primary); }
+.wf-drop:hover, .wf-drop.drag { border-color: var(--primary); background: var(--primary-light); }
+.wf-files { font-size: 0.82rem; color: var(--text-muted); word-break: break-word; }
+.wf-pass { display: flex; flex-direction: column; gap: 0.6rem; }
+.wf-pass:empty { display: none; }
+.wf-download { text-align: center; text-decoration: none; }
+.wf-download[hidden] { display: none; }
+.wf-saved-item { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.7rem 0.8rem; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 0.6rem; }
+.wf-saved-item.active { border-color: var(--primary); background: var(--primary-light); }
+.wf-saved-info { display: flex; flex-direction: column; min-width: 0; }
+.wf-saved-info small { color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wf-saved-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+.wf-mini { font: inherit; font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; }
+.wf-mini-primary:hover { color: var(--primary); border-color: var(--primary); }
+.wf-mini-danger:hover { color: var(--danger); border-color: var(--danger); }
+
+@media (max-width: 900px) {
+    .wf-grid { grid-template-columns: minmax(0, 1fr); }
+}
+.acc-link { font-size: 0.9rem; font-weight: 600; color: var(--text-main); text-decoration: none; padding: 0 0.4rem; }
+.acc-link:hover { color: var(--primary); }
+@media (max-width: 640px) { .acc-link { display: none; } }
