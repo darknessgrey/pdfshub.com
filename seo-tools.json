@@ -1,0 +1,552 @@
+{
+  "tr": {
+    "merge": {
+      "title": "PDF Birleştir",
+      "desc": "PDF dosyalarınızı sıralayın ve tarayıcınızda tek tıkla birleştirin."
+    },
+    "split": {
+      "title": "PDF Ayır",
+      "desc": "PDF sayfalarını istediğiniz aralıklardan ayırıp ZIP olarak indirin."
+    },
+    "organizepages": {
+      "title": "Sayfaları Düzenle/Sil",
+      "desc": "PDF sayfalarının yerini sürükleyerek değiştirin ve istemediklerinizi tek tuşla silin."
+    },
+    "jpg2pdf": {
+      "title": "JPG'den PDF'e",
+      "desc": "Resimlerinizi (JPG, PNG) yüksek çözünürlüklü PDF belgesine dönüştürün."
+    },
+    "pdf2jpg": {
+      "title": "PDF'ten JPG'e",
+      "desc": "PDF sayfalarını yüksek kaliteli JPG resimleri olarak dışa aktarın."
+    },
+    "word2pdf": {
+      "title": "Word'den PDF'e",
+      "desc": "Word belgenizi (.docx) tarayıcınızda anında PDF formatında kaydedin."
+    },
+    "excel2pdf": {
+      "title": "Excel'den PDF'e",
+      "desc": "Excel (.xlsx) tablolarınızı okunabilir temiz bir PDF'e dönüştürün."
+    },
+    "pdf2word": {
+      "title": "PDF'ten Word'e",
+      "desc": "PDF'in içindeki metinleri okuyarak (.doc) formatına dönüştürün."
+    },
+    "pdf2excel": {
+      "title": "PDF'ten Excel'e",
+      "desc": "PDF tablolarınızı otomatik olarak XLSX Excel tablosuna dönüştürün."
+    },
+    "pagenumbers": {
+      "title": "Sayfa Numarası Ekle",
+      "desc": "PDF sayfalarınızın köşelerine veya ortasına sayfa numarası yerleştirin."
+    },
+    "watermark": {
+      "title": "Filigran Ekle",
+      "desc": "Her sayfaya şeffaf koruma/mühür yazısı ekleyin."
+    },
+    "rotate": {
+      "title": "PDF Döndür",
+      "desc": "Ters veya yan dönmüş PDF sayfalarınızı istediğiniz yöne döndürün."
+    },
+    "protect": {
+      "title": "PDF Şifrele",
+      "desc": "PDF belgenize güçlü açılış şifresi ekleyerek gizliliğinizi koruyun."
+    },
+    "unlock": {
+      "title": "PDF Şifre Çöz",
+      "desc": "Şifresini bildiğiniz PDF dosyalarından korumayı kalıcı olarak kaldırın."
+    },
+    "sign": {
+      "title": "İmza Ekle",
+      "desc": "Belgenize kendi imzanızı (resim olarak) sürükleyip yerleştirin."
+    },
+    "compress": {
+      "title": "PDF Sıkıştır",
+      "desc": "PDF dosya boyutunu kaliteden ödün vermeden optimize ederek küçültün."
+    },
+    "html2pdf": {
+      "title": "HTML'den PDF'e",
+      "desc": "Web sayfalarını veya girdiğiniz HTML kodlarını PDF yapın."
+    },
+    "crop": {
+      "title": "PDF Kırp",
+      "desc": "Sayfa kenarlarındaki gereksiz beyaz boşlukları temizleyin."
+    },
+    "repair": {
+      "title": "PDF Tamir Et",
+      "desc": "Hatalı veya bozuk yapıdaki PDF dosyalarını onarın."
+    },
+    "ocr": {
+      "title": "OCR PDF",
+      "desc": "Taranmış resim veya PDF belgelerindeki metinleri otomatik tanıyarak çıkarın."
+    },
+    "ppt2pdf": {
+      "title": "PPT'den PDF'e",
+      "desc": "Slayt metinlerini PDF'e aktarır; görseller ve tasarım korunmaz."
+    },
+    "pdf2ppt": {
+      "title": "PDF'ten PPT'ye",
+      "desc": "PDF sayfalarını görünümünü koruyan PowerPoint slaytlarına aktarın; içerik görsel olarak eklenir."
+    },
+    "edit": {
+      "title": "PDF Düzenle",
+      "desc": "PDF üzerine yazı yazın, resim ve şekil ekleyin."
+    },
+    "redact": {
+      "title": "Redakte Et",
+      "desc": "PDF üzerindeki hassas veya gizli bilgilerin üzerini siyah bantla kapatın."
+    },
+    "compare": {
+      "title": "PDF Karşılaştır",
+      "desc": "İki PDF belgesi arasındaki metinsel farkları bulup gösterin."
+    },
+    "scantopdf": {
+      "title": "Tarat ve PDF Yap",
+      "desc": "Web kameranızı veya telefon kameranızı kullanarak döküman tarayıp anında PDF yapın."
+    },
+    "pdf2pdfa": {
+      "title": "PDF Bilgilerini Güncelle",
+      "desc": "PDF Creator bilgisini PDFsHub olarak düzenler; PDF/A dönüşümü veya uygunluk doğrulaması yapmaz."
+    }
+  },
+  "en": {
+    "merge": {
+      "title": "Merge PDF",
+      "desc": "Combine several PDF files into one quickly and securely in your browser."
+    },
+    "split": {
+      "title": "Split PDF",
+      "desc": "Separate PDF pages into independent files and download as ZIP."
+    },
+    "organizepages": {
+      "title": "Organize Pages",
+      "desc": "Sort, rotate, and delete PDF pages easily."
+    },
+    "jpg2pdf": {
+      "title": "JPG to PDF",
+      "desc": "Convert your image files (JPG, PNG) to high-quality PDF documents."
+    },
+    "pdf2jpg": {
+      "title": "PDF to JPG",
+      "desc": "Extract PDF pages as high-quality JPG images."
+    },
+    "word2pdf": {
+      "title": "Word to PDF",
+      "desc": "Convert Word DOCX documents to PDF format directly."
+    },
+    "excel2pdf": {
+      "title": "Excel to PDF",
+      "desc": "Convert Excel spreadsheets into structured PDF tables."
+    },
+    "pdf2word": {
+      "title": "PDF to Word",
+      "desc": "Extract text from PDF and convert it to DOC format."
+    },
+    "pdf2excel": {
+      "title": "PDF to Excel",
+      "desc": "Convert tables in PDF into Excel XLSX spreadsheets."
+    },
+    "pagenumbers": {
+      "title": "Page Numbers",
+      "desc": "Add customized page numbers to your PDF document."
+    },
+    "watermark": {
+      "title": "Watermark",
+      "desc": "Stamp a transparent security text over your PDF pages."
+    },
+    "rotate": {
+      "title": "Rotate PDF",
+      "desc": "Rotate your misoriented PDF pages perfectly."
+    },
+    "protect": {
+      "title": "Protect PDF",
+      "desc": "Encrypt your PDF with a strong security password."
+    },
+    "unlock": {
+      "title": "Unlock PDF",
+      "desc": "Remove password protection from encrypted PDFs."
+    },
+    "sign": {
+      "title": "Sign PDF",
+      "desc": "Add your personal signature image to any document."
+    },
+    "compress": {
+      "title": "Compress PDF",
+      "desc": "Optimize file size while keeping high visual quality."
+    },
+    "html2pdf": {
+      "title": "HTML to PDF",
+      "desc": "Convert web pages or custom HTML code to PDF."
+    },
+    "crop": {
+      "title": "Crop PDF",
+      "desc": "Trim margins or specific areas of a PDF document."
+    },
+    "repair": {
+      "title": "Repair PDF",
+      "desc": "Fix damaged or corrupt structural layouts of PDF files."
+    },
+    "ocr": {
+      "title": "OCR PDF",
+      "desc": "Convert scanned PDFs and images into editable text."
+    },
+    "ppt2pdf": {
+      "title": "PPT to PDF",
+      "desc": "Extract slide text into a simple PDF; images and original layout are not preserved."
+    },
+    "pdf2ppt": {
+      "title": "PDF to PPT",
+      "desc": "Convert each PDF page into a PowerPoint slide image. The page appearance is preserved, but its contents are not editable."
+    },
+    "edit": {
+      "title": "Edit PDF",
+      "desc": "Add text, drawings, and custom images to your PDF."
+    },
+    "redact": {
+      "title": "Redact PDF",
+      "desc": "Permanently blackout sensitive information from your PDF."
+    },
+    "compare": {
+      "title": "Compare PDF",
+      "desc": "Find textual and visual differences between two PDF versions."
+    },
+    "scantopdf": {
+      "title": "Scan to PDF",
+      "desc": "Use your device camera to scan paper documents straight to PDF."
+    },
+    "pdf2pdfa": {
+      "title": "Update PDF Metadata",
+      "desc": "Sets the PDF Creator metadata to PDFsHub; it does not convert to or validate PDF/A."
+    }
+  },
+  "de": {
+    "merge": {
+      "title": "PDF zusammenführen",
+      "desc": "Mehrere PDFs schnell und sicher im Browser zu einem zusammenführen."
+    },
+    "split": {
+      "title": "PDF aufteilen",
+      "desc": "PDF-Seiten aufteilen und als ZIP herunterladen."
+    },
+    "organizepages": {
+      "title": "Seiten verwalten",
+      "desc": "Seiten per Drag & Drop neu anordnen und unerwünschte löschen."
+    },
+    "jpg2pdf": {
+      "title": "JPG zu PDF",
+      "desc": "Bilddateien (JPG, PNG) in hochwertige PDF-Dokumente umwandeln."
+    },
+    "pdf2jpg": {
+      "title": "PDF zu JPG",
+      "desc": "PDF-Seiten als hochwertige JPG-Bilder exportieren."
+    },
+    "word2pdf": {
+      "title": "Word zu PDF",
+      "desc": "Word-DOCX-Dokumente direkt in PDF umwandeln."
+    },
+    "excel2pdf": {
+      "title": "Excel zu PDF",
+      "desc": "Excel-Tabellen in übersichtliche PDF-Tabellen umwandeln."
+    },
+    "pdf2word": {
+      "title": "PDF zu Word",
+      "desc": "Text aus PDF extrahieren und in DOC umwandeln."
+    },
+    "pdf2excel": {
+      "title": "PDF zu Excel",
+      "desc": "PDF-Tabellen in XLSX-Tabellenblätter umwandeln."
+    },
+    "pagenumbers": {
+      "title": "Seitenzahlen",
+      "desc": "Benutzerdefinierte Seitenzahlen zum PDF hinzufügen."
+    },
+    "watermark": {
+      "title": "Wasserzeichen",
+      "desc": "Transparenten Sicherheitstext über PDF-Seiten drucken."
+    },
+    "rotate": {
+      "title": "PDF drehen",
+      "desc": "Falsch ausgerichtete PDF-Seiten korrekt drehen."
+    },
+    "protect": {
+      "title": "PDF schützen",
+      "desc": "PDF mit einem starken Passwort verschlüsseln."
+    },
+    "unlock": {
+      "title": "PDF entsperren",
+      "desc": "Passwortschutz aus verschlüsselten PDFs entfernen."
+    },
+    "sign": {
+      "title": "Unterschrift",
+      "desc": "Persönliches Unterschriftsbild zu einem Dokument hinzufügen."
+    },
+    "compress": {
+      "title": "PDF komprimieren",
+      "desc": "Dateigröße optimieren bei hoher Bildqualität."
+    },
+    "html2pdf": {
+      "title": "HTML zu PDF",
+      "desc": "Webseiten oder HTML-Code in PDF umwandeln."
+    },
+    "crop": {
+      "title": "PDF zuschneiden",
+      "desc": "Ränder oder bestimmte Bereiche eines PDFs trimmen."
+    },
+    "repair": {
+      "title": "PDF reparieren",
+      "desc": "Beschädigte oder korrupte PDF-Dateien reparieren."
+    },
+    "ocr": {
+      "title": "OCR PDF",
+      "desc": "Gescannte PDFs und Bilder in bearbeitbaren Text umwandeln."
+    },
+    "ppt2pdf": {
+      "title": "PPT zu PDF",
+      "desc": "Extrahiert nur Folientext; Bilder und ursprüngliches Layout bleiben nicht erhalten."
+    },
+    "pdf2ppt": {
+      "title": "PDF zu PPT",
+      "desc": "Jede PDF-Seite wird als Bild in eine PowerPoint-Folie eingefügt. Das Aussehen bleibt erhalten, der Inhalt ist jedoch nicht bearbeitbar."
+    },
+    "edit": {
+      "title": "PDF bearbeiten",
+      "desc": "Text, Zeichnungen und Bilder zum PDF hinzufügen."
+    },
+    "redact": {
+      "title": "PDF schwärzen",
+      "desc": "Sensible Informationen dauerhaft aus PDF entfernen."
+    },
+    "compare": {
+      "title": "PDFs vergleichen",
+      "desc": "Textunterschiede zwischen zwei PDF-Versionen finden."
+    },
+    "scantopdf": {
+      "title": "Scannen zu PDF",
+      "desc": "Mit der Kamera Papierdokumente scannen und als PDF speichern."
+    },
+    "pdf2pdfa": {
+      "title": "PDF-Metadaten aktualisieren",
+      "desc": "Setzt den PDF-Creator auf PDFsHub; es erfolgt keine PDF/A-Konvertierung oder Validierung."
+    }
+  },
+  "ja": {
+    "merge": {
+      "title": "PDF結合",
+      "desc": "複数のPDFファイルをブラウザで素早く1つに結合します。"
+    },
+    "split": {
+      "title": "PDF分割",
+      "desc": "PDFのページを分割してZIPでダウンロードします。"
+    },
+    "organizepages": {
+      "title": "ページ整理・削除",
+      "desc": "ページをドラッグして並べ替え、不要なページを削除します。"
+    },
+    "jpg2pdf": {
+      "title": "JPGからPDF",
+      "desc": "画像ファイル（JPG・PNG）を高品質なPDFに変換します。"
+    },
+    "pdf2jpg": {
+      "title": "PDFからJPG",
+      "desc": "PDFの各ページを高品質なJPG画像として書き出します。"
+    },
+    "word2pdf": {
+      "title": "WordからPDF",
+      "desc": "WordのDOCX文書をブラウザで直接PDF形式に変換します。"
+    },
+    "excel2pdf": {
+      "title": "ExcelからPDF",
+      "desc": "Excelスプレッドシートを整理されたPDF表に変換します。"
+    },
+    "pdf2word": {
+      "title": "PDFからWord",
+      "desc": "PDFのテキストを抽出してDOC形式に変換します。"
+    },
+    "pdf2excel": {
+      "title": "PDFからExcel",
+      "desc": "PDFの表をXLSXスプレッドシートに変換します。"
+    },
+    "pagenumbers": {
+      "title": "ページ番号追加",
+      "desc": "PDF文書にカスタムページ番号を追加します。"
+    },
+    "watermark": {
+      "title": "透かし追加",
+      "desc": "PDFページに透明なセキュリティテキストを印刷します。"
+    },
+    "rotate": {
+      "title": "PDF回転",
+      "desc": "向きの間違ったPDFページを正しく回転させます。"
+    },
+    "protect": {
+      "title": "PDF保護",
+      "desc": "強力なパスワードでPDFを暗号化します。"
+    },
+    "unlock": {
+      "title": "PDFロック解除",
+      "desc": "暗号化されたPDFからパスワード保護を削除します。"
+    },
+    "sign": {
+      "title": "署名追加",
+      "desc": "任意の文書に個人の署名画像を追加します。"
+    },
+    "compress": {
+      "title": "PDF圧縮",
+      "desc": "高画質を保ちながらファイルサイズを最適化します。"
+    },
+    "html2pdf": {
+      "title": "HTMLからPDF",
+      "desc": "WebページやHTMLコードをPDFに変換します。"
+    },
+    "crop": {
+      "title": "PDF切り抜き",
+      "desc": "PDFのページ余白や特定の領域をトリミングします。"
+    },
+    "repair": {
+      "title": "PDF修復",
+      "desc": "破損または壊れたPDFファイルを修正します。"
+    },
+    "ocr": {
+      "title": "OCR PDF",
+      "desc": "スキャンしたPDFや画像を編集可能なテキストに変換します。"
+    },
+    "ppt2pdf": {
+      "title": "PPTからPDF",
+      "desc": "スライドのテキストのみPDFに抽出します。画像や元のレイアウトは保持されません。"
+    },
+    "pdf2ppt": {
+      "title": "PDFからPPT",
+      "desc": "各PDFページを画像としてPowerPointスライドに配置し、ページの見た目を保持します。内容は編集できません。"
+    },
+    "edit": {
+      "title": "PDF編集",
+      "desc": "PDFにテキスト、図形、画像を追加します。"
+    },
+    "redact": {
+      "title": "黒塗り処理",
+      "desc": "PDFから機密情報を永続的に黒塗りします。"
+    },
+    "compare": {
+      "title": "PDF比較",
+      "desc": "2つのPDFバージョン間の差異を検出します。"
+    },
+    "scantopdf": {
+      "title": "スキャンしてPDF化",
+      "desc": "カメラで紙文書をスキャンしてPDFを作成します。"
+    },
+    "pdf2pdfa": {
+      "title": "PDFメタデータを更新",
+      "desc": "PDF Creator情報をPDFsHubに設定します。PDF/A変換や適合性検証は行いません。"
+    }
+  },
+  "hi": {
+    "merge": {
+      "title": "PDF मर्ज करें",
+      "desc": "ब्राउज़र में कई PDF को जल्दी एक में मिलाएं।"
+    },
+    "split": {
+      "title": "PDF विभाजित करें",
+      "desc": "PDF पृष्ठों को अलग करके ZIP के रूप में डाउनलोड करें।"
+    },
+    "organizepages": {
+      "title": "पृष्ठ व्यवस्थित करें",
+      "desc": "खींचकर पृष्ठ पुनर्व्यवस्थित करें और अनचाहे हटाएं।"
+    },
+    "jpg2pdf": {
+      "title": "JPG से PDF",
+      "desc": "छवि फ़ाइलें (JPG, PNG) को PDF में बदलें।"
+    },
+    "pdf2jpg": {
+      "title": "PDF से JPG",
+      "desc": "PDF पृष्ठों को उच्च-गुणवत्ता JPG के रूप में निर्यात करें।"
+    },
+    "word2pdf": {
+      "title": "Word से PDF",
+      "desc": "Word DOCX दस्तावेज़ को सीधे PDF में बदलें।"
+    },
+    "excel2pdf": {
+      "title": "Excel से PDF",
+      "desc": "Excel स्प्रेडशीट को साफ़ PDF तालिका में बदलें।"
+    },
+    "pdf2word": {
+      "title": "PDF से Word",
+      "desc": "PDF से टेक्स्ट निकालें और DOC में बदलें।"
+    },
+    "pdf2excel": {
+      "title": "PDF से Excel",
+      "desc": "PDF तालिकाओं को XLSX में बदलें।"
+    },
+    "pagenumbers": {
+      "title": "पृष्ठ संख्या जोड़ें",
+      "desc": "PDF में कस्टम पृष्ठ संख्या जोड़ें।"
+    },
+    "watermark": {
+      "title": "वॉटरमार्क जोड़ें",
+      "desc": "PDF पृष्ठों पर पारदर्शी सुरक्षा टेक्स्ट लगाएं।"
+    },
+    "rotate": {
+      "title": "PDF घुमाएं",
+      "desc": "गलत दिशा वाले PDF पृष्ठों को ठीक करें।"
+    },
+    "protect": {
+      "title": "PDF सुरक्षित करें",
+      "desc": "मजबूत पासवर्ड से PDF एन्क्रिप्ट करें।"
+    },
+    "unlock": {
+      "title": "PDF अनलॉक करें",
+      "desc": "एन्क्रिप्टेड PDF से पासवर्ड हटाएं।"
+    },
+    "sign": {
+      "title": "हस्ताक्षर जोड़ें",
+      "desc": "किसी भी दस्तावेज़ में अपनी हस्ताक्षर छवि जोड़ें।"
+    },
+    "compress": {
+      "title": "PDF संपीड़ित करें",
+      "desc": "गुणवत्ता बनाए रखते हुए फ़ाइल आकार कम करें।"
+    },
+    "html2pdf": {
+      "title": "HTML से PDF",
+      "desc": "वेब पेज या HTML कोड को PDF में बदलें।"
+    },
+    "crop": {
+      "title": "PDF क्रॉप करें",
+      "desc": "PDF मार्जिन या विशिष्ट क्षेत्र ट्रिम करें।"
+    },
+    "repair": {
+      "title": "PDF सुधारें",
+      "desc": "क्षतिग्रस्त PDF फ़ाइलें ठीक करें।"
+    },
+    "ocr": {
+      "title": "OCR PDF",
+      "desc": "स्कैन किए PDF को संपादन योग्य टेक्स्ट में बदलें।"
+    },
+    "ppt2pdf": {
+      "title": "PPT से PDF",
+      "desc": "केवल स्लाइड का टेक्स्ट PDF में निकालता है; चित्र और मूल लेआउट सुरक्षित नहीं रहते।"
+    },
+    "pdf2ppt": {
+      "title": "PDF से PPT",
+      "desc": "हर PDF पृष्ठ को PowerPoint स्लाइड में छवि के रूप में जोड़ें। दिखावट बनी रहती है, लेकिन सामग्री संपादन योग्य नहीं होती।"
+    },
+    "edit": {
+      "title": "PDF संपादित करें",
+      "desc": "PDF में टेक्स्ट, चित्र और आकार जोड़ें।"
+    },
+    "redact": {
+      "title": "गोपनीय जानकारी छिपाएं",
+      "desc": "PDF से संवेदनशील जानकारी स्थायी रूप से हटाएं।"
+    },
+    "compare": {
+      "title": "PDF तुलना करें",
+      "desc": "दो PDF संस्करणों के बीच अंतर खोजें।"
+    },
+    "scantopdf": {
+      "title": "स्कैन करके PDF बनाएं",
+      "desc": "कैमरे से कागज़ स्कैन करके PDF बनाएं।"
+    },
+    "pdf2pdfa": {
+      "title": "PDF मेटाडेटा अपडेट करें",
+      "desc": "PDF Creator जानकारी को PDFsHub सेट करता है; यह PDF/A में बदलता या मान्य नहीं करता।"
+    }
+  }
+}

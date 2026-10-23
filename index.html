@@ -7,20 +7,21 @@
     <title>PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
-    <meta name="description" content="Tamamen tarayıcınızda çalışan, %100 gizli, ultra hızlı ve ücretsiz PDF birleştirme, ayırma, şifreleme, sıkıştırma ve dönüştürme araçları. Dosyalarınız asla sunucuya yüklenmez.">
+    <meta name="description" content="PDF dosyalarını ücretsiz birleştirin, sıkıştırın, dönüştürün ve düzenleyin. Hızlı ve gizli PDF araçları doğrudan tarayıcınızda çalışır.">
     <meta name="keywords" content="pdf birleştirme, pdf ayırma, pdf şifreleme, pdf dönüştürme, ocr pdf, pdf karşılaştırma, word pdf, pdfshub, pdfshub.com, pdf düzenleme, filigran ekleme">
-    <link rel="canonical" href="https://pdfshub.com">
+    <link rel="canonical" href="https://pdfshub.com/tr">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pdfshub.com">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:url" content="https://pdfshub.com/tr">
     <meta property="og:title" content="PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları">
     <meta property="og:description" content="Tarayıcınızda çalışan, %100 güvenli ve ultra hızlı PDF dönüştürme ve düzenleme araçları.">
     <meta property="og:image" content="https://pdfshub.com/logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://pdfshub.com">
+    <meta property="twitter:url" content="https://pdfshub.com/tr">
     <meta property="twitter:title" content="PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları">
     <meta property="twitter:description" content="Tarayıcınızda çalışan, %100 güvenli ve ultra hızlı PDF dönüştürme ve düzenleme araçları.">
     <meta property="twitter:image" content="https://pdfshub.com/logo.png">
@@ -31,7 +32,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Caveat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
-    <link rel="stylesheet" href="index.css?v=3">
+    <link rel="stylesheet" href="index.css?v=4">
     <link rel="stylesheet" href="account.css?v=1">
 
     <!-- Google Analytics GA4 -->
@@ -47,12 +48,12 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8493103094682476"
          crossorigin="anonymous"></script>
 
-    <link rel="alternate" hreflang="tr" href="https://pdfshub.com">
-    <link rel="alternate" hreflang="en" href="https://pdfshub.com/?lang=en">
-    <link rel="alternate" hreflang="ja" href="https://pdfshub.com/?lang=ja">
-    <link rel="alternate" hreflang="hi" href="https://pdfshub.com/?lang=hi">
-    <link rel="alternate" hreflang="de" href="https://pdfshub.com/?lang=de">
-    <link rel="alternate" hreflang="x-default" href="https://pdfshub.com">
+    <link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr">
+    <link rel="alternate" hreflang="en" href="https://pdfshub.com/en">
+    <link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja">
+    <link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi">
+    <link rel="alternate" hreflang="de" href="https://pdfshub.com/de">
+    <link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -62,7 +63,7 @@
             {
                 "@type": "WebApplication",
                 "name": "PDFsHub",
-                "url": "https://pdfshub.com",
+                "url": "https://pdfshub.com/tr",
                 "operatingSystem": "All",
                 "applicationCategory": "BusinessApplication",
                 "browserRequirements": "Requires HTML5 Canvas and JavaScript",
@@ -77,7 +78,7 @@
             {
                 "@type": "Organization",
                 "name": "PDFsHub",
-                "url": "https://pdfshub.com",
+                "url": "https://pdfshub.com/tr",
                 "logo": {
                     "@type": "ImageObject",
                     "url": "https://pdfshub.com/logo.png"
@@ -159,15 +160,6 @@
                 <a href="#" onclick="event.preventDefault(); showTool('organizepages')" id="nav-organize-tab">Sayfa Düzenle</a>
                 <a href="#" onclick="event.preventDefault(); showTool('edit')" id="nav-edit-tab">Düzenle</a>
             </div>
-            <div class="lang-switcher">
-                <select id="lang-select" onchange="setLanguage(this.value)">
-                    <option value="tr">Türkçe</option>
-                    <option value="en">English</option>
-                    <option value="ja">日本語</option>
-                    <option value="hi">हिन्दी</option>
-                    <option value="de">Deutsch</option>
-                </select>
-            </div>
         </div>
     </nav>
 
@@ -175,8 +167,8 @@
         <!-- Home View -->
         <section id="view-home" class="view active">
             <div class="hero">
-                <h1>PDF'lerinizi Kolayca Düzenleyin</h1>
-                <p>Tamamen tarayıcınızda çalışan, ultra hızlı ve %100 gizli PDF araçları.</p>
+                <h1 id="hero-title">PDF'lerinizi Kolayca Düzenleyin</h1>
+                <p id="hero-description">PDF dosyalarını ücretsiz birleştirin, sıkıştırın, dönüştürün ve düzenleyin. Hızlı ve gizli PDF araçları doğrudan tarayıcınızda çalışır.</p>
             </div>
 
             <div class="tools-grid">
@@ -848,7 +840,7 @@
     </footer>
 
     <script src="account.js?v=1"></script>
-    <script src="app.js?v=11"></script>
+    <script src="app.js?v=14"></script>
 
     <!-- Signature Modal -->
     <div id="sig-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;">
@@ -936,7 +928,7 @@
             if (b) b.style.display = 'block';
         }
 
-        window.updateCookieBanner(localStorage.getItem('pdfshub_lang') || 'tr');
+        window.updateCookieBanner(document.documentElement.lang || 'tr');
 
         window.acceptCookies = function() {
             localStorage.setItem('cookieConsent', '1');

@@ -27,6 +27,16 @@
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteCond %{QUERY_STRING} (^|&)lang=(tr|en|ja|hi|de)(&|$)
+  RewriteRule ^$ /%2? [R=301,L]
+  RewriteRule ^$ /tr [R=301,L]
+  RewriteRule ^(tr|en|ja|hi|de)/$ /$1 [R=301,L]
+  RewriteRule ^(tr|en|ja|hi|de)$ index.php?lang=$1 [L,QSA]
+  RewriteRule ^(tr|en|ja|hi|de)/([a-z0-9]+)/$ /$1/$2 [R=301,L]
+  RewriteRule ^(tr|en|ja|hi|de)/([a-z0-9]+)$ tool.php?lang=$1&tool=$2 [L,QSA]
+  RewriteCond %{QUERY_STRING} (^|&)lang=(tr|en|ja|hi|de)(&|$)
+  RewriteRule ^(merge|split|organizepages|jpg2pdf|pdf2jpg|word2pdf|excel2pdf|pdf2word|pdf2excel|pagenumbers|watermark|rotate|protect|unlock|sign|compress|html2pdf|crop|repair|ocr|ppt2pdf|pdf2ppt|edit|redact|compare|scantopdf|pdf2pdfa)(\.html)?$ /%2/$1? [R=301,L,NE]
+  RewriteRule ^(merge|split|organizepages|jpg2pdf|pdf2jpg|word2pdf|excel2pdf|pdf2word|pdf2excel|pagenumbers|watermark|rotate|protect|unlock|sign|compress|html2pdf|crop|repair|ocr|ppt2pdf|pdf2ppt|edit|redact|compare|scantopdf|pdf2pdfa)(?:\.html)?$ /tr/$1 [R=301,L]
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.*)$ $1.html [L]

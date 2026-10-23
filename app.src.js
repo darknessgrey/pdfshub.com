@@ -797,13 +797,42 @@ function applyUiTranslations(lang) {
 }
 
 // Dynamic SPA Routing and SEO Meta Tag Handler
+const supportedLanguages = ['tr', 'en', 'ja', 'hi', 'de'];
+const homeSeo = {
+    tr: {
+        title: 'PDFsHub - Ücretsiz PDF Birleştirme, Sıkıştırma ve Dönüştürme',
+        description: 'PDF dosyalarını ücretsiz birleştirin, sıkıştırın, dönüştürün ve düzenleyin. Hızlı ve gizli PDF araçları doğrudan tarayıcınızda çalışır.'
+    },
+    en: {
+        title: 'PDFsHub - Free PDF Merger, Compressor & Converter',
+        description: 'Merge, compress, convert, and edit PDF files for free. Fast, private PDF tools run directly in your browser.'
+    },
+    de: {
+        title: 'PDFsHub - PDF kostenlos zusammenfügen, komprimieren & umwandeln',
+        description: 'PDF-Dateien kostenlos zusammenfügen, komprimieren, umwandeln und bearbeiten. Schnelle, private PDF-Tools direkt im Browser.'
+    },
+    ja: {
+        title: 'PDFsHub - PDF結合・圧縮・変換を無料で',
+        description: 'PDFファイルの結合、圧縮、変換、編集を無料で。高速でプライベートなPDFツールがブラウザ上で動作します。'
+    },
+    hi: {
+        title: 'PDFsHub - PDF मर्ज, कंप्रेस और कन्वर्ट करें मुफ्त में',
+        description: 'PDF फ़ाइलों को मुफ्त में मर्ज, कंप्रेस, कन्वर्ट और संपादित करें। तेज़ और निजी PDF टूल सीधे आपके ब्राउज़र में चलते हैं।'
+    }
+};
+
+function getLanguageFromPath(pathname = window.location.pathname) {
+    const match = pathname.match(/^\/(tr|en|ja|hi|de)(?:\/[a-z0-9_-]+)?\/?$/i);
+    return match ? match[1].toLowerCase() : null;
+}
+
 function handleRouting() {
     const urlParams = new URLSearchParams(window.location.search);
     const toolParam = urlParams.get('tool');
     const hash = window.location.hash.replace('#', '');
     const bodyTool = (typeof document !== 'undefined' && document.body) ? document.body.dataset.tool : null;
     const pathMatch = (typeof window !== 'undefined' && window.location.pathname) ? window.location.pathname.match(/\/([a-zA-Z0-9_-]+)(?:\.html)?$/) : null;
-    const pathCandidate = (pathMatch && pathMatch[1] !== 'index' && pathMatch[1] !== 'privacy') ? pathMatch[1] : null;
+    const pathCandidate = (pathMatch && pathMatch[1] !== 'index' && pathMatch[1] !== 'privacy' && !supportedLanguages.includes(pathMatch[1].toLowerCase())) ? pathMatch[1] : null;
 
     const langMeta = (toolsMetadata && toolsMetadata[currentLang]) ? toolsMetadata[currentLang] : (toolsMetadata ? toolsMetadata.tr : {});
     const targetTool = (hash && langMeta[hash]) ? hash
@@ -820,24 +849,31 @@ function handleRouting() {
 }
 
 function goHome() {
-    if (typeof window !== 'undefined' && window.location.pathname && !window.location.pathname.endsWith('index.html') && window.location.pathname !== '/' && window.location.pathname !== '') {
+    const pathname = window.location.pathname;
+    const language = getLanguageFromPath(pathname);
+    if (language && pathname.replace(/\/$/, '') !== `/${language}`) {
+        window.location.href = `/${language}`;
+        return;
+    }
+    if (pathname && !pathname.endsWith('index.html') && pathname !== '/' && pathname !== '' && !language) {
         window.location.href = 'index.html';
         return;
     }
     if (window.location.hash !== '' && window.location.hash !== '#') {
-        window.location.hash = '';
-        return;
+        window.history.pushState(null, '', `${pathname}${window.location.search}`);
+    } else if (window.location.hash === '#') {
+        window.history.replaceState(null, '', `${pathname}${window.location.search}`);
     }
     
     if (viewTool) viewTool.classList.remove('active', 'edit-active');
     if (viewHome) viewHome.classList.add('active');
     
     // Restore default Homepage SEO title & meta description
-    document.title = "PDFsHub - Profesyonel, Ücretsiz ve Hızlı PDF Araçları";
+    const seo = homeSeo[currentLang] || homeSeo.tr;
+    document.title = seo.title;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-        metaDesc.setAttribute("content", 
-            "Tamamen tarayıcınızda çalışan, %100 gizli, ultra hızlı ve ücretsiz PDF birleştirme, ayırma, şifreleme, sıkıştırma ve dönüştürme araçları.");
+        metaDesc.setAttribute("content", seo.description);
     }
     
     // Stop camera if navigating away from scantopdf
@@ -847,8 +883,9 @@ function goHome() {
 
 async function showTool(toolId) {
     const isStandalonePage = (typeof document !== 'undefined' && document.body && document.body.dataset.tool);
-    if (!isStandalonePage && window.location.hash !== `#${toolId}`) {
-        window.location.hash = toolId;
+    if (!isStandalonePage) {
+        const target = toolId === 'sign' ? 'edit' : toolId;
+        window.location.href = `/${currentLang}/${target}`;
         return;
     }
 
@@ -856,18 +893,14 @@ async function showTool(toolId) {
 
     if (toolId === 'sign') {
         autoOpenSigModal = true;
-        if (!isStandalonePage && window.location.hash !== '#edit') { window.location.hash = 'edit'; return; }
         toolId = 'edit';
         currentTool = 'edit';
     }
 
-    // Dynamic SEO Metadata Injector
+    // Standalone tool pages are rendered with localized SEO metadata by the server.
     const langMeta = (toolsMetadata && toolsMetadata[currentLang]) ? toolsMetadata[currentLang] : (toolsMetadata ? toolsMetadata.tr : {});
     const meta = langMeta[toolId];
     if (meta) {
-        document.title = `${meta.title} - Ücretsiz PDFsHub Aracı`;
-        const metaDesc = document.querySelector('meta[name="description"]');
-        if (metaDesc) metaDesc.setAttribute("content", meta.desc);
         if (toolTitle) toolTitle.textContent = meta.title;
         if (toolDesc) toolDesc.textContent = meta.desc;
     }
@@ -4277,18 +4310,9 @@ async function performPdf2Pdfa() {
 
 // Translations and Language Setting
 function setLanguage(lang) {
-    const validLangs = ['tr', 'en', 'ja', 'hi', 'de'];
-    if (!validLangs.includes(lang)) lang = 'tr';
+    if (!supportedLanguages.includes(lang)) lang = 'tr';
     currentLang = lang;
-    localStorage.setItem('pdfshub_lang', currentLang);
-    localStorage.setItem('pdfshub_lang_manual', '1');
     document.documentElement.lang = currentLang;
-
-    // Update lang select dropdown
-    const langSelect = document.getElementById('lang-select');
-    if (langSelect && langSelect.value !== currentLang) {
-        langSelect.value = currentLang;
-    }
 
     const t = i18n[currentLang] || i18n.tr;
 
@@ -4310,6 +4334,14 @@ function setLanguage(lang) {
     if (navEdit) navEdit.textContent = t.nav_edit;
     const navProtect = document.getElementById('nav-protect-tab');
     if (navProtect) navProtect.textContent = t.nav_protect;
+
+    const localizedTools = toolsMetadata && toolsMetadata[currentLang];
+    if (localizedTools) {
+        document.querySelectorAll('a[data-tool-id]').forEach(link => {
+            const entry = localizedTools[link.dataset.toolId];
+            if (entry) link.textContent = entry.title;
+        });
+    }
 
     const heroH1 = document.querySelector('.hero h1');
     if (heroH1) heroH1.textContent = t.hero_title;
@@ -4374,51 +4406,32 @@ function setLanguage(lang) {
     updatePageTabs();
 }
 
-function toggleLanguage() {
-    const langs = ['tr', 'en', 'ja', 'hi', 'de'];
-    const idx = langs.indexOf(currentLang);
-    const nextLang = langs[(idx + 1) % langs.length];
-    setLanguage(nextLang);
-}
 window.setLanguage = setLanguage;
-window.toggleLanguage = toggleLanguage;
 window.goHome = goHome;
 window.showTool = showTool;
 
 window.addEventListener('hashchange', handleRouting);
 
-async function detectAndSetLanguage() {
-    try {
-        if (typeof window !== 'undefined' && window.location.search) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const langParam = urlParams.get('lang');
-            if (langParam && ['tr', 'en', 'ja', 'hi', 'de'].includes(langParam)) {
-                setLanguage(langParam);
-                return;
-            }
-        }
-        const storedLang = localStorage.getItem('pdfshub_lang');
-        if (storedLang && ['tr', 'en', 'ja', 'hi', 'de'].includes(storedLang)) {
-            setLanguage(storedLang);
-            return;
-        }
-        const res = await fetch('https://get.geojs.io/v1/ip/country.json');
-        const data = await res.json();
-        const country = data.country;
-        let detected = 'en';
-        if (country === 'TR') detected = 'tr';
-        else if (country === 'DE' || country === 'AT' || country === 'CH') detected = 'de';
-        else if (country === 'JP') detected = 'ja';
-        else if (country === 'IN') detected = 'hi';
-        setLanguage(detected);
-    } catch (e) {
-        setLanguage(currentLang || 'tr');
+function detectAndSetLanguage() {
+    const pathname = window.location.pathname;
+    const params = new URLSearchParams(window.location.search);
+    const pathLanguage = getLanguageFromPath(pathname);
+    const queryLanguage = params.get('lang');
+    const language = pathLanguage || (supportedLanguages.includes(queryLanguage) ? queryLanguage : 'tr');
+    params.delete('lang');
+
+    if (!pathLanguage && (pathname === '/' || pathname.endsWith('/index.html'))) {
+        const search = params.toString();
+        const suffix = `${search ? `?${search}` : ''}${window.location.hash}`;
+        window.history.replaceState(null, '', `/${language}${suffix}`);
     }
+
+    setLanguage(language);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    handleRouting();
     detectAndSetLanguage();
+    handleRouting();
 
     // Star rating setup
     initStarRating();
@@ -4509,7 +4522,6 @@ if (typeof module !== 'undefined' && module.exports) {
         processors, 
         i18n, 
         toolsMetadata, 
-        toggleLanguage, 
         handleRouting,
         setSelectedFiles: (files) => { selectedFiles = files; },
         setScannedPages: (pages) => { scannedPages = pages; },

@@ -1,176 +1,1688 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-        <loc>https://pdfshub.com/</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/tr</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/merge.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/merge</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/merge"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/merge"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/merge"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/merge"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/merge"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/merge"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/split.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/merge</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/merge"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/merge"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/merge"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/merge"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/merge"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/merge"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/merge</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/merge"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/merge"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/merge"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/merge"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/merge"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/merge"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/merge</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/merge"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/merge"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/merge"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/merge"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/merge"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/merge"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/merge</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/merge"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/merge"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/merge"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/merge"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/merge"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/merge"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/split</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/split"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/split"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/split"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/split"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/split"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/split"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/compress.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/split</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/split"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/split"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/split"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/split"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/split"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/split"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/split</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/split"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/split"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/split"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/split"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/split"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/split"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/split</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/split"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/split"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/split"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/split"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/split"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/split"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/split</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/split"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/split"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/split"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/split"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/split"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/split"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/organizepages</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/organizepages"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/word2pdf.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/organizepages</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/organizepages"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/organizepages</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/organizepages"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/organizepages</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/organizepages"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/organizepages</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/organizepages"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/organizepages"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/jpg2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/pdf2word.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/jpg2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/jpg2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/jpg2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/jpg2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/jpg2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/jpg2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/pdf2jpg</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/excel2pdf.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/pdf2jpg</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/pdf2excel.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/de/pdf2jpg</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/jpg2pdf.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/ja/pdf2jpg</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/pdf2jpg.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/hi/pdf2jpg</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2jpg"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2jpg"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/protect.html</loc>
-        <lastmod>2026-10-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://pdfshub.com/unlock.html</loc>
-        <lastmod>2026-10-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://pdfshub.com/edit.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/tr/word2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/word2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/sign.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/word2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/word2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/word2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/word2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/word2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/word2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/word2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/word2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/word2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/excel2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/excel2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/watermark.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/excel2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/excel2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/rotate.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/de/excel2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/excel2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/pagenumbers.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/ja/excel2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/excel2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/crop.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/hi/excel2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/excel2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/excel2pdf"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/repair.html</loc>
-        <lastmod>2026-10-13</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://pdfshub.com/ocr.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/tr/pdf2word</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2word"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/ppt2pdf.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/en/pdf2word</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2word"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/pdf2ppt.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/de/pdf2word</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2word"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/redact.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/ja/pdf2word</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2word"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/compare.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/hi/pdf2word</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2word"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2word"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/scantopdf.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/tr/pdf2excel</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2excel"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/pdf2excel</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2excel"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/organizepages.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/de/pdf2excel</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2excel"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/html2pdf.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/ja/pdf2excel</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2excel"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://pdfshub.com/pdf2pdfa.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <loc>https://pdfshub.com/hi/pdf2excel</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2excel"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2excel"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/pagenumbers</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pagenumbers"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/pagenumbers</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pagenumbers"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/pagenumbers</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pagenumbers"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/pagenumbers</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pagenumbers"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/pagenumbers</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pagenumbers"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pagenumbers"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/watermark</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/watermark"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/watermark"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/watermark"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/watermark"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/watermark"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/watermark"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/watermark</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/watermark"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/watermark"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/watermark"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/watermark"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/watermark"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/watermark"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/watermark</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/watermark"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/watermark"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/watermark"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/watermark"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/watermark"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/watermark"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/watermark</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/watermark"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/watermark"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/watermark"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/watermark"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/watermark"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/watermark"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/watermark</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/watermark"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/watermark"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/watermark"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/watermark"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/watermark"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/watermark"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/rotate</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/rotate"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/rotate"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/rotate"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/rotate"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/rotate"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/rotate"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/rotate</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/rotate"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/rotate"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/rotate"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/rotate"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/rotate"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/rotate"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/rotate</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/rotate"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/rotate"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/rotate"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/rotate"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/rotate"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/rotate"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/rotate</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/rotate"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/rotate"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/rotate"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/rotate"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/rotate"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/rotate"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/rotate</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/rotate"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/rotate"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/rotate"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/rotate"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/rotate"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/rotate"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/protect</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/protect"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/protect"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/protect"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/protect"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/protect"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/protect"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/protect</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/protect"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/protect"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/protect"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/protect"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/protect"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/protect"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/protect</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/protect"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/protect"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/protect"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/protect"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/protect"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/protect"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/protect</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/protect"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/protect"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/protect"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/protect"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/protect"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/protect"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/protect</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/protect"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/protect"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/protect"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/protect"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/protect"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/protect"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/unlock</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/unlock"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/unlock"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/unlock"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/unlock"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/unlock"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/unlock"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/unlock</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/unlock"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/unlock"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/unlock"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/unlock"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/unlock"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/unlock"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/unlock</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/unlock"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/unlock"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/unlock"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/unlock"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/unlock"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/unlock"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/unlock</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/unlock"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/unlock"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/unlock"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/unlock"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/unlock"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/unlock"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/unlock</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/unlock"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/unlock"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/unlock"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/unlock"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/unlock"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/unlock"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/sign</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/sign"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/sign"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/sign"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/sign"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/sign"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/sign"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/sign</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/sign"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/sign"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/sign"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/sign"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/sign"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/sign"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/sign</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/sign"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/sign"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/sign"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/sign"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/sign"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/sign"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/sign</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/sign"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/sign"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/sign"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/sign"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/sign"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/sign"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/sign</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/sign"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/sign"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/sign"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/sign"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/sign"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/sign"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/compress</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compress"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compress"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compress"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compress"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compress"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compress"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/compress</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compress"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compress"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compress"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compress"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compress"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compress"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/compress</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compress"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compress"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compress"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compress"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compress"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compress"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/compress</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compress"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compress"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compress"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compress"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compress"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compress"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/compress</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compress"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compress"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compress"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compress"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compress"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compress"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/html2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/html2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/html2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/html2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/html2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/html2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/html2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/html2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/html2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/html2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/html2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/crop</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/crop"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/crop"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/crop"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/crop"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/crop"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/crop"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/crop</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/crop"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/crop"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/crop"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/crop"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/crop"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/crop"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/crop</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/crop"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/crop"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/crop"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/crop"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/crop"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/crop"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/crop</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/crop"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/crop"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/crop"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/crop"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/crop"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/crop"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/crop</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/crop"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/crop"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/crop"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/crop"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/crop"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/crop"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/repair</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/repair"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/repair"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/repair"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/repair"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/repair"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/repair"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/repair</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/repair"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/repair"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/repair"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/repair"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/repair"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/repair"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/repair</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/repair"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/repair"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/repair"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/repair"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/repair"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/repair"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/repair</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/repair"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/repair"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/repair"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/repair"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/repair"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/repair"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/repair</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/repair"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/repair"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/repair"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/repair"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/repair"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/repair"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/ocr</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ocr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ocr"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ocr"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ocr"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ocr"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ocr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/ocr</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ocr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ocr"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ocr"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ocr"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ocr"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ocr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/ocr</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ocr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ocr"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ocr"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ocr"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ocr"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ocr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/ocr</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ocr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ocr"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ocr"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ocr"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ocr"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ocr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/ocr</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ocr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ocr"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ocr"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ocr"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ocr"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ocr"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/ppt2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/ppt2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/ppt2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/ppt2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/ppt2pdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/ppt2pdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/ppt2pdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/pdf2ppt</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/pdf2ppt</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/pdf2ppt</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/pdf2ppt</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/pdf2ppt</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2ppt"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2ppt"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/edit</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/edit"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/edit"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/edit"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/edit"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/edit"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/edit"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/edit</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/edit"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/edit"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/edit"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/edit"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/edit"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/edit"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/edit</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/edit"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/edit"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/edit"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/edit"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/edit"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/edit"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/edit</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/edit"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/edit"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/edit"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/edit"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/edit"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/edit"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/edit</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/edit"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/edit"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/edit"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/edit"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/edit"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/edit"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/redact</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/redact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/redact"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/redact"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/redact"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/redact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/redact"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/redact</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/redact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/redact"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/redact"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/redact"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/redact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/redact"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/redact</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/redact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/redact"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/redact"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/redact"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/redact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/redact"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/redact</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/redact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/redact"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/redact"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/redact"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/redact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/redact"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/redact</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/redact"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/redact"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/redact"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/redact"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/redact"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/redact"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/compare</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compare"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compare"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compare"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compare"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compare"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compare"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/compare</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compare"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compare"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compare"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compare"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compare"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compare"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/compare</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compare"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compare"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compare"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compare"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compare"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compare"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/compare</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compare"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compare"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compare"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compare"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compare"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compare"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/compare</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/compare"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/compare"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/compare"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/compare"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/compare"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/compare"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/scantopdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/scantopdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/scantopdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/scantopdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/scantopdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/scantopdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/scantopdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/scantopdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/scantopdf</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/scantopdf"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/scantopdf"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/tr/pdf2pdfa</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/en/pdf2pdfa</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/de/pdf2pdfa</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/ja/pdf2pdfa</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <lastmod>2026-10-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://pdfshub.com/hi/pdf2pdfa</loc>
+        <xhtml:link rel="alternate" hreflang="tr" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pdfshub.com/en/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://pdfshub.com/de/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://pdfshub.com/ja/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="hi" href="https://pdfshub.com/hi/pdf2pdfa"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfshub.com/tr/pdf2pdfa"/>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://pdfshub.com/privacy.html</loc>
-        <lastmod>2026-10-13</lastmod>
+        <lastmod>2026-10-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
